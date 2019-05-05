@@ -1,0 +1,33 @@
+{
+  "name": "shield-ui",
+  "version": "0.0.0",
+  "repository": "git@github.com:zachpwr/shield-ui.git",
+  "author": "Zach Power <zachpwr@users.noreply.github.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^24.0.12",
+    "jest": "^24.7.1",
+    "prettier": "^1.17.0",
+    "ts-jest": "^24.0.2",
+    "tslint": "^5.16.0",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.4.5"
+  },
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc -w",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json",
+    "test": "jest --config jestconfig.json",
+    "prepare": "yarn build",
+    "prepublishOnly": "yarn test && yarn lint",
+    "preversion": "yarn lint",
+    "version": "yarn format && git add -A src",
+    "postversion": "git push && git push --tags"
+  },
+  "files": [
+    "lib/**/*"
+  ],
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts"
+}
