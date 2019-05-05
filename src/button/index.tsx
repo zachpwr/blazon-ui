@@ -54,4 +54,6 @@ const Button = styled.button<IButtonProps>`
   }
 `;
 
+Button.displayName = 'Button';
+
 export default Button;
