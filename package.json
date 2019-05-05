@@ -1,7 +1,7 @@
 {
-  "name": "shield-ui",
+  "name": "blazon-ui",
   "version": "0.3.1",
-  "repository": "git@github.com:zachpwr/shield-ui.git",
+  "repository": "git@github.com:zachpwr/blazon-ui.git",
   "author": "Zach Power <zachpwr@users.noreply.github.com>",
   "license": "MIT",
   "dependencies": {
