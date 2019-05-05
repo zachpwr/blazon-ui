@@ -1,15 +1,14 @@
 import React from 'react';
 import { configure, addDecorator } from '@storybook/react';
-import { ThemeProvider } from 'styled-components';
 
-import theme from '../src/theme';
+import ThemeProvider from '../src/themeProvider';
 
 const req = require.context('../stories', true, /\.stories\.tsx$/);
 
 function loadStories() {
   req.keys().forEach(req);
 
-  addDecorator(story => <ThemeProvider theme={theme}>{story()}</ThemeProvider>);
+  addDecorator(story => <ThemeProvider>{story()}</ThemeProvider>);
 }
 
 configure(loadStories, module);
