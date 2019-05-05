@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import Button from '../button';
 
-const ButtonGroup = styled.div`
+const ButtonGroup = styled.span`
   ${Button} {
     border-radius: 0;
     margin-right: 0;
