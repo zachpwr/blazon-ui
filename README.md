@@ -24,6 +24,16 @@ import { ThemeProvider } from 'sheild-ui';
 </ThemeProvider>
 ```
 
+Additionally, if you would like to use the default global style, make sure to add the `<GlobalStyle />` component somewhere in your component tree.
+
+```javascript
+// Import the global style from Shield UI
+import { GlobalStyle } from 'sheild-ui';
+
+// Instantiate the component somewhere in the root of your application
+<GlobalStyle />
+```
+
 ## Developing Locally
 
 To set up Shield UI locally, run the following commands. This will give you the
