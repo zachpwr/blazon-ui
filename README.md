@@ -2,6 +2,8 @@
 
 Shield UI is a React component library.
 
+[![npm version](https://img.shields.io/npm/v/shield-ui.svg)](https://www.npmjs.com/package/shield-ui)
+
 ## Local Setup
 
 To set up Shield UI locally, run the following commands. This will give you the
