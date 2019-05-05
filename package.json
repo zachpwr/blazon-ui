@@ -1,12 +1,12 @@
 {
   "name": "shield-ui",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "repository": "git@github.com:zachpwr/shield-ui.git",
   "author": "Zach Power <zachpwr@users.noreply.github.com>",
   "license": "MIT",
   "dependencies": {
-    "react": "^16.8.6",
     "polished": "^3.2.0",
+    "react": "^16.8.6",
     "styled-components": "^4.2.0"
   },
   "devDependencies": {
