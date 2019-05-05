@@ -4,6 +4,26 @@ Shield UI is a React component library.
 
 [![npm version](https://img.shields.io/npm/v/shield-ui.svg)](https://www.npmjs.com/package/shield-ui)
 
+## Usage
+
+To use Shield UI, simply add it as a dependency to your JavaScript project using NPM or Yarn.
+
+```bash
+yarn add shield-ui
+```
+
+Once added, you can begin using Shield UI React components in your application. Please note that Shield UI components require a theme provider to be present in your component tree. To include this in your application, add the `<ThemeProvider>` component to your entry point:
+
+```javascript
+// Import the theme provider from Shield UI
+import { ThemeProvider } from 'sheild-ui';
+
+// Wrap your application in the theme provider
+<ThemeProvider>
+  ...
+</ThemeProvider>
+```
+
 ## Developing Locally
 
 To set up Shield UI locally, run the following commands. This will give you the
