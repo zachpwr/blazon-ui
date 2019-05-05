@@ -1,23 +1,23 @@
+import { getLuminance, mix, transparentize } from 'polished';
 import styled from 'styled-components';
-import { transparentize, getLuminance, mix } from 'polished';
 
 const DEFAULT_COLOR = 'main';
 
-interface ButtonProps {
+export interface IButtonProps {
   theme: DefaultTheme;
   color?: string;
 }
 
-function getButtonColor(props: ButtonProps): string {
+function getButtonColor(props: IButtonProps): string {
   return props.theme.colors[props.color || DEFAULT_COLOR];
 }
 
-function getButtonTextColor(props: ButtonProps): string {
+function getButtonTextColor(props: IButtonProps): string {
   const bgColor = getButtonColor(props);
   return getLuminance(bgColor) > 0.5 ? props.theme.colors.darkGray : props.theme.colors.white;
 }
 
-const Button = styled.button<ButtonProps>`
+const Button = styled.button<IButtonProps>`
   border-radius: ${props => props.theme.borderRadius};
   background-color: ${getButtonColor};
   color: ${getButtonTextColor};
