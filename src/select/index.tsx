@@ -1,4 +1,4 @@
-import { getLuminance, mix, ellipsis } from 'polished';
+import { ellipsis, getLuminance, mix } from 'polished';
 import * as React from 'react';
 import styled from 'styled-components';
 
