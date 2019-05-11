@@ -35,12 +35,16 @@ const TextInput = styled.input<ITextInputProps>`
   padding: 0.75em 1em;
   outline: 0;
 
+  &::placeholder {
+    color: ${props => props.theme.colors.secondary};
+  }
+
   &:hover {
     border-color: ${props => mix(0.5, props.theme.colors.white, getFocusedBorderColor(props))};
   }
 
   &:focus {
-    border-color: ${props => props.theme.colors.primary};
+    border-color: ${props => props.theme.colors.main};
     box-shadow: 0 0 0 2px ${props => transparentize(0.75, getFocusedBorderColor(props))};
   }
 
