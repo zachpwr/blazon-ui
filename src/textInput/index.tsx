@@ -49,7 +49,7 @@ const TextInput = styled.input<ITextInputProps>`
   }
 
   &:disabled {
-    border-color: ${props => props.theme.colors.secondary};
+    border-color: ${getFocusedBorderColor};
     background-color: ${props => mix(0.5, props.theme.colors.white, props.theme.colors.secondary)};
     cursor: default;
   }
