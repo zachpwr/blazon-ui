@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import { mix, transparentize } from 'polished';
+import styled from 'styled-components';
 
 export interface ITextInputProps {
   theme: DefaultTheme;

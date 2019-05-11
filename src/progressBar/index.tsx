@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export interface IProgressBarProps {
   theme: DefaultTheme;
-  progress: Number;
+  progress: number;
   color?: string;
 }
 
