@@ -43,7 +43,9 @@ const FormSection = styled((props: IFormSection) => (
     {props.children}
     {props.error && <SectionError>{props.error}</SectionError>}
   </div>
-))``;
+))`
+  margin-bottom: 20px;
+`;
 
 FormSection.displayName = 'FormSection';
 
