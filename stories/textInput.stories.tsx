@@ -6,6 +6,8 @@ import { action } from '@storybook/addon-actions';
 import TextInput from '../src/textInput';
 
 storiesOf('TextInput', module)
-  .add('Default', () => <TextInput onSelect={action('select')} value="choice1" />)
-  .add('Error', () => <TextInput onSelect={action('select')} value="choice1" error />)
-  .add('Disabled', () => <TextInput onSelect={action('select')} value="choice1" disabled />);
+  .add('Default', () => <TextInput onSelect={action('select')} value="" />)
+  .add('Placeholder', () => <TextInput onSelect={action('select')} value="" placeholder="San Francisco, CA" />)
+  .add('Text', () => <TextInput onSelect={action('select')} value="San Francisco, CA" />)
+  .add('Error', () => <TextInput onSelect={action('select')} value="San Francisco, CA" error />)
+  .add('Disabled', () => <TextInput onSelect={action('select')} value="San Francisco, CA" disabled />);
