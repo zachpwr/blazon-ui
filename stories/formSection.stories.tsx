@@ -8,17 +8,32 @@ import TextInput from '../src/textInput';
 
 storiesOf('FormSection', module)
   .add('Default', () => (
-    <FormSection title="Email Address">
-      <TextInput onSelect={action('select')} value="" />
-    </FormSection>
+    <div>
+      <FormSection title="Name">
+        <TextInput onSelect={action('select')} value="" />
+      </FormSection>
+      <FormSection title="Email Address">
+        <TextInput onSelect={action('select')} value="" />
+      </FormSection>
+    </div>
   ))
   .add('Required', () => (
-    <FormSection title="Email Address" required>
-      <TextInput onSelect={action('select')} value="" />
-    </FormSection>
+    <div>
+      <FormSection title="Name" required>
+        <TextInput onSelect={action('select')} value="" />
+      </FormSection>
+      <FormSection title="Email Address">
+        <TextInput onSelect={action('select')} value="" />
+      </FormSection>
+    </div>
   ))
   .add('Error', () => (
-    <FormSection title="Email Address" required error="Please enter your email address">
-      <TextInput onSelect={action('select')} value="" error />
-    </FormSection>
+    <div>
+      <FormSection title="Name" required error="Please enter your name">
+        <TextInput onSelect={action('select')} value="" error />
+      </FormSection>
+      <FormSection title="Email Address">
+        <TextInput onSelect={action('select')} value="" />
+      </FormSection>
+    </div>
   ));
