@@ -31,11 +31,15 @@ const SectionTitle = styled.div<IFormSectionTitle>`
   }
 `;
 
+SectionTitle.displayName = 'SectionTitle';
+
 const SectionError = styled.div<IFormSectionError>`
   color: ${props => props.theme.colors.error};
   margin-top: 5px;
   font-size: 0.75em;
 `;
+
+SectionError.displayName = 'SectionError';
 
 const FormSection = styled((props: IFormSection) => (
   <div className={props.className}>
