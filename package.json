@@ -3,7 +3,7 @@
   "version": "0.5.1",
   "repository": "git@github.com:zachpwr/blazon-ui.git",
   "author": "Zach Power <zachpwr@users.noreply.github.com>",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "dependencies": {
     "polished": "^3.2.0",
     "react": "^16.8.6",
