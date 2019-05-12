@@ -19,11 +19,11 @@ const ProgressBar = styled.div<IProgressBarProps>`
   border-radius: ${props => props.theme.borderRadius};
   height: 0.5em;
   overflow: hidden;
-  transition: 0.25s width ease-in-out;
   box-shadow: inset 0 0 0 1px ${props => props.theme.colors.secondary};
 
   &::before {
     width: ${props => String(props.progress)}%;
+    transition: 0.25s width ease-in-out;
     display: block;
     content: '';
     height: 100%;

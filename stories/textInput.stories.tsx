@@ -5,9 +5,36 @@ import { action } from '@storybook/addon-actions';
 
 import TextInput from '../src/textInput';
 
+interface IDemoStateWrapperProps {
+  render: (text: string, changeHandler: (event: React.ChangeEvent<HTMLInputElement>) => void) => any;
+  initialValue?: string;
+}
+
+const DemoStateWrapper = ({ render, initialValue }: IDemoStateWrapperProps) => {
+  const [text, setText] = React.useState(initialValue || '');
+  return render(text, ({ target }) => {
+    setText(target.value);
+    action('change')(target.value);
+  });
+};
+
 storiesOf('TextInput', module)
-  .add('Default', () => <TextInput onSelect={action('select')} value="" />)
-  .add('Placeholder', () => <TextInput onSelect={action('select')} value="" placeholder="San Francisco, CA" />)
-  .add('Text', () => <TextInput onSelect={action('select')} value="San Francisco, CA" />)
-  .add('Error', () => <TextInput onSelect={action('select')} value="San Francisco, CA" error />)
-  .add('Disabled', () => <TextInput onSelect={action('select')} value="San Francisco, CA" disabled />);
+  .add('Default', () => (
+    <DemoStateWrapper render={(text, onChange) => <TextInput value={text} onChange={onChange} />} />
+  ))
+  .add('Placeholder', () => (
+    <DemoStateWrapper render={(text, onChange) => <TextInput value={text} onChange={onChange} placeholder="City" />} />
+  ))
+  .add('Text', () => (
+    <DemoStateWrapper
+      render={(text, onChange) => <TextInput onChange={onChange} value={text} placeholder="City" />}
+      initialValue="San Francisco, CA"
+    />
+  ))
+  .add('Error', () => (
+    <DemoStateWrapper
+      render={(text, onChange) => <TextInput onChange={onChange} value={text} placeholder="City" error />}
+      initialValue="San Francisco, CA"
+    />
+  ))
+  .add('Disabled', () => <TextInput value="San Francisco, CA" disabled />);

@@ -11,11 +11,26 @@ const choices = [
   { value: 'choice3', text: 'Choice 3' },
 ];
 
+interface IDemoStateWrapperProps {
+  render: (text: string, changeHandler: (value: string) => void) => any;
+  initialValue?: string;
+}
+
+const DemoStateWrapper = ({ render, initialValue }: IDemoStateWrapperProps) => {
+  const [value, setValue] = React.useState(initialValue || choices[0].value);
+  return render(value, newValue => {
+    setValue(newValue);
+    action('select')(newValue);
+  });
+};
+
 storiesOf('Select', module)
   .add('Default', () => (
     <div>
-      <Select onSelect={action('select')} choices={choices} value="choice1" />
-      <Select onSelect={action('select')} choices={choices} value="choice1" color="secondary" />
+      <DemoStateWrapper render={(value, onSelect) => <Select onSelect={onSelect} choices={choices} value={value} />} />
+      <DemoStateWrapper
+        render={(value, onSelect) => <Select onSelect={onSelect} choices={choices} value={value} color="secondary" />}
+      />
     </div>
   ))
   .add('Disabled', () => (
