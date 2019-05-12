@@ -6,10 +6,10 @@ const theme: DefaultTheme = {
   fontImportUrl: 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700',
 
   colors: {
-    darkGray: '#2d3436',
-    error: '#d63031',
-    main: '#0984e3',
-    secondary: '#dfe6e9',
+    darkGray: '#424242',
+    error: '#EA2027',
+    main: '#304ffe',
+    secondary: '#eeeeee',
     white: '#fff',
   },
 };
