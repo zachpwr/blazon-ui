@@ -7,7 +7,9 @@ const theme: DefaultTheme = {
 
   colors: {
     darkGray: '#424242',
-    error: '#EA2027',
+    error: '#ef5350',
+    success: '#4caf50',
+    warning: '#ffb300',
     main: '#304ffe',
     secondary: '#eeeeee',
     white: '#fff',
