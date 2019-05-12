@@ -1,26 +1,37 @@
 import * as React from 'react';
 
 import { storiesOf } from '@storybook/react';
+import { withKnobs, number } from '@storybook/addon-knobs';
 
 import ProgressBar from '../src/progressBar';
 
-storiesOf('ProgressBar', module).add('Default', () => (
-  <div>
-    <ProgressBar progress={0} />
-    <br />
-    <ProgressBar progress={33} />
-    <br />
-    <ProgressBar progress={66} />
-    <br />
-    <ProgressBar progress={100} />
-    <br />
-    <ProgressBar progress={0} color="secondary" />
-    <br />
-    <ProgressBar progress={33} color="secondary" />
-    <br />
-    <ProgressBar progress={66} color="secondary" />
-    <br />
-    <ProgressBar progress={100} color="secondary" />
-    <br />
-  </div>
-));
+storiesOf('ProgressBar', module)
+  .addDecorator(withKnobs)
+  .add('Default', () => {
+    const progress = number('Progress', 100, {
+      range: true,
+      min: 0,
+      max: 100,
+      step: 1,
+    });
+    return (
+      <div>
+        <ProgressBar progress={0} />
+        <br />
+        <ProgressBar progress={progress / 3} />
+        <br />
+        <ProgressBar progress={(2 * progress) / 3} />
+        <br />
+        <ProgressBar progress={progress} />
+        <br />
+        <ProgressBar progress={0} color="secondary" />
+        <br />
+        <ProgressBar progress={progress / 3} color="secondary" />
+        <br />
+        <ProgressBar progress={(2 * progress) / 3} color="secondary" />
+        <br />
+        <ProgressBar progress={progress} color="secondary" />
+        <br />
+      </div>
+    );
+  });
