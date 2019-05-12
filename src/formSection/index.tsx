@@ -21,8 +21,8 @@ interface IFormSectionError {
 
 const SectionTitle = styled.div<IFormSectionTitle>`
   font-size: 1em;
-  margin-bottom: 10px;
-  color: ${props => props.theme.colors.daryGray};
+  margin-bottom: 5px;
+  color: ${props => props.theme.colors.darkGray};
 
   &::after {
     content: '${props => (props.required ? ' *' : '')}';
