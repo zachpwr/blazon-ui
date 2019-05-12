@@ -3,6 +3,7 @@
 Blazon UI is a React component library.
 
 [![npm version](https://img.shields.io/npm/v/blazon-ui.svg)](https://www.npmjs.com/package/blazon-ui)
+[![github repo](https://img.shields.io/badge/Github-zachpwr%2Fblazon--ui-salmon.svg)](https://www.github.com/zachpwr/blazon-ui)
 
 ## Usage
 
@@ -82,4 +83,18 @@ yarn unlink blazon-ui
 
 ```bash
 yarn unlink
+```
+
+### Running Unit Tests
+
+Blazon UI uses [Jest](https://jestjs.io/en/) and [Enzyme](https://airbnb.io/enzyme/) to test components. To run all test suites once, run the following in your terminal:
+
+```bash
+yarn test
+```
+
+If you are developing or debugging unit test failures, it may be useful to watch source files and re-run tests when changes are detected. To do this, run the following in your terminal:
+
+```bash
+yarn test:watch
 ```
