@@ -1,8 +1,16 @@
 {
   "name": "blazon-ui",
   "description": "Blazon UI is a React component library",
-  "keywords": ["react", "components", "ui", "library", "blazon", "typescript", "styled"],
-  "version": "0.5.1",
+  "keywords": [
+    "react",
+    "components",
+    "ui",
+    "library",
+    "blazon",
+    "typescript",
+    "styled"
+  ],
+  "version": "0.5.2",
   "homepage": "https://github.com/zachpwr/blazon-ui",
   "repository": "git@github.com:zachpwr/blazon-ui.git",
   "author": "Zach Power <zachpwr@users.noreply.github.com>",
