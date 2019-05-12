@@ -18,8 +18,8 @@ const Checkbox = styled.button<ICheckboxProps>`
   border-radius: ${props => props.theme.borderRadius};
   background-color: ${props => props.theme.colors.white};
   border: 1px solid ${getBorderColor};
-  height: 1.5em;
-  width: 1.5em;
+  height: 2em;
+  width: 2em;
   padding: 0;
   display: inline-block;
   outline: 0;

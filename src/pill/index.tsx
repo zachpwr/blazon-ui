@@ -21,11 +21,12 @@ const Pill = styled.span<IPillProps>`
   background-color: ${getPillColor};
   color: ${getPillTextColor};
   margin-right: 5px;
-  font-size: 0.75em;
+  font-size: 1em;
   padding: 0.25em 0.75em;
   border-radius: 100px;
   text-transform: uppercase;
   letter-spacing: 0.0625em;
+  vertical-align: middle;
   cursor: default;
 
   &:last-of-type {

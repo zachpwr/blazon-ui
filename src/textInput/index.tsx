@@ -31,7 +31,7 @@ const TextInput = styled.input<ITextInputProps>`
   display: block;
   width: 100%;
   box-sizing: border-box;
-  font-size: 0.75em;
+  font-size: 1em;
   padding: 0.75em 1em;
   outline: 0;
 
