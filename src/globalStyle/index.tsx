@@ -15,8 +15,10 @@ function getFontImport(props: IGlobalStyleProps) {
 const GlobalStyle = createGlobalStyle<IGlobalStyleProps>`
   ${getFontImport}
 
-  html, body {
+  * {
     font-family: ${props => props.theme.fontFamily};
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 `;
 
