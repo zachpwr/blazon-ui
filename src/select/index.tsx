@@ -45,6 +45,7 @@ const SelectMenuRow = styled.button`
   text-align: left;
   cursor: pointer;
   transition: 0.25s background-color ease-in-out;
+  font-size: 1em;
 
   &:hover {
     background-color: ${props => mix(0.5, props.theme.colors.secondary, props.theme.colors.white)};
@@ -62,7 +63,6 @@ const SelectMenu = styled.div`
   border: 1px solid ${props => props.theme.colors.secondary};
   border-radius: ${props => props.theme.borderRadius};
   background-color: ${props => props.theme.colors.white};
-  font-size: 0.75em;
   min-width: 110%;
   max-width: 150%;
   margin: 5px 0 0 0;
