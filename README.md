@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="logo" src="https://github.com/zachpwr/blazon-ui/raw/master/docs/logo.png" width="50" />
+  <img alt="logo" src="https://github.com/zachpwr/blazon-ui/raw/master/assets/logo.png" width="50" />
   <h1 align="center">Blazon UI</h1>
 </p>
 <p align="center">
