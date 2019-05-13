@@ -6,9 +6,10 @@
   Blazon UI is a React component library.
 </p>
 <p align="center">
-  <a href="https://www.npmjs.com/package/blazon-ui"><img src="https://img.shields.io/npm/v/blazon-ui.svg" /></a>
-  <a href="https://www.github.com/zachpwr/blazon-ui"><img src="https://img.shields.io/badge/Github-zachpwr%2Fblazon--ui-salmon.svg" /></a>
-  <a href="https://zachpwr.github.io/blazon-ui/index.html"><img src="https://img.shields.io/badge/Storybook-%E2%86%97-ff69b4.svg" /></a>
+  <a href="https://www.npmjs.com/package/blazon-ui"><img src="https://img.shields.io/npm/v/blazon-ui.svg?color=%23304FFE" /></a>
+  <a href="https://www.github.com/zachpwr/blazon-ui"><img src="https://img.shields.io/badge/Github-zachpwr%2Fblazon--ui-536DFE.svg" /></a>
+  <a href="https://zachpwr.github.io/blazon-ui/index.html"><img src="https://img.shields.io/badge/Storybook-%E2%86%97-8C9EFF.svg" /></a>
+  <a href="#"><img src="https://img.shields.io/bundlephobia/minzip/blazon-ui.svg?color=%23E0E0E0" /></a>
 </p>
 
 ## Usage
