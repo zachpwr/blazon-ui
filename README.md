@@ -1,10 +1,15 @@
-# :shield: Blazon UI
-
-Blazon UI is a React component library.
-
-[![npm version](https://img.shields.io/npm/v/blazon-ui.svg)](https://www.npmjs.com/package/blazon-ui)
-[![github repo](https://img.shields.io/badge/Github-zachpwr%2Fblazon--ui-salmon.svg)](https://www.github.com/zachpwr/blazon-ui)
-[![storybook](https://img.shields.io/badge/Storybook-%E2%86%97-ff69b4.svg)](https://zachpwr.github.io/blazon-ui/index.html)
+<p align="center">
+  <img alt="logo" src="https://github.com/zachpwr/blazon-ui/raw/master/docs/logo.png" width="50" />
+  <h1 align="center">Blazon UI</h1>
+</p>
+<p align="center">
+  Blazon UI is a React component library.
+</p>
+<p align="center">
+  <a href="https://www.npmjs.com/package/blazon-ui"><img src="https://img.shields.io/npm/v/blazon-ui.svg" /></a>
+  <a href="https://www.github.com/zachpwr/blazon-ui"><img src="https://img.shields.io/badge/Github-zachpwr%2Fblazon--ui-salmon.svg" /></a>
+  <a href="https://zachpwr.github.io/blazon-ui/index.html"><img src="https://img.shields.io/badge/Storybook-%E2%86%97-ff69b4.svg" /></a>
+</p>
 
 ## Usage
 
