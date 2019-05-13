@@ -7,9 +7,9 @@
 </p>
 <p align="center">
   <a href="https://www.npmjs.com/package/blazon-ui"><img src="https://img.shields.io/npm/v/blazon-ui.svg?color=%23304FFE" /></a>
-  <a href="https://www.github.com/zachpwr/blazon-ui"><img src="https://img.shields.io/badge/Github-zachpwr%2Fblazon--ui-536DFE.svg" /></a>
-  <a href="https://zachpwr.github.io/blazon-ui/index.html"><img src="https://img.shields.io/badge/Storybook-%E2%86%97-8C9EFF.svg" /></a>
-  <a href="#"><img src="https://img.shields.io/bundlephobia/minzip/blazon-ui.svg?color=%23E0E0E0" /></a>
+  <a href="https://www.github.com/zachpwr/blazon-ui"><img src="https://img.shields.io/badge/Github-zachpwr%2Fblazon--ui-3D5AFE.svg" /></a>
+  <a href="https://zachpwr.github.io/blazon-ui/index.html"><img src="https://img.shields.io/badge/Storybook-%E2%86%97-536DFE.svg" /></a>
+  <a href="https://bundlephobia.com/result?p=blazon-ui"><img src="https://img.shields.io/bundlephobia/minzip/blazon-ui.svg?color=%238C9EFF" /></a>
 </p>
 
 ## Usage
