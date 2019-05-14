@@ -129,6 +129,7 @@
   transition: 0.25s border-color ease-in-out;
   position: relative;
   vertical-align: middle;
+  font-size: 1em;
 
   &:hover {
     border-color: ${function getHoverBorderColor(props){return polished_1.mix(props.checked?.9:.1,props.theme.colors.main,props.theme.colors.secondary)}};
@@ -297,4 +298,4 @@
     margin-right: 0;
   }
 `;Button.displayName="Button",exports.default=Button}},[[193,1,2]]]);
-//# sourceMappingURL=main.54b74632228ae069bdf8.bundle.js.map
+//# sourceMappingURL=main.ed39a73dd06a0b6407a2.bundle.js.map
