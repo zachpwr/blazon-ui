@@ -27,6 +27,7 @@ const Checkbox = styled.button<ICheckboxProps>`
   transition: 0.25s border-color ease-in-out;
   position: relative;
   vertical-align: middle;
+  font-size: 1em;
 
   &:hover {
     border-color: ${getHoverBorderColor};
