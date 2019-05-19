@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import { mix } from 'polished';
+import styled from 'styled-components';
 
 export interface IAlertProps {
   theme: DefaultTheme;
