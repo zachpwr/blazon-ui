@@ -8,7 +8,8 @@
     "jsx": "react",
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
-    "types": ["react", "jest"]
+    "types": ["react", "jest", "node"],
+    "esModuleInterop": true
   },
   "include": ["src"],
   "exclude": ["node_modules", "**/test.tsx", "**/testSetup.ts"],
