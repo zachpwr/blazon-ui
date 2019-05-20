@@ -1,4 +1,5 @@
 import * as React from 'react';
+import styled from 'styled-components';
 
 import { storiesOf } from '@storybook/react';
 
@@ -18,6 +19,16 @@ const DemoStateWrapper = ({ render, initialValue }: IDemoStateWrapperProps) => {
     setChecked(!checked);
   });
 };
+
+const SwitchContainer = styled.div`
+  display: flex;
+  align-items: center;
+
+  ${Switch} {
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+`;
 
 storiesOf('Panel', module)
   .add('Empty', () => <Panel />)
@@ -51,8 +62,10 @@ storiesOf('Panel', module)
           eru um 11% innflytjendur. Íbúar höfuðborgarsvæðisins eru yfir 200 þúsund í sjö sveitarfélögum. Opinbert heiti
           sveitarfélagsins Reykjavíkur er Reykjavíkurborg.
         </p>
-        <DemoStateWrapper render={(on, onClick) => <Switch on={on} onClick={onClick} />} initialValue={true} />
-        <span style={{ marginLeft: 20 }}>Sendu mér tölvupóst þegar þetta er í boði</span>
+        <SwitchContainer>
+          <DemoStateWrapper render={(on, onClick) => <Switch on={on} onClick={onClick} />} initialValue={true} />
+          <div style={{ marginLeft: 20 }}>Sendu mér tölvupóst þegar þetta er í boði</div>
+        </SwitchContainer>
       </Panel>
     </div>
   ));

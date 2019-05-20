@@ -28,6 +28,7 @@ const Switch = styled.button<ISwitchProps>`
   transition: 0.25s background-color ease-in-out;
   display: inline-block;
   vertical-align: middle;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
   &::before {
     width: 1em;

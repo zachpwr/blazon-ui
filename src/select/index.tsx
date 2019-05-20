@@ -46,6 +46,7 @@ const SelectMenuRow = styled.button`
   cursor: pointer;
   transition: 0.25s background-color ease-in-out;
   font-size: 1em;
+  -webkit-tap-highlight-color: ${props => props.theme.colors.secondary};
 
   &:hover {
     background-color: ${props => mix(0.5, props.theme.colors.secondary, props.theme.colors.white)};

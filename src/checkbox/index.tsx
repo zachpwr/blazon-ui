@@ -28,6 +28,7 @@ const Checkbox = styled.button<ICheckboxProps>`
   position: relative;
   vertical-align: middle;
   font-size: 1em;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
   &:hover {
     border-color: ${getHoverBorderColor};

@@ -17,10 +17,10 @@ function getPillTextColor(props: IPillProps): string {
   return getLuminance(bgColor) > 0.5 ? props.theme.colors.darkGray : props.theme.colors.white;
 }
 
-const Pill = styled.span<IPillProps>`
+const Pill = styled.div<IPillProps>`
   background-color: ${getPillColor};
   color: ${getPillTextColor};
-  margin-right: 5px;
+  margin: 0 5px 10px 0;
   font-size: 1em;
   padding: 0.25em 0.75em;
   border-radius: 100px;
@@ -28,6 +28,7 @@ const Pill = styled.span<IPillProps>`
   letter-spacing: 0.0625em;
   vertical-align: middle;
   cursor: default;
+  display: inline-block;
 
   &:last-of-type {
     margin-right: 0;
