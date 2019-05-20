@@ -34,6 +34,7 @@ const TextInput = styled.input<ITextInputProps>`
   font-size: 1em;
   padding: 0.75em 1em;
   outline: 0;
+  appearance: none;
 
   &::placeholder {
     color: ${props => props.theme.colors.secondary};

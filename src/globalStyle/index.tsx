@@ -22,7 +22,7 @@ const GlobalStyle = createGlobalStyle<IGlobalStyleProps>`
   }
 
   html {
-    font-size: 14px;
+    font-size: 16px;
   }
 `;
 
