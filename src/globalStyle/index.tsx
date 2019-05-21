@@ -22,7 +22,13 @@ const GlobalStyle = createGlobalStyle<IGlobalStyleProps>`
   }
 
   html {
-    font-size: 16px;
+    font-size: 14px;
+  }
+
+  @media only screen and (max-device-width : 1024px) {
+    html {
+      font-size: 16px;
+    }
   }
 `;
 
