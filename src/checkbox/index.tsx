@@ -10,13 +10,21 @@ function getBorderColor(props: ICheckboxProps) {
   return props.checked ? props.theme.colors.main : props.theme.colors.secondary;
 }
 
+function getBackgroundColor(props: ICheckboxProps) {
+  return props.checked ? props.theme.colors.main : props.theme.colors.white;
+}
+
 function getHoverBorderColor(props: ICheckboxProps) {
-  return mix(props.checked ? 0.9 : 0.1, props.theme.colors.main, props.theme.colors.secondary);
+  return props.theme.colors.main; // mix(props.checked ? 0.9 : 0.1, props.theme.colors.main, props.theme.colors.secondary);
+}
+
+function getCheckColor(props: ICheckboxProps) {
+  return props.theme.colors[props.checked ? 'white' : 'main'];
 }
 
 const Checkbox = styled.button<ICheckboxProps>`
-  border-radius: ${props => props.theme.borderRadius};
-  background-color: ${props => props.theme.colors.white};
+  border-radius: 1em;
+  background-color: ${getBackgroundColor};
   border: 1px solid ${getBorderColor};
   height: 2em;
   width: 2em;
@@ -32,6 +40,10 @@ const Checkbox = styled.button<ICheckboxProps>`
 
   &:hover {
     border-color: ${getHoverBorderColor};
+
+    &::before {
+      opacity: 1;
+    }
   }
 
   &:focus {
@@ -46,10 +58,10 @@ const Checkbox = styled.button<ICheckboxProps>`
 
   &::before {
     content: '';
-    width: 33%;
-    height: 66%;
+    width: 25%;
+    height: 50%;
     border-width: 0 1px 1px 0;
-    border-color: ${props => props.theme.colors.main};
+    border-color: ${getCheckColor};
     border-style: solid;
     display: block;
     position: absolute;
@@ -58,7 +70,7 @@ const Checkbox = styled.button<ICheckboxProps>`
     transform: translateX(-50%) translateY(-50%) rotate(45deg);
     margin-top: -0.125em;
     opacity: ${props => (props.checked ? 1 : 0)};
-    transition: 0.25s opacity ease-in-out;
+    transition: 0.25s opacity ease-in-out, 0.25s border-color ease-in-out;
   }
 `;
 

@@ -22,6 +22,7 @@ interface IFormSectionError {
 const SectionTitle = styled.div<IFormSectionTitle>`
   font-size: 1em;
   margin-bottom: 5px;
+  font-weight: 600;
   color: ${props => props.theme.colors.darkGray};
 
   &::after {
@@ -37,6 +38,7 @@ const SectionError = styled.div<IFormSectionError>`
   color: ${props => props.theme.colors.error};
   margin-top: 5px;
   font-size: 0.75em;
+  font-weight: 600;
 `;
 
 SectionError.displayName = 'SectionError';

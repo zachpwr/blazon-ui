@@ -1,4 +1,4 @@
-import { ellipsis, getLuminance, mix } from 'polished';
+import { ellipsis, getLuminance, mix, transparentize } from 'polished';
 import * as React from 'react';
 import styled from 'styled-components';
 
@@ -61,12 +61,12 @@ const SelectMenu = styled.div`
   position: absolute;
   top: 100%;
   left: 0;
-  border: 1px solid ${props => props.theme.colors.secondary};
   border-radius: ${props => props.theme.borderRadius};
   background-color: ${props => props.theme.colors.white};
   min-width: 110%;
   max-width: 150%;
   margin: 5px 0 0 0;
+  box-shadow: 0 2px 10px ${props => transparentize(0.9, props.theme.colors.darkGray)};
 `;
 
 class Select extends React.Component<ISelectInnerProps> {
@@ -152,6 +152,7 @@ const StyledSelect = styled((props: ISelectInnerProps) => <Select {...props} />)
   margin-right: 5px;
   position: relative;
   display: inline-block;
+  margin-right: 5px;
 
   ${Button} {
     ${ellipsis('200px')}
@@ -174,7 +175,7 @@ const StyledSelect = styled((props: ISelectInnerProps) => <Select {...props} />)
     }
   }
 
-  &:last-of-type {
+  &:last-child {
     margin-right: 0;
   }
 `;
