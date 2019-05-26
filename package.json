@@ -10,7 +10,7 @@
     "typescript",
     "styled"
   ],
-  "version": "0.7.0",
+  "version": "0.7.1",
   "homepage": "https://github.com/zachpwr/blazon-ui",
   "repository": "git@github.com:zachpwr/blazon-ui.git",
   "author": "Zach Power <zachpwr@users.noreply.github.com>",
@@ -46,11 +46,11 @@
     "react": "^16.8.6",
     "react-docgen-typescript-loader": "^3.1.0",
     "react-dom": "^16.8.6",
+    "styled-components": "^4.2.0",
     "ts-jest": "^24.0.2",
     "tslint": "^5.16.0",
     "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.4.5",
-    "styled-components": "^4.2.0",
     "webpack": "^4.30.0"
   },
   "scripts": {
