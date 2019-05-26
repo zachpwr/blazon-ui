@@ -35,7 +35,7 @@
   background-color: ${props=>props.theme.colors.white};
   border: 1px solid ${function getBorderColor(props){return props.error?props.theme.colors.error:props.theme.colors.secondary}};
   border-radius: ${props=>props.theme.borderRadius};
-  transition: 0.25s border-color ease-in-out;
+  transition: 0.25s border-color ease-in-out, 0.25s box-shadow ease-in-out;
   cursor: text;
   display: block;
   width: 100%;
@@ -75,6 +75,7 @@
   vertical-align: middle;
   cursor: default;
   display: inline-block;
+  transition: 0.25s color ease-in-out, 0.25s background-color ease-in-out;
 
   &:last-of-type {
     margin-right: 0;
@@ -159,8 +160,8 @@
     }
   }
 `;ButtonGroup.displayName="ButtonGroup",exports.default=ButtonGroup},590:function(module,exports,__webpack_require__){"use strict";(function(module){var __importStar=this&&this.__importStar||function(mod){if(mod&&mod.__esModule)return mod;var result={};if(null!=mod)for(var k in mod)Object.hasOwnProperty.call(mod,k)&&(result[k]=mod[k]);return result.default=mod,result},__importDefault=this&&this.__importDefault||function(mod){return mod&&mod.__esModule?mod:{default:mod}};Object.defineProperty(exports,"__esModule",{value:!0});const React=__importStar(__webpack_require__(0)),react_1=__webpack_require__(9),addon_actions_1=__webpack_require__(57),checkbox_1=__importDefault(__webpack_require__(591)),DemoStateWrapper=({render:render,initialValue:initialValue})=>{const[checked,setChecked]=React.useState(initialValue||!1);return render(checked,()=>{setChecked(!checked),addon_actions_1.action("click")(checked?"unchecked":"checked")})};react_1.storiesOf("Checkbox",module).add("Default",()=>React.createElement(DemoStateWrapper,{render:(checked,onClick)=>React.createElement(checkbox_1.default,{checked:checked,onClick:onClick})})).add("Disabled",()=>React.createElement("div",null,React.createElement(checkbox_1.default,{disabled:!0,onClick:addon_actions_1.action("clicked")}),React.createElement("br",null),React.createElement(checkbox_1.default,{disabled:!0,checked:!0,onClick:addon_actions_1.action("clicked")})))}).call(this,__webpack_require__(5)(module))},591:function(module,exports,__webpack_require__){"use strict";var __importDefault=this&&this.__importDefault||function(mod){return mod&&mod.__esModule?mod:{default:mod}};Object.defineProperty(exports,"__esModule",{value:!0});const polished_1=__webpack_require__(58);function getBorderColor(props){return props.checked?props.theme.colors.main:props.theme.colors.secondary}const Checkbox=__importDefault(__webpack_require__(10)).default.button`
-  border-radius: ${props=>props.theme.borderRadius};
-  background-color: ${props=>props.theme.colors.white};
+  border-radius: 1em;
+  background-color: ${function getBackgroundColor(props){return props.checked?props.theme.colors.main:props.theme.colors.white}};
   border: 1px solid ${getBorderColor};
   height: 2em;
   width: 2em;
@@ -175,7 +176,11 @@
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
   &:hover {
-    border-color: ${function getHoverBorderColor(props){return polished_1.mix(props.checked?.9:.1,props.theme.colors.main,props.theme.colors.secondary)}};
+    border-color: ${function getHoverBorderColor(props){return props.theme.colors.main}};
+
+    &::before {
+      opacity: 1;
+    }
   }
 
   &:focus {
@@ -190,10 +195,10 @@
 
   &::before {
     content: '';
-    width: 33%;
-    height: 66%;
+    width: 25%;
+    height: 50%;
     border-width: 0 1px 1px 0;
-    border-color: ${props=>props.theme.colors.main};
+    border-color: ${function getCheckColor(props){return props.theme.colors[props.checked?"white":"main"]}};
     border-style: solid;
     display: block;
     position: absolute;
@@ -202,11 +207,12 @@
     transform: translateX(-50%) translateY(-50%) rotate(45deg);
     margin-top: -0.125em;
     opacity: ${props=>props.checked?1:0};
-    transition: 0.25s opacity ease-in-out;
+    transition: 0.25s opacity ease-in-out, 0.25s border-color ease-in-out;
   }
 `;Checkbox.displayName="Checkbox",exports.default=Checkbox},592:function(module,exports,__webpack_require__){"use strict";(function(module){var __importStar=this&&this.__importStar||function(mod){if(mod&&mod.__esModule)return mod;var result={};if(null!=mod)for(var k in mod)Object.hasOwnProperty.call(mod,k)&&(result[k]=mod[k]);return result.default=mod,result},__importDefault=this&&this.__importDefault||function(mod){return mod&&mod.__esModule?mod:{default:mod}};Object.defineProperty(exports,"__esModule",{value:!0});const React=__importStar(__webpack_require__(0)),react_1=__webpack_require__(9),addon_actions_1=__webpack_require__(57),formSection_1=__importDefault(__webpack_require__(593)),textInput_1=__importDefault(__webpack_require__(267)),DemoStateWrapper=({render:render,initialValue:initialValue})=>{const[text,setText]=React.useState(initialValue||"");return render(text,({target:target})=>{setText(target.value),addon_actions_1.action("change")(target.value)})};react_1.storiesOf("FormSection",module).add("Default",()=>React.createElement("div",null,React.createElement(formSection_1.default,{title:"Name"},React.createElement(DemoStateWrapper,{render:(text,onChange)=>React.createElement(textInput_1.default,{value:text,onChange:onChange})})),React.createElement(formSection_1.default,{title:"Email Address"},React.createElement(DemoStateWrapper,{render:(text,onChange)=>React.createElement(textInput_1.default,{value:text,onChange:onChange})})))).add("Required",()=>React.createElement("div",null,React.createElement(formSection_1.default,{title:"Name",required:!0},React.createElement(DemoStateWrapper,{render:(text,onChange)=>React.createElement(textInput_1.default,{value:text,onChange:onChange})})),React.createElement(formSection_1.default,{title:"Email Address"},React.createElement(DemoStateWrapper,{render:(text,onChange)=>React.createElement(textInput_1.default,{value:text,onChange:onChange})})))).add("Error",()=>React.createElement("div",null,React.createElement(formSection_1.default,{title:"Name",required:!0,error:"Please enter your name"},React.createElement(DemoStateWrapper,{render:(text,onChange)=>React.createElement(textInput_1.default,{value:text,onChange:onChange,error:!0})})),React.createElement(formSection_1.default,{title:"Email Address"},React.createElement(DemoStateWrapper,{render:(text,onChange)=>React.createElement(textInput_1.default,{value:text,onChange:onChange})}))))}).call(this,__webpack_require__(5)(module))},593:function(module,exports,__webpack_require__){"use strict";var __importStar=this&&this.__importStar||function(mod){if(mod&&mod.__esModule)return mod;var result={};if(null!=mod)for(var k in mod)Object.hasOwnProperty.call(mod,k)&&(result[k]=mod[k]);return result.default=mod,result},__importDefault=this&&this.__importDefault||function(mod){return mod&&mod.__esModule?mod:{default:mod}};Object.defineProperty(exports,"__esModule",{value:!0});const React=__importStar(__webpack_require__(0)),styled_components_1=__importDefault(__webpack_require__(10)),SectionTitle=styled_components_1.default.div`
   font-size: 1em;
   margin-bottom: 5px;
+  font-weight: 600;
   color: ${props=>props.theme.colors.darkGray};
 
   &::after {
@@ -218,6 +224,7 @@
   color: ${props=>props.theme.colors.error};
   margin-top: 5px;
   font-size: 0.75em;
+  font-weight: 600;
 `;SectionError.displayName="SectionError";const FormSection=styled_components_1.default(props=>React.createElement("div",{className:props.className},React.createElement(SectionTitle,{required:props.required},props.title),props.children,props.error&&React.createElement(SectionError,null,props.error)))`
   margin-bottom: 20px;
 `;FormSection.displayName="FormSection",exports.default=FormSection},594:function(module,exports,__webpack_require__){"use strict";(function(module){var __importStar=this&&this.__importStar||function(mod){if(mod&&mod.__esModule)return mod;var result={};if(null!=mod)for(var k in mod)Object.hasOwnProperty.call(mod,k)&&(result[k]=mod[k]);return result.default=mod,result},__importDefault=this&&this.__importDefault||function(mod){return mod&&mod.__esModule?mod:{default:mod}};Object.defineProperty(exports,"__esModule",{value:!0});const React=__importStar(__webpack_require__(0)),styled_components_1=__importDefault(__webpack_require__(10)),react_1=__webpack_require__(9),button_1=__importDefault(__webpack_require__(87)),panel_1=__importDefault(__webpack_require__(595)),pill_1=__importDefault(__webpack_require__(268)),switch_1=__importDefault(__webpack_require__(269)),DemoStateWrapper=({render:render,initialValue:initialValue})=>{const[checked,setChecked]=React.useState(initialValue||!1);return render(checked,()=>{setChecked(!checked)})},SwitchContainer=styled_components_1.default.div`
@@ -278,16 +285,17 @@
   position: absolute;
   top: 100%;
   left: 0;
-  border: 1px solid ${props=>props.theme.colors.secondary};
   border-radius: ${props=>props.theme.borderRadius};
   background-color: ${props=>props.theme.colors.white};
   min-width: 110%;
   max-width: 150%;
   margin: 5px 0 0 0;
+  box-shadow: 0 2px 10px ${props=>polished_1.transparentize(.9,props.theme.colors.darkGray)};
 `;class Select extends React.Component{constructor(props){super(props),this.state={menuIsVisible:!1},this.toggleMenu=(()=>{const{menuIsVisible:menuIsVisible}=this.state;this.setState({menuIsVisible:!menuIsVisible})}),this.closeMenu=(()=>{this.setState({menuIsVisible:!1})}),this.handleGlobalClick=(e=>{this.node.current&&e.target instanceof Node&&this.node.current.contains(e.target)||this.closeMenu()}),this.handleSelect=(value=>{const{onSelect:onSelect}=this.props;onSelect(value),this.closeMenu()}),this.renderMenu=(()=>React.createElement(SelectMenu,null,this.props.choices.map(({value:value,text:text})=>React.createElement(SelectMenuRow,{key:value,onClick:()=>this.handleSelect(value)},text)))),this.node=React.createRef()}componentDidMount(){window.addEventListener("mousedown",this.handleGlobalClick,!1)}componentWillUnmount(){window.removeEventListener("mousedown",this.handleGlobalClick,!1)}render(){const{className:className,color:color,value:value,choices:choices,disabled:disabled}=this.props,{menuIsVisible:menuIsVisible}=this.state,buttonText=choices.reduce((acc,choice)=>acc||choice.value!==value?acc:choice.text,"");return React.createElement("span",{className:className,ref:this.node},React.createElement(button_1.default,{color:color,onClick:this.toggleMenu,disabled:disabled},buttonText),menuIsVisible&&this.renderMenu())}}const StyledSelect=styled_components_1.default(props=>React.createElement(Select,Object.assign({},props)))`
   margin-right: 5px;
   position: relative;
   display: inline-block;
+  margin-right: 5px;
 
   ${button_1.default} {
     ${polished_1.ellipsis("200px")}
@@ -310,7 +318,7 @@
     }
   }
 
-  &:last-of-type {
+  &:last-child {
     margin-right: 0;
   }
 `;StyledSelect.displayName="Select",exports.default=StyledSelect},608:function(module,exports,__webpack_require__){"use strict";(function(module){var __importStar=this&&this.__importStar||function(mod){if(mod&&mod.__esModule)return mod;var result={};if(null!=mod)for(var k in mod)Object.hasOwnProperty.call(mod,k)&&(result[k]=mod[k]);return result.default=mod,result},__importDefault=this&&this.__importDefault||function(mod){return mod&&mod.__esModule?mod:{default:mod}};Object.defineProperty(exports,"__esModule",{value:!0});const React=__importStar(__webpack_require__(0)),react_1=__webpack_require__(9),addon_actions_1=__webpack_require__(57),switch_1=__importDefault(__webpack_require__(269)),DemoStateWrapper=({render:render,initialValue:initialValue})=>{const[on,setOn]=React.useState(initialValue||!1);return render(on,()=>{setOn(!on),addon_actions_1.action("click")(on?"off":"on")})};react_1.storiesOf("Switch",module).add("Default",()=>React.createElement(DemoStateWrapper,{render:(on,onClick)=>React.createElement(switch_1.default,{on:on,onClick:onClick})})).add("Disabled",()=>React.createElement("div",null,React.createElement(switch_1.default,{disabled:!0,onClick:addon_actions_1.action("clicked")}),React.createElement("br",null),React.createElement(switch_1.default,{disabled:!0,on:!0,onClick:addon_actions_1.action("clicked")})))}).call(this,__webpack_require__(5)(module))},609:function(module,exports,__webpack_require__){"use strict";(function(module){var __importStar=this&&this.__importStar||function(mod){if(mod&&mod.__esModule)return mod;var result={};if(null!=mod)for(var k in mod)Object.hasOwnProperty.call(mod,k)&&(result[k]=mod[k]);return result.default=mod,result},__importDefault=this&&this.__importDefault||function(mod){return mod&&mod.__esModule?mod:{default:mod}};Object.defineProperty(exports,"__esModule",{value:!0});const React=__importStar(__webpack_require__(0)),react_1=__webpack_require__(9),addon_actions_1=__webpack_require__(57),textInput_1=__importDefault(__webpack_require__(267)),DemoStateWrapper=({render:render,initialValue:initialValue})=>{const[text,setText]=React.useState(initialValue||"");return render(text,({target:target})=>{setText(target.value),addon_actions_1.action("change")(target.value)})};react_1.storiesOf("TextInput",module).add("Default",()=>React.createElement(DemoStateWrapper,{render:(text,onChange)=>React.createElement(textInput_1.default,{value:text,onChange:onChange})})).add("Placeholder",()=>React.createElement(DemoStateWrapper,{render:(text,onChange)=>React.createElement(textInput_1.default,{value:text,onChange:onChange,placeholder:"City"})})).add("Text",()=>React.createElement(DemoStateWrapper,{render:(text,onChange)=>React.createElement(textInput_1.default,{onChange:onChange,value:text,placeholder:"City"}),initialValue:"San Francisco, CA"})).add("Error",()=>React.createElement(DemoStateWrapper,{render:(text,onChange)=>React.createElement(textInput_1.default,{onChange:onChange,value:text,placeholder:"City",error:!0}),initialValue:"San Francisco, CA"})).add("Disabled",()=>React.createElement(textInput_1.default,{value:"San Francisco, CA",disabled:!0}))}).call(this,__webpack_require__(5)(module))},87:function(module,exports,__webpack_require__){"use strict";var __importDefault=this&&this.__importDefault||function(mod){return mod&&mod.__esModule?mod:{default:mod}};Object.defineProperty(exports,"__esModule",{value:!0});const polished_1=__webpack_require__(58),styled_components_1=__importDefault(__webpack_require__(10)),DEFAULT_COLOR="main";function getButtonColor(props){return props.theme.colors[props.color||DEFAULT_COLOR]}function getButtonTextColor(props){const bgColor=getButtonColor(props);return polished_1.getLuminance(bgColor)>.5?props.theme.colors.darkGray:props.theme.colors.white}const Button=styled_components_1.default.button`
@@ -351,5 +359,5 @@
   &:last-of-type {
     margin-right: 0;
   }
-`;Button.displayName="Button",exports.default=Button},88:function(module,exports,__webpack_require__){"use strict";Object.defineProperty(exports,"__esModule",{value:!0});exports.default={borderRadius:"5px",fontFamily:"'Roboto', sans-serif",fontImportUrl:"https://fonts.googleapis.com/css?family=Roboto:400,600,700",colors:{darkGray:"#424242",error:"#ef5350",main:"#304ffe",secondary:"#eeeeee",success:"#4caf50",warning:"#ffb300",white:"#fff"}};try{DefaultTheme.displayName="DefaultTheme",DefaultTheme.__docgenInfo={description:"This interface can be augmented by users to add types to `styled-components`' default theme\nwithout needing to reexport `ThemedStyledComponentsModule`.",displayName:"DefaultTheme",props:{}},"undefined"!=typeof STORYBOOK_REACT_CLASSES&&(STORYBOOK_REACT_CLASSES["src/theme.ts#DefaultTheme"]={docgenInfo:DefaultTheme.__docgenInfo,name:"DefaultTheme",path:"src/theme.ts#DefaultTheme"})}catch(__react_docgen_typescript_loader_error){}}},[[278,1,2]]]);
-//# sourceMappingURL=main.075b9f8dcf28f085fe28.bundle.js.map
+`;Button.displayName="Button",exports.default=Button},88:function(module,exports,__webpack_require__){"use strict";Object.defineProperty(exports,"__esModule",{value:!0});exports.default={borderRadius:"5px",fontFamily:"'Roboto', sans-serif",fontImportUrl:"https://fonts.googleapis.com/css?family=Roboto:400,600,700",colors:{darkGray:"#424242",error:"#ef5350",main:"#304ffe",secondary:"#e0e0e0",success:"#4caf50",warning:"#ffb300",white:"#fff"}};try{DefaultTheme.displayName="DefaultTheme",DefaultTheme.__docgenInfo={description:"This interface can be augmented by users to add types to `styled-components`' default theme\nwithout needing to reexport `ThemedStyledComponentsModule`.",displayName:"DefaultTheme",props:{}},"undefined"!=typeof STORYBOOK_REACT_CLASSES&&(STORYBOOK_REACT_CLASSES["src/theme.ts#DefaultTheme"]={docgenInfo:DefaultTheme.__docgenInfo,name:"DefaultTheme",path:"src/theme.ts#DefaultTheme"})}catch(__react_docgen_typescript_loader_error){}}},[[278,1,2]]]);
+//# sourceMappingURL=main.1c5586fadd97a93251b4.bundle.js.map
