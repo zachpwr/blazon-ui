@@ -26,7 +26,7 @@ const TextInput = styled.input<ITextInputProps>`
   background-color: ${props => props.theme.colors.white};
   border: 1px solid ${getBorderColor};
   border-radius: ${props => props.theme.borderRadius};
-  transition: 0.25s border-color ease-in-out;
+  transition: 0.25s border-color ease-in-out, 0.25s box-shadow ease-in-out;
   cursor: text;
   display: block;
   width: 100%;

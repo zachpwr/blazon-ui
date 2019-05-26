@@ -29,6 +29,7 @@ const Pill = styled.div<IPillProps>`
   vertical-align: middle;
   cursor: default;
   display: inline-block;
+  transition: 0.25s color ease-in-out, 0.25s background-color ease-in-out;
 
   &:last-of-type {
     margin-right: 0;
