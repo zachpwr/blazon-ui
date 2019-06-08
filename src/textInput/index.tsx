@@ -47,6 +47,12 @@ const TextInput = styled.input<ITextInputProps>`
   &:focus {
     border-color: ${getFocusedBorderColor};
     box-shadow: 0 0 0 2px ${props => transparentize(0.75, getFocusedBorderColor(props))};
+
+    &::selection {
+      color: ${getFocusedBorderColor};
+      background-color: ${props => transparentize(0.75, getFocusedBorderColor(props))};
+      display: inline-block;
+    }
   }
 
   &:disabled {

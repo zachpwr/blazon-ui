@@ -10,6 +10,7 @@ import ProgressBar from './progressBar';
 import Select from './select';
 import Switch from './switch';
 import TextInput from './textInput';
+import TextInputGroup from './textInputGroup';
 import ThemeProvider from './themeProvider';
 
 export {
@@ -25,6 +26,7 @@ export {
   Select,
   Switch,
   TextInput,
+  TextInputGroup,
   ThemeProvider,
 };
 
@@ -41,5 +43,6 @@ export default {
   Select,
   Switch,
   TextInput,
+  TextInputGroup,
   ThemeProvider,
 };
