@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { transparentize } from 'polished';
 
 export interface ISwitchProps {
   theme: DefaultTheme;
@@ -29,6 +30,10 @@ const Switch = styled.button<ISwitchProps>`
   display: inline-block;
   vertical-align: middle;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+  &:focus {
+    box-shadow: 0 0 0 2px ${props => transparentize(0.75, getSwitchColor(props))};
+  }
 
   &::before {
     width: 1em;
