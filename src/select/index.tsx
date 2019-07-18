@@ -48,7 +48,8 @@ const SelectMenuRow = styled.button`
   font-size: 1em;
   -webkit-tap-highlight-color: ${props => props.theme.colors.secondary};
 
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: ${props => mix(0.5, props.theme.colors.secondary, props.theme.colors.white)};
   }
 
@@ -73,12 +74,14 @@ class Select extends React.Component<ISelectInnerProps> {
   public state = {
     menuIsVisible: false,
   };
-  private node: React.RefObject<HTMLDivElement>;
+  private containerRef: React.RefObject<HTMLDivElement>;
+  private buttonRef: React.RefObject<HTMLButtonElement>;
 
   constructor(props: ISelectInnerProps) {
     super(props);
 
-    this.node = React.createRef();
+    this.containerRef = React.createRef();
+    this.buttonRef = React.createRef();
   }
 
   public componentDidMount() {
@@ -101,8 +104,8 @@ class Select extends React.Component<ISelectInnerProps> {
     }, '');
 
     return (
-      <span className={className} ref={this.node}>
-        <Button color={color} onClick={this.toggleMenu} disabled={disabled}>
+      <span className={className} ref={this.containerRef}>
+        <Button color={color} onClick={this.toggleMenu} disabled={disabled} ref={this.buttonRef}>
           {buttonText}
         </Button>
         {menuIsVisible && this.renderMenu()}
@@ -121,10 +124,13 @@ class Select extends React.Component<ISelectInnerProps> {
     this.setState({
       menuIsVisible: false,
     });
+    if (this.buttonRef.current) {
+      this.buttonRef.current.focus();
+    }
   };
 
   private handleGlobalClick = (e: Event) => {
-    if (this.node.current && e.target instanceof Node && this.node.current.contains(e.target)) {
+    if (this.containerRef.current && e.target instanceof Node && this.containerRef.current.contains(e.target)) {
       return;
     }
 
