@@ -16,7 +16,10 @@
   "author": "Zach Power <zachpwr@users.noreply.github.com>",
   "license": "Apache-2.0",
   "dependencies": {
-    "lodash": "^4.17.15"
+    "lodash": "^4.17.15",
+    "polished": "^3.2.0",
+    "react": "^16.8.6",
+    "styled-components": "^4.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
@@ -43,12 +46,9 @@
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.13.0",
     "jest": "^24.7.1",
-    "polished": "^3.2.0",
     "prettier": "^1.17.0",
-    "react": "^16.8.6",
     "react-docgen-typescript-loader": "^3.1.0",
     "react-dom": "^16.8.6",
-    "styled-components": "^4.2.0",
     "ts-jest": "^24.0.2",
     "tslint": "^5.16.0",
     "tslint-config-prettier": "^1.18.0",
