@@ -10,7 +10,7 @@
     "typescript",
     "styled"
   ],
-  "version": "0.7.2",
+  "version": "0.7.3",
   "homepage": "https://github.com/zachpwr/blazon-ui",
   "repository": "git@github.com:zachpwr/blazon-ui.git",
   "author": "Zach Power <zachpwr@users.noreply.github.com>",
