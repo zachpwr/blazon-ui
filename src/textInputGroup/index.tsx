@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 
+import { ITheme } from '../theme';
+
 import TextInput from '../textInput';
 
 export interface ITextInputGroupProps {
-  theme: DefaultTheme;
+  theme: ITheme;
 }
 
 const TextInputGroup = styled.div<ITextInputGroupProps>`

@@ -1,8 +1,10 @@
 import { transparentize } from 'polished';
 import styled from 'styled-components';
 
+import { ITheme } from '../theme';
+
 export interface ISwitchProps {
-  theme: DefaultTheme;
+  theme: ITheme;
   on?: boolean;
   disabled?: boolean;
 }

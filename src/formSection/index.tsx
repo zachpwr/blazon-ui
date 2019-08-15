@@ -1,8 +1,10 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
+import { ITheme } from '../theme';
+
 export interface IFormSection {
-  theme: DefaultTheme;
+  theme: ITheme;
   title: string;
   error?: string;
   className?: string;
@@ -11,12 +13,12 @@ export interface IFormSection {
 }
 
 interface IFormSectionTitle {
-  theme: DefaultTheme;
+  theme: ITheme;
   required?: boolean;
 }
 
 interface IFormSectionError {
-  theme: DefaultTheme;
+  theme: ITheme;
 }
 
 const SectionTitle = styled.div<IFormSectionTitle>`

@@ -1,8 +1,10 @@
-import { mix, transparentize } from 'polished';
+import { transparentize } from 'polished';
 import styled from 'styled-components';
 
+import { ITheme } from '../theme';
+
 export interface ICheckboxProps {
-  theme: DefaultTheme;
+  theme: ITheme;
   checked?: boolean;
 }
 
@@ -15,7 +17,7 @@ function getBackgroundColor(props: ICheckboxProps) {
 }
 
 function getHoverBorderColor(props: ICheckboxProps) {
-  return props.theme.colors.main; // mix(props.checked ? 0.9 : 0.1, props.theme.colors.main, props.theme.colors.secondary);
+  return props.theme.colors.main;
 }
 
 function getCheckColor(props: ICheckboxProps) {

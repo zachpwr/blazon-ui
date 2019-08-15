@@ -1,8 +1,10 @@
 import { transparentize } from 'polished';
 import styled from 'styled-components';
 
+import { ITheme } from '../theme';
+
 export interface IPanelProps {
-  theme: DefaultTheme;
+  theme: ITheme;
 }
 
 const Panel = styled.div<IPanelProps>`

@@ -1,6 +1,14 @@
 import { DefaultTheme } from 'styled-components';
 
-const theme: DefaultTheme = {
+export interface ITheme {
+  borderRadius: string;
+  fontImportUrl?: string;
+  fontFamily: string;
+
+  colors: { [index: string]: string };
+}
+
+const theme: DefaultTheme & ITheme = {
   borderRadius: '5px',
   fontFamily: "'Roboto', sans-serif",
   fontImportUrl: 'https://fonts.googleapis.com/css?family=Roboto:400,600,700',

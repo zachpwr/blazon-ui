@@ -1,10 +1,12 @@
 import { getLuminance } from 'polished';
 import styled from 'styled-components';
 
+import { ITheme } from '../theme';
+
 const DEFAULT_COLOR = 'main';
 
 export interface IPillProps {
-  theme: DefaultTheme;
+  theme: ITheme;
   color?: string;
 }
 

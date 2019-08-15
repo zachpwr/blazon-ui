@@ -1,8 +1,10 @@
 import { mix, transparentize } from 'polished';
 import styled from 'styled-components';
 
+import { ITheme } from '../theme';
+
 export interface ITextInputProps {
-  theme: DefaultTheme;
+  theme: ITheme;
   error?: boolean;
 }
 

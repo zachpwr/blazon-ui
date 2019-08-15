@@ -1,8 +1,10 @@
 import { mix } from 'polished';
 import styled from 'styled-components';
 
+import { ITheme } from '../theme';
+
 export interface IAlertProps {
-  theme: DefaultTheme;
+  theme: ITheme;
   color?: string;
 }
 

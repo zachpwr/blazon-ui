@@ -1,10 +1,12 @@
 import { getLuminance, mix, transparentize } from 'polished';
 import styled from 'styled-components';
 
+import { ITheme } from '../theme';
+
 const DEFAULT_COLOR = 'main';
 
 export interface IButtonProps {
-  theme: DefaultTheme;
+  theme: ITheme;
   color?: string;
 }
 

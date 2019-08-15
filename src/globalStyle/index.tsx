@@ -1,7 +1,9 @@
 import { createGlobalStyle } from 'styled-components';
 
+import { ITheme } from '../theme';
+
 export interface IGlobalStyleProps {
-  theme: DefaultTheme;
+  theme: ITheme;
 }
 
 function getFontImport(props: IGlobalStyleProps) {

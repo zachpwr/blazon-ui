@@ -56,8 +56,9 @@
     "webpack": "^4.30.0"
   },
   "scripts": {
-    "build": "tsc",
-    "build:watch": "tsc -w",
+    "clean": "rm -rf ./lib",
+    "build": "yarn clean && tsc",
+    "build:watch": "yarn clean && tsc -w",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "lint": "tslint -p tsconfig.json",
     "test": "jest --config=jestconfig.json",

@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 
-import defaultTheme from '../theme';
+import defaultTheme, { ITheme } from '../theme';
 
 export interface IThemeProviderProps {
-  theme?: DefaultTheme;
+  theme?: ITheme;
   children: React.ReactChild;
 }
 

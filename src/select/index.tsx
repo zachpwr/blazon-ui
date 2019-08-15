@@ -2,12 +2,14 @@ import { ellipsis, getLuminance, mix, transparentize } from 'polished';
 import * as React from 'react';
 import styled from 'styled-components';
 
+import { ITheme } from '../theme';
+
 import Button from '../button';
 
 const DEFAULT_COLOR = 'main';
 
 export interface ISelectProps {
-  theme: DefaultTheme;
+  theme: ITheme;
   onSelect: (value: string) => void;
   choices: Array<{ value: string; text: string }>;
   value: string;
@@ -16,7 +18,7 @@ export interface ISelectProps {
 }
 
 export interface ISelectInnerProps {
-  theme: DefaultTheme;
+  theme: ITheme;
   onSelect: (value: string) => void;
   choices: Array<{ value: string; text: string }>;
   value: string;
