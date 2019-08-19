@@ -12,6 +12,18 @@
   <a href="https://bundlephobia.com/result?p=blazon-ui"><img src="https://img.shields.io/bundlephobia/minzip/blazon-ui.svg?color=%238C9EFF" /></a>
 </p>
 
+---
+
+<p align="center">
+  <img src="https://emojis.slackmojis.com/emojis/images/1497901371/2453/alert.gif?1497901371" width="16" alt="alert" valign="middle" />&nbsp;<b>Find a bug?</b>&nbsp;<img src="https://emojis.slackmojis.com/emojis/images/1497901371/2453/alert.gif?1497901371" width="16" alt="alert" valign="middle" />
+  <br />
+  Help polish <i>Blazon UI</i> by reporting bugs.
+  <br />
+  <a title="Click to file an issue!" href="https://github.com/zachpwr/blazon-ui/issues/new?assignees=&labels=&template=bug_report.md&title=">File an issue!</a>
+</p>
+
+---
+
 ## Usage
 
 To use Blazon UI, simply add it as a dependency to your JavaScript project using NPM or Yarn.
