@@ -5,9 +5,9 @@ import { withKnobs, number } from '@storybook/addon-knobs';
 
 import ProgressBar from '../src/progressBar';
 
-storiesOf('ProgressBar', module)
+storiesOf('Components|Atoms (Basic)/ProgressBar', module)
   .addDecorator(withKnobs)
-  .add('Default', () => {
+  .add('Default State', () => {
     const progress = number('Progress', 100, {
       range: true,
       min: 0,

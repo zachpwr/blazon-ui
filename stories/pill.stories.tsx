@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 
 import Pill from '../src/pill';
 
-storiesOf('Pill', module).add('Default', () => (
+storiesOf('Components|Atoms (Basic)/Pill', module).add('Default State', () => (
   <div>
     <Pill>Complete</Pill>
     <Pill color="success">Passed</Pill>

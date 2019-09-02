@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { storiesOf } from '@storybook/react';
 
 import Checkbox from '../src/checkbox';
 
@@ -18,11 +18,11 @@ const DemoStateWrapper = ({ render, initialValue }: IDemoStateWrapperProps) => {
   });
 };
 
-storiesOf('Checkbox', module)
-  .add('Default', () => (
+storiesOf('Components|Atoms (Basic)/Checkbox', module)
+  .add('Default State', () => (
     <DemoStateWrapper render={(checked, onClick) => <Checkbox checked={checked} onClick={onClick} />} />
   ))
-  .add('Disabled', () => (
+  .add('Disabled State', () => (
     <div>
       <Checkbox disabled onClick={action('clicked')} />
       <br />

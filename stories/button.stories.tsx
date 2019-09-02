@@ -1,12 +1,12 @@
 import * as React from 'react';
 
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { storiesOf } from '@storybook/react';
 
 import Button from '../src/button';
 
-storiesOf('Button', module)
-  .add('Text', () => (
+storiesOf('Components|Atoms (Basic)/Button', module)
+  .add('With Plain Text', () => (
     <div>
       <Button onClick={action('clicked')}>Hello</Button>
       <Button onClick={action('clicked')} color="secondary">
@@ -14,14 +14,14 @@ storiesOf('Button', module)
       </Button>
     </div>
   ))
-  .add('Emojis', () => (
+  .add('With Emojis', () => (
     <Button onClick={action('clicked')}>
       <span role="img" aria-label="so cool">
         😀 😎 👍 💯
       </span>
     </Button>
   ))
-  .add('Disabled', () => (
+  .add('Disabled State', () => (
     <div>
       <Button onClick={action('clicked')} disabled>
         Disabled

@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { storiesOf } from '@storybook/react';
 
 import TextInput from '../src/textInput';
 
@@ -18,20 +18,20 @@ const DemoStateWrapper = ({ render, initialValue }: IDemoStateWrapperProps) => {
   });
 };
 
-storiesOf('TextInput', module)
-  .add('Default', () => (
+storiesOf('Components|Atoms (Basic)/TextInput', module)
+  .add('Default State', () => (
     <DemoStateWrapper render={(text, onChange) => <TextInput value={text} onChange={onChange} />} />
   ))
-  .add('Placeholder', () => (
+  .add('With Placeholder', () => (
     <DemoStateWrapper render={(text, onChange) => <TextInput value={text} onChange={onChange} placeholder="City" />} />
   ))
-  .add('Text', () => (
+  .add('With Text', () => (
     <DemoStateWrapper
       render={(text, onChange) => <TextInput onChange={onChange} value={text} placeholder="City" />}
       initialValue="San Francisco, CA"
     />
   ))
-  .add('Error', () => (
+  .add('Error State', () => (
     <DemoStateWrapper
       render={(text, onChange) => <TextInput onChange={onChange} value={text} placeholder="City" error />}
       initialValue="San Francisco, CA"

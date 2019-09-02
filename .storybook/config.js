@@ -6,8 +6,8 @@ import GlobalStyle from '../src/globalStyle';
 
 import storybookTheme from './theme';
 
-// Load welcome page separately
-import '../stories/welcome.stories.tsx';
+// Load home page separately
+import '../stories/home.stories.tsx';
 
 const req = require.context('../stories', true, /\.stories\.tsx$/);
 

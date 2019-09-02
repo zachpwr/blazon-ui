@@ -24,8 +24,8 @@ const DemoStateWrapper = ({ render, initialValue }: IDemoStateWrapperProps) => {
   });
 };
 
-storiesOf('Select', module)
-  .add('Default', () => (
+storiesOf('Components|Atoms (Basic)/Select', module)
+  .add('Default State', () => (
     <div>
       <DemoStateWrapper render={(value, onSelect) => <Select onSelect={onSelect} choices={choices} value={value} />} />
       <DemoStateWrapper
@@ -33,7 +33,7 @@ storiesOf('Select', module)
       />
     </div>
   ))
-  .add('Disabled', () => (
+  .add('Disabled State', () => (
     <div>
       <Select onSelect={action('select')} choices={choices} value="choice1" disabled />
       <Select onSelect={action('select')} choices={choices} value="choice1" color="secondary" disabled />

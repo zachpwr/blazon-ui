@@ -19,8 +19,8 @@ const DemoStateWrapper = ({ render, initialValue }: IDemoStateWrapperProps) => {
   });
 };
 
-storiesOf('FormSection', module)
-  .add('Default', () => (
+storiesOf('Components|Molecules (Composite)/FormSection', module)
+  .add('Default State', () => (
     <div>
       <FormSection title="Name">
         <DemoStateWrapper render={(text, onChange) => <TextInput value={text} onChange={onChange} />} />
@@ -30,7 +30,7 @@ storiesOf('FormSection', module)
       </FormSection>
     </div>
   ))
-  .add('Required', () => (
+  .add('Required State', () => (
     <div>
       <FormSection title="Name" required>
         <DemoStateWrapper render={(text, onChange) => <TextInput value={text} onChange={onChange} />} />
@@ -40,7 +40,7 @@ storiesOf('FormSection', module)
       </FormSection>
     </div>
   ))
-  .add('Error', () => (
+  .add('Error State', () => (
     <div>
       <FormSection title="Name" required error="Please enter your name">
         <DemoStateWrapper render={(text, onChange) => <TextInput value={text} onChange={onChange} error />} />

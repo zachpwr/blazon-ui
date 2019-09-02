@@ -1,12 +1,12 @@
 import * as React from 'react';
 
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { storiesOf } from '@storybook/react';
 
 import Button from '../src/button';
 import ButtonGroup from '../src/buttonGroup';
 
-storiesOf('ButtonGroup', module).add('Default', () => (
+storiesOf('Components|Molecules (Composite)/ButtonGroup', module).add('Default State', () => (
   <ButtonGroup>
     <Button onClick={action('clicked')} color="secondary">
       Hello
