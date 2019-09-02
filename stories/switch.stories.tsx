@@ -18,9 +18,9 @@ const DemoStateWrapper = ({ render, initialValue }: IDemoStateWrapperProps) => {
   });
 };
 
-storiesOf('Switch', module)
-  .add('Default', () => <DemoStateWrapper render={(on, onClick) => <Switch on={on} onClick={onClick} />} />)
-  .add('Disabled', () => (
+storiesOf('Components|Atoms (Basic)/Switch', module)
+  .add('Default State', () => <DemoStateWrapper render={(on, onClick) => <Switch on={on} onClick={onClick} />} />)
+  .add('Disabled State', () => (
     <div>
       <Switch disabled onClick={action('clicked')} />
       <br />

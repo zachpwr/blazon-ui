@@ -26,8 +26,8 @@ const DemoStateWrapper = ({ render, initialValue }: IDemoStateWrapperProps) => {
   });
 };
 
-storiesOf('TextInputGroup', module)
-  .add('Default', () => (
+storiesOf('Components|Molecules (Composite)/TextInputGroup', module)
+  .add('Default State', () => (
     <DemoStateWrapper
       render={(state, setState) => (
         <TextInputGroup>
@@ -43,7 +43,7 @@ storiesOf('TextInputGroup', module)
       }}
     />
   ))
-  .add('Placeholder', () => (
+  .add('With Placeholder', () => (
     <DemoStateWrapper
       render={(state, setState) => (
         <TextInputGroup>
@@ -77,7 +77,7 @@ storiesOf('TextInputGroup', module)
       }}
     />
   ))
-  .add('Text', () => (
+  .add('With Text', () => (
     <DemoStateWrapper
       render={(state, setState) => (
         <TextInputGroup>
@@ -111,7 +111,7 @@ storiesOf('TextInputGroup', module)
       }}
     />
   ))
-  .add('Error', () => (
+  .add('Error State', () => (
     <DemoStateWrapper
       render={(state, setState) => (
         <TextInputGroup>
@@ -147,7 +147,7 @@ storiesOf('TextInputGroup', module)
       }}
     />
   ))
-  .add('Disabled', () => (
+  .add('Disabled State', () => (
     <TextInputGroup>
       <TextInput value="Port Láirge" disabled />
       <TextInput value="Decies-within-Drum" disabled />

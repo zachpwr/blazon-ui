@@ -30,8 +30,8 @@ const SwitchContainer = styled.div`
   }
 `;
 
-storiesOf('Panel', module)
-  .add('Empty', () => <Panel />)
+storiesOf('Components|Atoms (Basic)/Panel', module)
+  .add('Empty State', () => <Panel />)
   .add('With Text', () => (
     <div>
       <Panel>

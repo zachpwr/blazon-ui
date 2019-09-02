@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 
 import Alert from '../src/alert';
 
-storiesOf('Alert', module).add('Default', () => (
+storiesOf('Components|Atoms (Basic)/Alert', module).add('Default State', () => (
   <div>
     <Alert>
       <b>Fáilte!</b> Go raibh maith agat as clárú.
