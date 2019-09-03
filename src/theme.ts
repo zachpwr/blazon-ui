@@ -2,7 +2,7 @@ import { DefaultTheme } from 'styled-components';
 
 export interface ITheme {
   borderRadius: string;
-  fontImportUrl?: string;
+  fontImportUrl?: string | string[];
   fontFamily: string;
 
   colors: { [index: string]: string };
@@ -11,7 +11,10 @@ export interface ITheme {
 const theme: DefaultTheme & ITheme = {
   borderRadius: '5px',
   fontFamily: "'Roboto', sans-serif",
-  fontImportUrl: 'https://fonts.googleapis.com/css?family=Roboto:400,600,700',
+  fontImportUrl: [
+    'https://fonts.googleapis.com/css?family=Roboto:400,600,700',
+    'https://fonts.googleapis.com/css?family=Roboto+Mono:400',
+  ],
 
   colors: {
     darkGray: '#424242',

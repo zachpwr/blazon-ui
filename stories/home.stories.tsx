@@ -1,11 +1,11 @@
 /// <reference path="stories.d.ts"/>
 import { linkTo } from '@storybook/addon-links';
 import * as React from 'react';
-import styled from 'styled-components';
 
 import { storiesOf } from '@storybook/react';
 
 import Button from '../src/button';
+import Pill from '../src/pill';
 
 import logoImg from '../assets/logo.png';
 
@@ -15,7 +15,12 @@ storiesOf('Navigation|Home', module)
   .add('Welcome', () => (
     <StoryColumn>
       <img src={logoImg} style={{ width: 32 }} />
-      <h1>Blazon UI</h1>
+      <h1>
+        Blazon UI{' '}
+        <sup>
+          <Pill color="warning">beta</Pill>
+        </sup>
+      </h1>
       <p>Blazon UI is a React component library.</p>
       <p>
         <a href="https://www.npmjs.com/package/blazon-ui">

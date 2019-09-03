@@ -13,6 +13,9 @@ storiesOf('Components|Atoms (Basic)/Button', module)
         <code>{'<Button />'}</code> Component
       </h1>
       <h2>With Plain Text</h2>
+      <h3>
+        <code>color="main"</code> (default)
+      </h3>
       <Button
         onClick={() => {
           console.log('clicked');
@@ -20,6 +23,46 @@ storiesOf('Components|Atoms (Basic)/Button', module)
       >
         Hello
       </Button>
+      <br />
+      <h3>
+        <code>color="success"</code>
+      </h3>
+      <Button
+        onClick={() => {
+          console.log('clicked');
+        }}
+        color="success"
+      >
+        Hello
+      </Button>
+      <br />
+      <h3>
+        <code>color="error"</code>
+      </h3>
+      <Button
+        onClick={() => {
+          console.log('clicked');
+        }}
+        color="error"
+      >
+        Hello
+      </Button>
+      <br />
+      <h3>
+        <code>color="warning"</code>
+      </h3>
+      <Button
+        onClick={() => {
+          console.log('clicked');
+        }}
+        color="warning"
+      >
+        Hello
+      </Button>
+      <br />
+      <h3>
+        <code>color="secondary"</code>
+      </h3>
       <Button
         onClick={() => {
           console.log('clicked');

@@ -4,7 +4,7 @@ const StoryColumn = styled.div`
   padding: 10% 20%;
 
   code {
-    font-family: monospace;
+    font-family: 'Roboto Mono', monospace;
     padding: 10px;
     background-color: ${({ theme }) => theme.colors.secondary};
     border-radius: ${({ theme }) => theme.borderRadius};
@@ -19,6 +19,10 @@ const StoryColumn = styled.div`
     display: inline-block;
     padding: 2px;
     margin: -2px 0;
+  }
+
+  h1 sup {
+    font-size: 0.4em;
   }
 `;
 
