@@ -29,9 +29,6 @@ storiesOf('Components|Molecules (Composite)/FormSection', module)
       <FormSection title="Name">
         <DemoStateWrapper render={(text, onChange) => <TextInput value={text} onChange={onChange} />} />
       </FormSection>
-      <FormSection title="Email Address">
-        <DemoStateWrapper render={(text, onChange) => <TextInput value={text} onChange={onChange} />} />
-      </FormSection>
     </StoryColumn>
   ))
   .add('Required State', () => (
@@ -46,9 +43,6 @@ storiesOf('Components|Molecules (Composite)/FormSection', module)
       <FormSection title="Name" required>
         <DemoStateWrapper render={(text, onChange) => <TextInput value={text} onChange={onChange} />} />
       </FormSection>
-      <FormSection title="Email Address">
-        <DemoStateWrapper render={(text, onChange) => <TextInput value={text} onChange={onChange} />} />
-      </FormSection>
     </StoryColumn>
   ))
   .add('Error State', () => (
@@ -58,13 +52,10 @@ storiesOf('Components|Molecules (Composite)/FormSection', module)
       </h1>
       <h2>Error State</h2>
       <h3>
-        <code>error="Please enter your name"</code>
+        <code>error="Please enter your name"</code> <code>{'required={true}'}</code>
       </h3>
       <FormSection title="Name" required error="Please enter your name">
         <DemoStateWrapper render={(text, onChange) => <TextInput value={text} onChange={onChange} error />} />
-      </FormSection>
-      <FormSection title="Email Address">
-        <DemoStateWrapper render={(text, onChange) => <TextInput value={text} onChange={onChange} />} />
       </FormSection>
     </StoryColumn>
   ));

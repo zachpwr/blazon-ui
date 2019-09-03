@@ -32,6 +32,7 @@ const Pill = styled.div<IPillProps>`
   cursor: default;
   display: inline-block;
   transition: 0.25s color ease-in-out, 0.25s background-color ease-in-out;
+  font-family: 'Roboto Mono', monospace;
 
   &:last-of-type {
     margin-right: 0;

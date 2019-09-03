@@ -11,7 +11,13 @@ function getFontImport(props: IGlobalStyleProps) {
     return '';
   }
 
-  return `@import url('${props.theme.fontImportUrl}');`;
+  if (typeof props.theme.fontImportUrl === 'string') {
+    return `@import url('${props.theme.fontImportUrl}');`;
+  }
+
+  if (Array.isArray(props.theme.fontImportUrl)) {
+    return (props.theme.fontImportUrl as string[]).map(url => `@import url('${url}');`).join('');
+  }
 }
 
 const GlobalStyle = createGlobalStyle<IGlobalStyleProps>`
