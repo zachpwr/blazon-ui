@@ -8,6 +8,8 @@ import Panel from '../src/panel';
 import Pill from '../src/pill';
 import Switch from '../src/switch';
 
+import StoryColumn from './storyColumn';
+
 interface IDemoStateWrapperProps {
   render: (checked: boolean, changeHandler: () => void) => any;
   initialValue?: boolean;
@@ -31,9 +33,21 @@ const SwitchContainer = styled.div`
 `;
 
 storiesOf('Components|Atoms (Basic)/Panel', module)
-  .add('Empty State', () => <Panel />)
+  .add('Empty State', () => (
+    <StoryColumn>
+      <h1>
+        <code>{'<Panel />'}</code> Component
+      </h1>
+      <h2>Empty State</h2>
+      <Panel />
+    </StoryColumn>
+  ))
   .add('With Text', () => (
-    <div>
+    <StoryColumn>
+      <h1>
+        <code>{'<Panel />'}</code> Component
+      </h1>
+      <h2>With Text</h2>
       <Panel>
         <h1>
           Baile Átha Cliath{' '}
@@ -67,5 +81,5 @@ storiesOf('Components|Atoms (Basic)/Panel', module)
           <div style={{ marginLeft: 20 }}>Sendu mér tölvupóst þegar þetta er í boði</div>
         </SwitchContainer>
       </Panel>
-    </div>
+    </StoryColumn>
   ));

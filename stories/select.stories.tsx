@@ -1,9 +1,10 @@
 import * as React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 
 import Select from '../src/select';
+
+import StoryColumn from './storyColumn';
 
 const choices = [
   { value: 'choice1', text: 'Choice 1' },
@@ -20,22 +21,51 @@ const DemoStateWrapper = ({ render, initialValue }: IDemoStateWrapperProps) => {
   const [value, setValue] = React.useState(initialValue || choices[0].value);
   return render(value, newValue => {
     setValue(newValue);
-    action('select')(newValue);
   });
 };
 
 storiesOf('Components|Atoms (Basic)/Select', module)
   .add('Default State', () => (
-    <div>
+    <StoryColumn>
+      <h1>
+        <code>{'<Select />'}</code> Component
+      </h1>
+      <h2>Default State</h2>
+      <h3>
+        <code>{'onSelect={(value) => {}}'}</code> <code>{`choices={[ { value: '', text: '' } ]}`}</code>{' '}
+        <code>{"value={''}"}</code>
+      </h3>
       <DemoStateWrapper render={(value, onSelect) => <Select onSelect={onSelect} choices={choices} value={value} />} />
       <DemoStateWrapper
         render={(value, onSelect) => <Select onSelect={onSelect} choices={choices} value={value} color="secondary" />}
       />
-    </div>
+    </StoryColumn>
   ))
   .add('Disabled State', () => (
-    <div>
-      <Select onSelect={action('select')} choices={choices} value="choice1" disabled />
-      <Select onSelect={action('select')} choices={choices} value="choice1" color="secondary" disabled />
-    </div>
+    <StoryColumn>
+      <h1>
+        <code>{'<Select />'}</code> Component
+      </h1>
+      <h2>Disabled State</h2>
+      <h3>
+        <code>{'disabled={true}'}</code>
+      </h3>
+      <Select
+        onSelect={() => {
+          console.log('select');
+        }}
+        choices={choices}
+        value="choice1"
+        disabled
+      />
+      <Select
+        onSelect={() => {
+          console.log('select');
+        }}
+        choices={choices}
+        value="choice1"
+        color="secondary"
+        disabled
+      />
+    </StoryColumn>
   ));

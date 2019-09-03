@@ -8,23 +8,7 @@ import logoImg from '../assets/logo.png';
 
 import Button from '../src/button';
 
-const StoryColumn = styled.div`
-  padding: 10% 20%;
-
-  code {
-    font-family: monospace;
-    padding: 10px;
-    background-color: ${({ theme }) => theme.colors.secondary};
-    border-radius: ${({ theme }) => theme.borderRadius};
-    display: block;
-  }
-
-  p code {
-    display: inline-block;
-    padding: 2px;
-    margin: -2px 0;
-  }
-`;
+import StoryColumn from './storyColumn';
 
 storiesOf('Navigation|Getting Started', module)
   .add('Installing Blazon UI', () => (

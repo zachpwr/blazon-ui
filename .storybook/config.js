@@ -14,6 +14,9 @@ const req = require.context('../stories', true, /\.stories\.tsx$/);
 addParameters({
   options: {
     theme: storybookTheme,
+    showPanel: false,
+    sidebarAnimations: true,
+    isToolshown: false,
   },
 });
 
