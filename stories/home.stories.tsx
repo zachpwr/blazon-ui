@@ -9,9 +9,7 @@ import Button from '../src/button';
 
 import logoImg from '../assets/logo.png';
 
-const StoryColumn = styled.div`
-  padding: 10% 20%;
-`;
+import StoryColumn from './storyColumn';
 
 storiesOf('Navigation|Home', module)
   .add('Welcome', () => (
