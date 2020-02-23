@@ -1,4 +1,4 @@
-import { mix } from 'polished';
+import { mix, setLightness } from 'polished';
 import styled from 'styled-components';
 
 import { ITheme } from '../theme';
@@ -8,16 +8,20 @@ export interface IAlertProps {
   color?: string;
 }
 
-function getAlertBorderColor(props: IAlertProps) {
+function getBaseColor(props: IAlertProps) {
   return props.theme.colors[props.color || 'main'];
 }
 
+function getAlertBorderColor(props: IAlertProps) {
+  return setLightness(0.8, getBaseColor(props));
+}
+
 function getAlertBackground(props: IAlertProps) {
-  return mix(0.5, props.theme.colors.white, getAlertBorderColor(props));
+  return setLightness(0.9, getBaseColor(props));
 }
 
 function getAlertTextColor(props: IAlertProps) {
-  return mix(0.75, props.theme.colors.darkGray, getAlertBorderColor(props));
+  return setLightness(0.2, getBaseColor(props));
 }
 
 const Alert = styled.div<IAlertProps>`
