@@ -1,4 +1,4 @@
-import { transparentize } from 'polished';
+import { transparentize, setLightness } from 'polished';
 import styled from 'styled-components';
 
 import { ITheme } from '../theme';
@@ -9,7 +9,7 @@ export interface ICheckboxProps {
 }
 
 function getBorderColor(props: ICheckboxProps) {
-  return props.checked ? props.theme.colors.main : props.theme.colors.secondary;
+  return setLightness(0.5, props.checked ? props.theme.colors.main : props.theme.colors.secondary);
 }
 
 function getBackgroundColor(props: ICheckboxProps) {
@@ -27,7 +27,7 @@ function getCheckColor(props: ICheckboxProps) {
 const Checkbox = styled.button<ICheckboxProps>`
   border-radius: 1em;
   background-color: ${getBackgroundColor};
-  border: 1px solid ${getBorderColor};
+  border: 2px solid ${getBorderColor};
   height: 2em;
   width: 2em;
   padding: 0;
@@ -56,13 +56,17 @@ const Checkbox = styled.button<ICheckboxProps>`
     cursor: default;
     opacity: 0.5;
     border-color: ${getBorderColor};
+
+    &::before {
+      opacity: ${props => (props.checked ? 1 : 0)};
+    }
   }
 
   &::before {
     content: '';
     width: 25%;
     height: 50%;
-    border-width: 0 1px 1px 0;
+    border-width: 0 2px 2px 0;
     border-color: ${getCheckColor};
     border-style: solid;
     display: block;
