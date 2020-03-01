@@ -1,4 +1,4 @@
-import { transparentize, setLightness } from 'polished';
+import { setLightness, transparentize } from 'polished';
 import styled from 'styled-components';
 
 import { ITheme } from '../theme';
