@@ -1,3 +1,4 @@
+import { setLightness } from 'polished';
 import styled from 'styled-components';
 
 import { ITheme } from '../theme';
@@ -8,7 +9,7 @@ export interface IProgressBarProps {
   color?: string;
 }
 
-function getProgressBarColor(props: IProgressBarProps) {
+function getBaseColor(props: IProgressBarProps) {
   if (props.color) {
     return props.theme.colors[props.color];
   }
@@ -16,12 +17,16 @@ function getProgressBarColor(props: IProgressBarProps) {
   return props.theme.colors.main;
 }
 
+function getProgressBarColor(props: IProgressBarProps) {
+  return setLightness(0.6, getBaseColor(props));
+}
+
 const ProgressBar = styled.div<IProgressBarProps>`
   position: relative;
   border-radius: ${props => props.theme.borderRadius};
   height: 0.5em;
   overflow: hidden;
-  box-shadow: inset 0 0 0 1px ${props => props.theme.colors.secondary};
+  box-shadow: inset 0 0 0 1px ${getProgressBarColor}, 0 0 0 1px ${getProgressBarColor};
 
   &::before {
     width: ${props => String(props.progress)}%;
