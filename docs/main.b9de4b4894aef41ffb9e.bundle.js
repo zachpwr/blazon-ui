@@ -1,6 +1,6 @@
 (window.webpackJsonp=window.webpackJsonp||[]).push([[0],{107:function(module,exports,__webpack_require__){"use strict";var __importDefault=this&&this.__importDefault||function(mod){return mod&&mod.__esModule?mod:{default:mod}};Object.defineProperty(exports,"__esModule",{value:!0});const polished_1=__webpack_require__(25);function getFocusedBorderColor(props){return props.error?props.theme.colors.error:props.theme.colors.main}const TextInput=__importDefault(__webpack_require__(10)).default.input`
   background-color: ${props=>props.theme.colors.white};
-  border: 1px solid ${function getBorderColor(props){return props.error?props.theme.colors.error:props.theme.colors.secondary}};
+  border: 2px solid ${function getBorderColor(props){return props.error?props.theme.colors.error:polished_1.setLightness(.5,props.theme.colors.secondary)}};
   border-radius: ${props=>props.theme.borderRadius};
   transition: 0.25s border-color ease-in-out, 0.75s box-shadow ease-in-out;
   cursor: text;
@@ -13,11 +13,11 @@
   appearance: none;
 
   &::placeholder {
-    color: ${props=>props.theme.colors.secondary};
+    color: ${props=>polished_1.setLightness(.6,props.theme.colors.secondary)};
   }
 
   &:hover {
-    border-color: ${props=>polished_1.mix(.5,props.theme.colors.white,getFocusedBorderColor(props))};
+    border-color: ${getFocusedBorderColor};
   }
 
   &:focus {
@@ -383,7 +383,7 @@
     border-radius: 0;
     z-index: 0;
     position: relative;
-    margin-top: -1px;
+    margin-top: -2px;
 
     &:first-of-type {
       border-top-left-radius: ${props=>props.theme.borderRadius};
@@ -405,4 +405,4 @@
     }
   }
 `;TextInputGroup.displayName="TextInputGroup",exports.default=TextInputGroup},81:function(module,exports,__webpack_require__){"use strict";Object.defineProperty(exports,"__esModule",{value:!0});exports.default={borderRadius:"5px",fontFamily:"'Roboto', sans-serif",fontImportUrl:["https://fonts.googleapis.com/css?family=Roboto:400,600,700","https://fonts.googleapis.com/css?family=Roboto+Mono:400"],colors:{darkGray:"#424242",error:"#ef5350",main:"#304ffe",secondary:"#e0e0e0",success:"#4caf50",warning:"#ffb300",white:"#fff"}}}},[[258,1,2]]]);
-//# sourceMappingURL=main.8ec3623c1355332ea91a.bundle.js.map
+//# sourceMappingURL=main.b9de4b4894aef41ffb9e.bundle.js.map
