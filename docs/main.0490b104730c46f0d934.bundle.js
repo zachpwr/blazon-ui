@@ -61,8 +61,8 @@
   h1 sup {
     font-size: 0.4em;
   }
-`;exports.default=StoryColumn},162:function(module,exports,__webpack_require__){"use strict";var __importDefault=this&&this.__importDefault||function(mod){return mod&&mod.__esModule?mod:{default:mod}};Object.defineProperty(exports,"__esModule",{value:!0});const polished_1=__webpack_require__(25),styled_components_1=__importDefault(__webpack_require__(10)),DEFAULT_COLOR="main";function getBaseColor(props){return props.theme.colors[props.color||DEFAULT_COLOR]}const Pill=styled_components_1.default.div`
-  background-color: ${function getPillColor(props){return polished_1.setLightness(.8,getBaseColor(props))}};
+`;exports.default=StoryColumn},162:function(module,exports,__webpack_require__){"use strict";var __importDefault=this&&this.__importDefault||function(mod){return mod&&mod.__esModule?mod:{default:mod}};Object.defineProperty(exports,"__esModule",{value:!0});const polished_1=__webpack_require__(25);function getBaseColor(props){return props.theme.colors[props.color||"main"]}const Pill=__importDefault(__webpack_require__(10)).default.div`
+  background-color: ${function getPillBackground(props){return polished_1.setLightness(.9,getBaseColor(props))}};
   color: ${function getPillTextColor(props){return polished_1.setLightness(.2,getBaseColor(props))}};
   margin: 0 5px 10px 0;
   font-size: 1em;
@@ -75,17 +75,46 @@
   display: inline-block;
   transition: 0.25s color ease-in-out, 0.25s background-color ease-in-out;
   font-family: 'Roboto Mono', monospace;
+  font-weight: 500;
+  border: 2px solid ${function getPillBorderColor(props){return polished_1.setLightness(.8,getBaseColor(props))}};
 
   &:last-of-type {
     margin-right: 0;
   }
-`;Pill.displayName="Pill",exports.default=Pill},245:function(module,exports,__webpack_require__){"use strict";(function(module){var __importStar=this&&this.__importStar||function(mod){if(mod&&mod.__esModule)return mod;var result={};if(null!=mod)for(var k in mod)Object.hasOwnProperty.call(mod,k)&&(result[k]=mod[k]);return result.default=mod,result},__importDefault=this&&this.__importDefault||function(mod){return mod&&mod.__esModule?mod:{default:mod}};Object.defineProperty(exports,"__esModule",{value:!0});const addon_links_1=__webpack_require__(246),React=__importStar(__webpack_require__(0)),react_1=__webpack_require__(6),button_1=__importDefault(__webpack_require__(52)),pill_1=__importDefault(__webpack_require__(162)),logo_png_1=__importDefault(__webpack_require__(249)),storyColumn_1=__importDefault(__webpack_require__(16));react_1.storiesOf("Navigation|Home",module).add("Welcome",()=>React.createElement(storyColumn_1.default,null,React.createElement("img",{src:logo_png_1.default,style:{width:32}}),React.createElement("h1",null,"Blazon UI"," ",React.createElement("sup",null,React.createElement(pill_1.default,{color:"warning"},"beta"))),React.createElement("p",null,"Blazon UI is a React component library."),React.createElement("p",null,React.createElement("a",{href:"https://www.npmjs.com/package/blazon-ui"},React.createElement("img",{src:"https://img.shields.io/npm/v/blazon-ui.svg?color=%23304FFE"}))," ",React.createElement("a",{href:"https://www.github.com/zachpwr/blazon-ui"},React.createElement("img",{src:"https://img.shields.io/badge/Github-zachpwr%2Fblazon--ui-3D5AFE.svg"}))," ",React.createElement("a",{href:"https://bundlephobia.com/result?p=blazon-ui"},React.createElement("img",{src:"https://img.shields.io/bundlephobia/minzip/blazon-ui.svg?color=%238C9EFF"}))),React.createElement("hr",null),React.createElement("p",null,React.createElement(button_1.default,{onClick:addon_links_1.linkTo("Navigation|Getting Started","Installing Blazon UI"),title:"Get Started with Blazon UI"},"💪🏻 Get Started →"),React.createElement(button_1.default,{color:"secondary",onClick:addon_links_1.linkTo("Navigation|Home","About Blazon UI"),title:"Learn More about Blazon UI"},"ℹ️ Learn More")))).add("About Blazon UI",()=>React.createElement(storyColumn_1.default,null,React.createElement("img",{src:logo_png_1.default,style:{width:32}}),React.createElement("h1",null,"About Blazon UI"),React.createElement("p",null,React.createElement("b",null,"Blazon UI")," is an open source React component library written in Typescript. It provides a comprehensive set of styled components for creating colorful, responsive, a11y-friendly user interfaces."),React.createElement("p",null,"Blazon UI was created in 2019 by ",React.createElement("a",{href:"https://www.zachpwr.com"},"Zach Power"),", a software engineer @ Optimizely, Inc. in San Francisco, CA."),React.createElement("p",null,React.createElement(button_1.default,{onClick:addon_links_1.linkTo("Navigation|Getting Started","Installing Blazon UI"),title:"Install Blazon UI to your app"},"📲 Install Blazon UI →"))))}).call(this,__webpack_require__(5)(module))},249:function(module,exports,__webpack_require__){module.exports=__webpack_require__.p+"static/media/logo.fc6e18dc.png"},250:function(module,exports,__webpack_require__){"use strict";var __importDefault=this&&this.__importDefault||function(mod){return mod&&mod.__esModule?mod:{default:mod}};Object.defineProperty(exports,"__esModule",{value:!0});const polished_1=__webpack_require__(25);function getSwitchColor(props){return props.on?props.theme.colors.main:props.theme.colors.secondary}const Switch=__importDefault(__webpack_require__(10)).default.button`
-  height: 1em;
+`;Pill.displayName="Pill",exports.default=Pill},245:function(module,exports,__webpack_require__){"use strict";(function(module){var __importStar=this&&this.__importStar||function(mod){if(mod&&mod.__esModule)return mod;var result={};if(null!=mod)for(var k in mod)Object.hasOwnProperty.call(mod,k)&&(result[k]=mod[k]);return result.default=mod,result},__importDefault=this&&this.__importDefault||function(mod){return mod&&mod.__esModule?mod:{default:mod}};Object.defineProperty(exports,"__esModule",{value:!0});const addon_links_1=__webpack_require__(246),React=__importStar(__webpack_require__(0)),react_1=__webpack_require__(6),button_1=__importDefault(__webpack_require__(52)),pill_1=__importDefault(__webpack_require__(162)),logo_png_1=__importDefault(__webpack_require__(249)),storyColumn_1=__importDefault(__webpack_require__(16));react_1.storiesOf("Navigation|Home",module).add("Welcome",()=>React.createElement(storyColumn_1.default,null,React.createElement("img",{src:logo_png_1.default,style:{width:32}}),React.createElement("h1",null,"Blazon UI"," ",React.createElement("sup",null,React.createElement(pill_1.default,{color:"warning"},"beta"))),React.createElement("p",null,"Blazon UI is a React component library."),React.createElement("p",null,React.createElement("a",{href:"https://www.npmjs.com/package/blazon-ui"},React.createElement("img",{src:"https://img.shields.io/npm/v/blazon-ui.svg?color=%23304FFE"}))," ",React.createElement("a",{href:"https://www.github.com/zachpwr/blazon-ui"},React.createElement("img",{src:"https://img.shields.io/badge/Github-zachpwr%2Fblazon--ui-3D5AFE.svg"}))," ",React.createElement("a",{href:"https://bundlephobia.com/result?p=blazon-ui"},React.createElement("img",{src:"https://img.shields.io/bundlephobia/minzip/blazon-ui.svg?color=%238C9EFF"}))),React.createElement("hr",null),React.createElement("p",null,React.createElement(button_1.default,{onClick:addon_links_1.linkTo("Navigation|Getting Started","Installing Blazon UI"),title:"Get Started with Blazon UI"},"💪🏻 Get Started →"),React.createElement(button_1.default,{color:"secondary",onClick:addon_links_1.linkTo("Navigation|Home","About Blazon UI"),title:"Learn More about Blazon UI"},"ℹ️ Learn More")))).add("About Blazon UI",()=>React.createElement(storyColumn_1.default,null,React.createElement("img",{src:logo_png_1.default,style:{width:32}}),React.createElement("h1",null,"About Blazon UI"),React.createElement("p",null,React.createElement("b",null,"Blazon UI")," is an open source React component library written in Typescript. It provides a comprehensive set of styled components for creating colorful, responsive, a11y-friendly user interfaces."),React.createElement("p",null,"Blazon UI was created in 2019 by ",React.createElement("a",{href:"https://www.zachpwr.com"},"Zach Power"),", a software engineer @ Optimizely, Inc. in San Francisco, CA."),React.createElement("p",null,React.createElement(button_1.default,{onClick:addon_links_1.linkTo("Navigation|Getting Started","Installing Blazon UI"),title:"Install Blazon UI to your app"},"📲 Install Blazon UI →"))))}).call(this,__webpack_require__(5)(module))},249:function(module,exports,__webpack_require__){module.exports=__webpack_require__.p+"static/media/logo.fc6e18dc.png"},250:function(module,exports,__webpack_require__){"use strict";var __importDefault=this&&this.__importDefault||function(mod){return mod&&mod.__esModule?mod:{default:mod}};Object.defineProperty(exports,"__esModule",{value:!0});const polished_1=__webpack_require__(25),react_1=__importDefault(__webpack_require__(0)),styled_components_1=__importDefault(__webpack_require__(10));function getSwitchColor(props){return polished_1.setLightness(.5,props.on?props.theme.colors.main:props.theme.colors.secondary)}const SwitchLever=styled_components_1.default(props=>react_1.default.createElement("div",Object.assign({},props),react_1.default.createElement("img",{src:"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="})))`
+  height: 100%;
+  background: white;
+  position: absolute;
+  top: 0;
+  left: ${props=>props.on?100:0}%;
+  transform: translateX(${props=>props.on?-100:0}%);
+  border-radius: 100px;
+  transition: 0.25s left ease-in-out, 0.25s transform ease-in-out;
+
+  img {
+    height: 100%;
+  }
+
+  &::before {
+    content: '${props=>props.on?"On":"Off"}';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 0.75em;
+    display: block;
+    font-size: 0.75em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: ${getSwitchColor};
+    font-family: 'Roboto Mono', monospace;
+  }
+`,Switch=styled_components_1.default(props=>react_1.default.createElement("button",Object.assign({},props),react_1.default.createElement(SwitchLever,{on:props.on})))`
+  height: 0.5em;
   width: 2.5em;
   background-color: ${getSwitchColor};
-  border: 0;
+  border: 2px solid ${getSwitchColor};
   outline: 0;
-  height: 1em;
   border-radius: 100px;
   padding: 0.75em 1em;
   font-size: 1em;
@@ -94,28 +123,12 @@
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  transition: 0.25s background-color ease-in-out;
+  transition: 0.25s background-color ease-in-out, 0.25s border-color ease-in-out;
   display: inline-block;
-  vertical-align: middle;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
   &:focus {
     box-shadow: 0 0 0 2px ${props=>polished_1.transparentize(.75,getSwitchColor(props))};
-  }
-
-  &::before {
-    width: 1em;
-    height: 1em;
-    padding: 0.5em;
-    border-radius: 100px;
-    background-color: ${props=>props.theme.colors.white};
-    display: block;
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: ${props=>props.on?"0.25em":"calc(100% - 2.25em)"};
-    transition: 0.25s right ease-in-out;
-    transform: translateY(-50%);
   }
 
   &:disabled {
@@ -143,7 +156,7 @@
   }
 `;GlobalStyle.displayName="GlobalStyle",exports.default=GlobalStyle;try{GlobalStyleComponent.displayName="GlobalStyleComponent",GlobalStyleComponent.__docgenInfo={description:"",displayName:"GlobalStyleComponent",props:{theme:{defaultValue:null,description:"",name:"theme",required:!1,type:{name:"DefaultTheme"}},suppressMultiMountWarning:{defaultValue:null,description:"",name:"suppressMultiMountWarning",required:!1,type:{name:"boolean"}}}},"undefined"!=typeof STORYBOOK_REACT_CLASSES&&(STORYBOOK_REACT_CLASSES["src/globalStyle/index.tsx#GlobalStyleComponent"]={docgenInfo:GlobalStyleComponent.__docgenInfo,name:"GlobalStyleComponent",path:"src/globalStyle/index.tsx#GlobalStyleComponent"})}catch(__react_docgen_typescript_loader_error){}},254:function(module,__webpack_exports__,__webpack_require__){"use strict";var _storybook_theming__WEBPACK_IMPORTED_MODULE_0__=__webpack_require__(255),_src_theme__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(81),_src_theme__WEBPACK_IMPORTED_MODULE_1___default=__webpack_require__.n(_src_theme__WEBPACK_IMPORTED_MODULE_1__),_assets_storybookLogo_png__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(257),_assets_storybookLogo_png__WEBPACK_IMPORTED_MODULE_2___default=__webpack_require__.n(_assets_storybookLogo_png__WEBPACK_IMPORTED_MODULE_2__);__webpack_exports__.a=Object(_storybook_theming__WEBPACK_IMPORTED_MODULE_0__.create)({base:"light",brandTitle:"Blazon UI",brandUrl:"https://www.npmjs.com/package/blazon-ui",brandImage:_assets_storybookLogo_png__WEBPACK_IMPORTED_MODULE_2___default.a,fontBase:_src_theme__WEBPACK_IMPORTED_MODULE_1___default.a.fontFamily,colorPrimary:_src_theme__WEBPACK_IMPORTED_MODULE_1___default.a.colors.darkGray,colorSecondary:_src_theme__WEBPACK_IMPORTED_MODULE_1___default.a.colors.main})},257:function(module,exports,__webpack_require__){module.exports=__webpack_require__.p+"static/media/storybookLogo.12f7b20a.png"},258:function(module,exports,__webpack_require__){__webpack_require__(259),__webpack_require__(344),module.exports=__webpack_require__(345)},345:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),function(module){__webpack_require__(57),__webpack_require__(75),__webpack_require__(56),__webpack_require__(90);var react__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(0),react__WEBPACK_IMPORTED_MODULE_4___default=__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__),_storybook_react__WEBPACK_IMPORTED_MODULE_5__=__webpack_require__(6),_src_themeProvider__WEBPACK_IMPORTED_MODULE_6__=__webpack_require__(251),_src_themeProvider__WEBPACK_IMPORTED_MODULE_6___default=__webpack_require__.n(_src_themeProvider__WEBPACK_IMPORTED_MODULE_6__),_src_globalStyle__WEBPACK_IMPORTED_MODULE_7__=__webpack_require__(253),_src_globalStyle__WEBPACK_IMPORTED_MODULE_7___default=__webpack_require__.n(_src_globalStyle__WEBPACK_IMPORTED_MODULE_7__),_theme__WEBPACK_IMPORTED_MODULE_8__=__webpack_require__(254),req=(__webpack_require__(245),__webpack_require__(507));Object(_storybook_react__WEBPACK_IMPORTED_MODULE_5__.addParameters)({options:{theme:_theme__WEBPACK_IMPORTED_MODULE_8__.a,showPanel:!1,sidebarAnimations:!0,isToolshown:!1}});var _ref=react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_src_globalStyle__WEBPACK_IMPORTED_MODULE_7___default.a,null);Object(_storybook_react__WEBPACK_IMPORTED_MODULE_5__.configure)(function loadStories(){req.keys().forEach(req),Object(_storybook_react__WEBPACK_IMPORTED_MODULE_5__.addDecorator)(function(story){return react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_src_themeProvider__WEBPACK_IMPORTED_MODULE_6___default.a,null,react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_4___default.a.Fragment,null,_ref,story()))})},module)}.call(this,__webpack_require__(346)(module))},507:function(module,exports,__webpack_require__){var map={"./alert.stories.tsx":508,"./button.stories.tsx":510,"./buttonGroup.stories.tsx":511,"./checkbox.stories.tsx":513,"./formSection.stories.tsx":515,"./gettingStarted.stories.tsx":517,"./home.stories.tsx":245,"./panel.stories.tsx":518,"./pill.stories.tsx":520,"./progressBar.stories.tsx":521,"./select.stories.tsx":523,"./switch.stories.tsx":525,"./textInput.stories.tsx":526,"./textInputGroup.stories.tsx":527};function webpackContext(req){var id=webpackContextResolve(req);return __webpack_require__(id)}function webpackContextResolve(req){if(!__webpack_require__.o(map,req)){var e=new Error("Cannot find module '"+req+"'");throw e.code="MODULE_NOT_FOUND",e}return map[req]}webpackContext.keys=function webpackContextKeys(){return Object.keys(map)},webpackContext.resolve=webpackContextResolve,module.exports=webpackContext,webpackContext.id=507},508:function(module,exports,__webpack_require__){"use strict";(function(module){var __importStar=this&&this.__importStar||function(mod){if(mod&&mod.__esModule)return mod;var result={};if(null!=mod)for(var k in mod)Object.hasOwnProperty.call(mod,k)&&(result[k]=mod[k]);return result.default=mod,result},__importDefault=this&&this.__importDefault||function(mod){return mod&&mod.__esModule?mod:{default:mod}};Object.defineProperty(exports,"__esModule",{value:!0});const React=__importStar(__webpack_require__(0)),react_1=__webpack_require__(6),alert_1=__importDefault(__webpack_require__(509)),storyColumn_1=__importDefault(__webpack_require__(16));react_1.storiesOf("Components|Atoms (Basic)/Alert",module).add("Default State",()=>React.createElement(storyColumn_1.default,null,React.createElement("h1",null,React.createElement("code",null,"<Alert />")," Component"),React.createElement("h2",null,"Default State"),React.createElement("h3",null,React.createElement("code",null,'color="main"')," (default)"),React.createElement(alert_1.default,null,React.createElement("b",null,"Fáilte!")," Go raibh maith agat as clárú."),React.createElement("br",null),React.createElement("h3",null,React.createElement("code",null,'color="success"')),React.createElement(alert_1.default,{color:"success"},React.createElement("b",null,"Samþykkt!")," Umsóknin þín var staðfest og samþykkt."),React.createElement("br",null),React.createElement("h3",null,React.createElement("code",null,'color="warning"')),React.createElement(alert_1.default,{color:"warning"},React.createElement("b",null,"Rabhadh!")," An do chuir thu eadar-theangachadh an teacsa seo?"),React.createElement("br",null),React.createElement("h3",null,React.createElement("code",null,'color="error"')),React.createElement(alert_1.default,{color:"error"},React.createElement("b",null,"Misslyckad!")," Programmet kunde inte kompilera på grund av syntaxfel."),React.createElement("br",null),React.createElement("h3",null,React.createElement("code",null,'color="secondary"')),React.createElement(alert_1.default,{color:"secondary"},React.createElement("b",null,"Интересный факт:")," C++ компилируемый, статически типизированный язык программирования общего назначения.")))}).call(this,__webpack_require__(5)(module))},509:function(module,exports,__webpack_require__){"use strict";var __importDefault=this&&this.__importDefault||function(mod){return mod&&mod.__esModule?mod:{default:mod}};Object.defineProperty(exports,"__esModule",{value:!0});const polished_1=__webpack_require__(25);function getBaseColor(props){return props.theme.colors[props.color||"main"]}const Alert=__importDefault(__webpack_require__(10)).default.div`
   background-color: ${function getAlertBackground(props){return polished_1.setLightness(.9,getBaseColor(props))}};
-  border: 1px solid ${function getAlertBorderColor(props){return polished_1.setLightness(.8,getBaseColor(props))}};
+  border: 2px solid ${function getAlertBorderColor(props){return polished_1.setLightness(.8,getBaseColor(props))}};
   border-radius: ${props=>props.theme.borderRadius};
   padding: 10px;
   margin-bottom: 10px;
@@ -257,7 +270,7 @@
   background-color: ${props=>props.theme.colors.white};
   border-radius: ${props=>props.theme.borderRadius};
   padding: 20px;
-  box-shadow: 0 5px 20px ${props=>polished_1.transparentize(.9,props.theme.colors.darkGray)};
+  box-shadow: 0 2px 8px ${props=>polished_1.transparentize(.8,props.theme.colors.darkGray)};
   margin-bottom: 20px;
 `;Panel.displayName="Panel",exports.default=Panel},52:function(module,exports,__webpack_require__){"use strict";var __importDefault=this&&this.__importDefault||function(mod){return mod&&mod.__esModule?mod:{default:mod}};Object.defineProperty(exports,"__esModule",{value:!0});const polished_1=__webpack_require__(25),styled_components_1=__importDefault(__webpack_require__(10)),DEFAULT_COLOR="main";function getButtonColor(props){return props.theme.colors[props.color||DEFAULT_COLOR]}function getButtonTextColor(props){const bgColor=getButtonColor(props);return polished_1.getLuminance(bgColor)>.5?props.theme.colors.darkGray:props.theme.colors.white}const Button=styled_components_1.default.button`
   border-radius: ${props=>props.theme.borderRadius};
@@ -267,6 +280,7 @@
   cursor: pointer;
   outline: 0;
   font-size: 1em;
+  font-weight: 600;
   line-height: 1em;
   padding: 0.75em 1em;
   transition: 0.25s background-color ease-in-out;
@@ -317,7 +331,7 @@
     background-color: ${getProgressBarColor};
   }
 `;ProgressBar.displayName="ProgressBar",exports.default=ProgressBar},523:function(module,exports,__webpack_require__){"use strict";(function(module){var __importStar=this&&this.__importStar||function(mod){if(mod&&mod.__esModule)return mod;var result={};if(null!=mod)for(var k in mod)Object.hasOwnProperty.call(mod,k)&&(result[k]=mod[k]);return result.default=mod,result},__importDefault=this&&this.__importDefault||function(mod){return mod&&mod.__esModule?mod:{default:mod}};Object.defineProperty(exports,"__esModule",{value:!0});const React=__importStar(__webpack_require__(0)),react_1=__webpack_require__(6),select_1=__importDefault(__webpack_require__(524)),storyColumn_1=__importDefault(__webpack_require__(16)),choices=[{value:"choice1",text:"Choice 1"},{value:"choice2",text:"Choice 2"},{value:"choice3",text:"Choice 3"}],DemoStateWrapper=({render:render,initialValue:initialValue})=>{const[value,setValue]=React.useState(initialValue||choices[0].value);return render(value,newValue=>{setValue(newValue)})};react_1.storiesOf("Components|Atoms (Basic)/Select",module).add("Default State",()=>React.createElement(storyColumn_1.default,null,React.createElement("h1",null,React.createElement("code",null,"<Select />")," Component"),React.createElement("h2",null,"Default State"),React.createElement("h3",null,React.createElement("code",null,"onSelect={(value) => {}}")," ",React.createElement("code",null,"choices={[ { value: '', text: '' } ]}")," ",React.createElement("code",null,"value={''}")),React.createElement(DemoStateWrapper,{render:(value,onSelect)=>React.createElement(select_1.default,{onSelect:onSelect,choices:choices,value:value})}),React.createElement(DemoStateWrapper,{render:(value,onSelect)=>React.createElement(select_1.default,{onSelect:onSelect,choices:choices,value:value,color:"secondary"})}))).add("Disabled State",()=>React.createElement(storyColumn_1.default,null,React.createElement("h1",null,React.createElement("code",null,"<Select />")," Component"),React.createElement("h2",null,"Disabled State"),React.createElement("h3",null,React.createElement("code",null,"disabled={true}")),React.createElement(select_1.default,{onSelect:()=>{console.log("select")},choices:choices,value:"choice1",disabled:!0}),React.createElement(select_1.default,{onSelect:()=>{console.log("select")},choices:choices,value:"choice1",color:"secondary",disabled:!0})))}).call(this,__webpack_require__(5)(module))},524:function(module,exports,__webpack_require__){"use strict";var __importStar=this&&this.__importStar||function(mod){if(mod&&mod.__esModule)return mod;var result={};if(null!=mod)for(var k in mod)Object.hasOwnProperty.call(mod,k)&&(result[k]=mod[k]);return result.default=mod,result},__importDefault=this&&this.__importDefault||function(mod){return mod&&mod.__esModule?mod:{default:mod}};Object.defineProperty(exports,"__esModule",{value:!0});const polished_1=__webpack_require__(25),React=__importStar(__webpack_require__(0)),styled_components_1=__importDefault(__webpack_require__(10)),button_1=__importDefault(__webpack_require__(52)),DEFAULT_COLOR="main";const SelectMenuRow=styled_components_1.default.button`
-  background-color: ${props=>props.theme.colors.white};
+  background-color: transparent;
   padding: 0.75em 1em;
   margin: 5px 0;
   display: block;
@@ -347,7 +361,7 @@
   min-width: 110%;
   max-width: 150%;
   margin: 5px 0 0 0;
-  box-shadow: 0 2px 10px ${props=>polished_1.transparentize(.9,props.theme.colors.darkGray)};
+  box-shadow: 0 2px 8px ${props=>polished_1.transparentize(.8,props.theme.colors.darkGray)};
 `;class Select extends React.Component{constructor(props){super(props),this.state={menuIsVisible:!1},this.toggleMenu=(()=>{const{menuIsVisible:menuIsVisible}=this.state;this.setState({menuIsVisible:!menuIsVisible})}),this.closeMenu=(()=>{this.setState({menuIsVisible:!1}),this.buttonRef.current&&this.buttonRef.current.focus()}),this.handleGlobalClick=(e=>{this.containerRef.current&&e.target instanceof Node&&this.containerRef.current.contains(e.target)||this.closeMenu()}),this.handleSelect=(value=>{const{onSelect:onSelect}=this.props;onSelect(value),this.closeMenu()}),this.renderMenu=(()=>React.createElement(SelectMenu,null,this.props.choices.map(({value:value,text:text})=>React.createElement(SelectMenuRow,{key:value,onClick:()=>this.handleSelect(value)},text)))),this.containerRef=React.createRef(),this.buttonRef=React.createRef()}componentDidMount(){window.addEventListener("mousedown",this.handleGlobalClick,!1)}componentWillUnmount(){window.removeEventListener("mousedown",this.handleGlobalClick,!1)}render(){const{className:className,color:color,value:value,choices:choices,disabled:disabled}=this.props,{menuIsVisible:menuIsVisible}=this.state,buttonText=choices.reduce((acc,choice)=>acc||choice.value!==value?acc:choice.text,"");return React.createElement("span",{className:className,ref:this.containerRef},React.createElement(button_1.default,{color:color,onClick:this.toggleMenu,disabled:disabled,ref:this.buttonRef},buttonText),menuIsVisible&&this.renderMenu())}}const StyledSelect=styled_components_1.default(props=>React.createElement(Select,Object.assign({},props)))`
   margin-right: 5px;
   position: relative;
@@ -364,7 +378,7 @@
       width: 0.5em;
       height: 0.5em;
       display: inline-block;
-      border-width: 0 1px 1px 0;
+      border-width: 0 2px 2px 0;
       border-style: solid;
       transform: translateY(-50%) rotate(45deg);
       margin-top: -2px;
@@ -404,5 +418,5 @@
       z-index: 2;
     }
   }
-`;TextInputGroup.displayName="TextInputGroup",exports.default=TextInputGroup},81:function(module,exports,__webpack_require__){"use strict";Object.defineProperty(exports,"__esModule",{value:!0});exports.default={borderRadius:"5px",fontFamily:"'Roboto', sans-serif",fontImportUrl:["https://fonts.googleapis.com/css?family=Roboto:400,600,700","https://fonts.googleapis.com/css?family=Roboto+Mono:400"],colors:{darkGray:"#424242",error:"#ef5350",main:"#304ffe",secondary:"#e0e0e0",success:"#4caf50",warning:"#ffb300",white:"#fff"}}}},[[258,1,2]]]);
-//# sourceMappingURL=main.b9de4b4894aef41ffb9e.bundle.js.map
+`;TextInputGroup.displayName="TextInputGroup",exports.default=TextInputGroup},81:function(module,exports,__webpack_require__){"use strict";Object.defineProperty(exports,"__esModule",{value:!0});exports.default={borderRadius:"5px",fontFamily:"'Roboto', sans-serif",fontImportUrl:["https://fonts.googleapis.com/css?family=Roboto:400,600,700","https://fonts.googleapis.com/css?family=Roboto+Mono:500"],colors:{darkGray:"#424242",error:"#ef5350",main:"#304ffe",secondary:"#e0e0e0",success:"#4caf50",warning:"#ffb300",white:"#fff"}}}},[[258,1,2]]]);
+//# sourceMappingURL=main.0490b104730c46f0d934.bundle.js.map
