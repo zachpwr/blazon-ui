@@ -1,4 +1,4 @@
-import { getLuminance } from 'polished';
+import { setLightness } from 'polished';
 import styled from 'styled-components';
 
 import { ITheme } from '../theme';
@@ -10,13 +10,16 @@ export interface IPillProps {
   color?: string;
 }
 
-function getPillColor(props: IPillProps): string {
+function getBaseColor(props: IPillProps): string {
   return props.theme.colors[props.color || DEFAULT_COLOR];
 }
 
+function getPillColor(props: IPillProps): string {
+  return setLightness(0.8, getBaseColor(props));
+}
+
 function getPillTextColor(props: IPillProps): string {
-  const bgColor = getPillColor(props);
-  return getLuminance(bgColor) > 0.5 ? props.theme.colors.darkGray : props.theme.colors.white;
+  return setLightness(0.2, getBaseColor(props));
 }
 
 const Pill = styled.div<IPillProps>`
