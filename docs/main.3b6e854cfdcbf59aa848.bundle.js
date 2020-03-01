@@ -61,9 +61,9 @@
   h1 sup {
     font-size: 0.4em;
   }
-`;exports.default=StoryColumn},162:function(module,exports,__webpack_require__){"use strict";var __importDefault=this&&this.__importDefault||function(mod){return mod&&mod.__esModule?mod:{default:mod}};Object.defineProperty(exports,"__esModule",{value:!0});const polished_1=__webpack_require__(37),styled_components_1=__importDefault(__webpack_require__(10)),DEFAULT_COLOR="main";function getPillColor(props){return props.theme.colors[props.color||DEFAULT_COLOR]}const Pill=styled_components_1.default.div`
-  background-color: ${getPillColor};
-  color: ${function getPillTextColor(props){const bgColor=getPillColor(props);return polished_1.getLuminance(bgColor)>.5?props.theme.colors.darkGray:props.theme.colors.white}};
+`;exports.default=StoryColumn},162:function(module,exports,__webpack_require__){"use strict";var __importDefault=this&&this.__importDefault||function(mod){return mod&&mod.__esModule?mod:{default:mod}};Object.defineProperty(exports,"__esModule",{value:!0});const polished_1=__webpack_require__(37),styled_components_1=__importDefault(__webpack_require__(10)),DEFAULT_COLOR="main";function getBaseColor(props){return props.theme.colors[props.color||DEFAULT_COLOR]}const Pill=styled_components_1.default.div`
+  background-color: ${function getPillColor(props){return polished_1.setLightness(.8,getBaseColor(props))}};
+  color: ${function getPillTextColor(props){return polished_1.setLightness(.2,getBaseColor(props))}};
   margin: 0 5px 10px 0;
   font-size: 1em;
   padding: 0.25em 0.75em;
@@ -405,4 +405,4 @@
     }
   }
 `;TextInputGroup.displayName="TextInputGroup",exports.default=TextInputGroup},81:function(module,exports,__webpack_require__){"use strict";Object.defineProperty(exports,"__esModule",{value:!0});exports.default={borderRadius:"5px",fontFamily:"'Roboto', sans-serif",fontImportUrl:["https://fonts.googleapis.com/css?family=Roboto:400,600,700","https://fonts.googleapis.com/css?family=Roboto+Mono:400"],colors:{darkGray:"#424242",error:"#ef5350",main:"#304ffe",secondary:"#e0e0e0",success:"#4caf50",warning:"#ffb300",white:"#fff"}}}},[[258,1,2]]]);
-//# sourceMappingURL=main.9927f3e6fd4467159c6b.bundle.js.map
+//# sourceMappingURL=main.3b6e854cfdcbf59aa848.bundle.js.map
