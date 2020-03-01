@@ -10,20 +10,24 @@ export interface IPillProps {
   color?: string;
 }
 
-function getBaseColor(props: IPillProps): string {
-  return props.theme.colors[props.color || DEFAULT_COLOR];
+function getBaseColor(props: IPillProps) {
+  return props.theme.colors[props.color || 'main'];
 }
 
-function getPillColor(props: IPillProps): string {
+function getPillBorderColor(props: IPillProps) {
   return setLightness(0.8, getBaseColor(props));
 }
 
-function getPillTextColor(props: IPillProps): string {
+function getPillBackground(props: IPillProps) {
+  return setLightness(0.9, getBaseColor(props));
+}
+
+function getPillTextColor(props: IPillProps) {
   return setLightness(0.2, getBaseColor(props));
 }
 
 const Pill = styled.div<IPillProps>`
-  background-color: ${getPillColor};
+  background-color: ${getPillBackground};
   color: ${getPillTextColor};
   margin: 0 5px 10px 0;
   font-size: 1em;
@@ -36,6 +40,8 @@ const Pill = styled.div<IPillProps>`
   display: inline-block;
   transition: 0.25s color ease-in-out, 0.25s background-color ease-in-out;
   font-family: 'Roboto Mono', monospace;
+  font-weight: 500;
+  border: 2px solid ${getPillBorderColor};
 
   &:last-of-type {
     margin-right: 0;

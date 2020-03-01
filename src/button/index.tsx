@@ -27,6 +27,7 @@ const Button = styled.button<IButtonProps>`
   cursor: pointer;
   outline: 0;
   font-size: 1em;
+  font-weight: 600;
   line-height: 1em;
   padding: 0.75em 1em;
   transition: 0.25s background-color ease-in-out;

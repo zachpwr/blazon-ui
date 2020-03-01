@@ -1,4 +1,5 @@
-import { transparentize } from 'polished';
+import { setLightness, transparentize } from 'polished';
+import React from 'react';
 import styled from 'styled-components';
 
 import { ITheme } from '../theme';
@@ -10,16 +11,53 @@ export interface ISwitchProps {
 }
 
 function getSwitchColor(props: ISwitchProps) {
-  return props.on ? props.theme.colors.main : props.theme.colors.secondary;
+  return setLightness(0.5, props.on ? props.theme.colors.main : props.theme.colors.secondary);
 }
 
-const Switch = styled.button<ISwitchProps>`
-  height: 1em;
+const SwitchLever = styled(props => (
+  <div {...props}>
+    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" />
+  </div>
+))`
+  height: 100%;
+  background: white;
+  position: absolute;
+  top: 0;
+  left: ${props => (props.on ? 100 : 0)}%;
+  transform: translateX(${props => (props.on ? -100 : 0)}%);
+  border-radius: 100px;
+  transition: 0.25s left ease-in-out, 0.25s transform ease-in-out;
+
+  img {
+    height: 100%;
+  }
+
+  &::before {
+    content: '${props => (props.on ? 'On' : 'Off')}';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 0.75em;
+    display: block;
+    font-size: 0.75em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: ${getSwitchColor};
+    font-family: 'Roboto Mono', monospace;
+  }
+`;
+
+const Switch = styled(props => (
+  <button {...props}>
+    <SwitchLever on={props.on} />
+  </button>
+))`
+  height: 0.5em;
   width: 2.5em;
   background-color: ${getSwitchColor};
-  border: 0;
+  border: 2px solid ${getSwitchColor};
   outline: 0;
-  height: 1em;
   border-radius: 100px;
   padding: 0.75em 1em;
   font-size: 1em;
@@ -28,28 +66,12 @@ const Switch = styled.button<ISwitchProps>`
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  transition: 0.25s background-color ease-in-out;
+  transition: 0.25s background-color ease-in-out, 0.25s border-color ease-in-out;
   display: inline-block;
-  vertical-align: middle;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
   &:focus {
     box-shadow: 0 0 0 2px ${props => transparentize(0.75, getSwitchColor(props))};
-  }
-
-  &::before {
-    width: 1em;
-    height: 1em;
-    padding: 0.5em;
-    border-radius: 100px;
-    background-color: ${props => props.theme.colors.white};
-    display: block;
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: ${props => (props.on ? '0.25em' : 'calc(100% - 2.25em)')};
-    transition: 0.25s right ease-in-out;
-    transform: translateY(-50%);
   }
 
   &:disabled {

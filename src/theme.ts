@@ -13,7 +13,7 @@ const theme: DefaultTheme & ITheme = {
   fontFamily: "'Roboto', sans-serif",
   fontImportUrl: [
     'https://fonts.googleapis.com/css?family=Roboto:400,600,700',
-    'https://fonts.googleapis.com/css?family=Roboto+Mono:400',
+    'https://fonts.googleapis.com/css?family=Roboto+Mono:500',
   ],
 
   colors: {

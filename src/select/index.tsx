@@ -37,7 +37,7 @@ function getArrowColor(props: ISelectInnerProps): string {
 }
 
 const SelectMenuRow = styled.button`
-  background-color: ${props => props.theme.colors.white};
+  background-color: transparent;
   padding: 0.75em 1em;
   margin: 5px 0;
   display: block;
@@ -69,7 +69,7 @@ const SelectMenu = styled.div`
   min-width: 110%;
   max-width: 150%;
   margin: 5px 0 0 0;
-  box-shadow: 0 2px 10px ${props => transparentize(0.9, props.theme.colors.darkGray)};
+  box-shadow: 0 2px 8px ${props => transparentize(0.8, props.theme.colors.darkGray)};
 `;
 
 class Select extends React.Component<ISelectInnerProps> {
@@ -172,7 +172,7 @@ const StyledSelect = styled((props: ISelectInnerProps) => <Select {...props} />)
       width: 0.5em;
       height: 0.5em;
       display: inline-block;
-      border-width: 0 1px 1px 0;
+      border-width: 0 2px 2px 0;
       border-style: solid;
       transform: translateY(-50%) rotate(45deg);
       margin-top: -2px;

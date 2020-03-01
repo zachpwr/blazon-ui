@@ -26,7 +26,7 @@ function getAlertTextColor(props: IAlertProps) {
 
 const Alert = styled.div<IAlertProps>`
   background-color: ${getAlertBackground};
-  border: 1px solid ${getAlertBorderColor};
+  border: 2px solid ${getAlertBorderColor};
   border-radius: ${props => props.theme.borderRadius};
   padding: 10px;
   margin-bottom: 10px;
