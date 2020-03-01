@@ -13,7 +13,7 @@ const TextInputGroup = styled.div<ITextInputGroupProps>`
     border-radius: 0;
     z-index: 0;
     position: relative;
-    margin-top: -1px;
+    margin-top: -2px;
 
     &:first-of-type {
       border-top-left-radius: ${props => props.theme.borderRadius};

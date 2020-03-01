@@ -1,4 +1,4 @@
-import { mix, transparentize } from 'polished';
+import { mix, setLightness, transparentize } from 'polished';
 import styled from 'styled-components';
 
 import { ITheme } from '../theme';
@@ -13,7 +13,7 @@ function getBorderColor(props: ITextInputProps) {
     return props.theme.colors.error;
   }
 
-  return props.theme.colors.secondary;
+  return setLightness(0.5, props.theme.colors.secondary);
 }
 
 function getFocusedBorderColor(props: ITextInputProps) {
@@ -26,7 +26,7 @@ function getFocusedBorderColor(props: ITextInputProps) {
 
 const TextInput = styled.input<ITextInputProps>`
   background-color: ${props => props.theme.colors.white};
-  border: 1px solid ${getBorderColor};
+  border: 2px solid ${getBorderColor};
   border-radius: ${props => props.theme.borderRadius};
   transition: 0.25s border-color ease-in-out, 0.75s box-shadow ease-in-out;
   cursor: text;
@@ -39,11 +39,11 @@ const TextInput = styled.input<ITextInputProps>`
   appearance: none;
 
   &::placeholder {
-    color: ${props => props.theme.colors.secondary};
+    color: ${props => setLightness(0.6, props.theme.colors.secondary)};
   }
 
   &:hover {
-    border-color: ${props => mix(0.5, props.theme.colors.white, getFocusedBorderColor(props))};
+    border-color: ${getFocusedBorderColor};
   }
 
   &:focus {
