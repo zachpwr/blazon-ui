@@ -34,9 +34,11 @@ const TextInput = styled.input<ITextInputProps>`
   width: 100%;
   box-sizing: border-box;
   font-size: 1em;
+  line-height: 1em;
   padding: 0.75em 1em;
   outline: 0;
   appearance: none;
+  height: 2.5em;
 
   &::placeholder {
     color: ${props => setLightness(0.6, props.theme.colors.secondary)};

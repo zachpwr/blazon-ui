@@ -33,6 +33,7 @@ const Button = styled.button<IButtonProps>`
   transition: 0.25s background-color ease-in-out;
   margin-right: 5px;
   user-select: none;
+  white-space: nowrap;
   -webkit-tap-highlight-color: ${props => transparentize(0.5, getButtonColor(props))};
 
   &:hover {

@@ -29,7 +29,7 @@ function getPillTextColor(props: IPillProps) {
 const Pill = styled.div<IPillProps>`
   background-color: ${getPillBackground};
   color: ${getPillTextColor};
-  margin: 0 5px 10px 0;
+  margin-right: 5px;
   font-size: 1em;
   padding: 0.25em 0.75em;
   border-radius: 100px;
