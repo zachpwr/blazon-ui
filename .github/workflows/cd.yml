@@ -42,8 +42,7 @@ jobs:
           node-version: 12
       - run: |
           yarn
-          git checkout master
           yarn build-storybook
           git add .
           git commit --no-verify -m "chore(storybook): rebuild documentation site"
-          git push
+          git push https://${{github.actor}}:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git HEAD:${{ github.ref }}
