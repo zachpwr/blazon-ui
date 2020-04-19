@@ -41,8 +41,11 @@
     "awesome-typescript-loader": "^5.2.1",
     "babel-jest": "^24.8.0",
     "babel-loader": "^8.0.5",
+    "commitizen": "^4.0.4",
+    "cz-conventional-changelog": "^3.1.0",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.13.0",
+    "husky": "^4.2.5",
     "jest": "^24.7.1",
     "prettier": "^1.17.0",
     "react-docgen-typescript-loader": "^3.1.0",
@@ -51,7 +54,8 @@
     "tslint": "^5.16.0",
     "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.4.5",
-    "webpack": "^4.30.0"
+    "webpack": "^4.30.0",
+    "semantic-release": "^17.0.6"
   },
   "scripts": {
     "clean": "rm -rf ./lib",
@@ -67,11 +71,22 @@
     "version": "yarn format && git add -A src",
     "postversion": "git push && git push --tags",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook -o ./docs"
+    "build-storybook": "build-storybook -o ./docs",
+    "semantic-release": "semantic-release"
   },
   "files": [
     "lib/**/*"
   ],
   "main": "lib/index.js",
-  "types": "lib/index.d.ts"
+  "types": "lib/index.d.ts",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+    }
+  }
 }
