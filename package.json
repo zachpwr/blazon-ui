@@ -54,7 +54,8 @@
     "tslint": "^5.16.0",
     "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.4.5",
-    "webpack": "^4.30.0"
+    "webpack": "^4.30.0",
+    "semantic-release": "^17.0.6"
   },
   "scripts": {
     "clean": "rm -rf ./lib",
@@ -70,7 +71,8 @@
     "version": "yarn format && git add -A src",
     "postversion": "git push && git push --tags",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook -o ./docs"
+    "build-storybook": "build-storybook -o ./docs",
+    "semantic-release": "semantic-release"
   },
   "files": [
     "lib/**/*"
