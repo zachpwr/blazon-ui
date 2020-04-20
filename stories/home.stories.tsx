@@ -60,7 +60,7 @@ storiesOf('Navigation|Home', module)
         set of styled components for creating colorful, responsive, a11y-friendly user interfaces.
       </p>
       <p>
-        Blazon UI was created in 2019 by <a href="https://www.zachpwr.com">Zach Power</a>, a software engineer @
+        Blazon UI was created in 2019 by <a href="https://www.zachpwr.com">Zach Power</a>, who is a software engineer @
         Optimizely, Inc. in San Francisco, CA.
       </p>
       <p>
