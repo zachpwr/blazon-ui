@@ -47,4 +47,4 @@ jobs:
           git config --global user.name "${{github.actor}} (via CD)"
           git add .
           git commit --no-verify -m "chore(storybook): rebuild documentation site"
-          git push https://${{github.actor}}:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git HEAD:${{ github.ref }}
+          git push -f https://${{github.actor}}:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git HEAD:${{ github.ref }}
