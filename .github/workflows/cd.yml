@@ -47,7 +47,7 @@ jobs:
           yarn build-storybook
           git config user.email "blazon-ui-cd-bot@users.noreply.github.com"
           git config user.name "Blazon UI CD Bot"
-      - name: Publish Storybook
+      - name: Publish Storybook to Github Pages
         run: |
           git add .
           git commit --no-verify -m "chore(storybook): rebuild documentation site"
