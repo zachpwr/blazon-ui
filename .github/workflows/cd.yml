@@ -37,7 +37,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        ssh-key: '${{ secrets.CD_GITHUB_DEPLOY_TOKEN_SECRET }}'
+        with:
+          ssh-key: ${{ secrets.CD_GITHUB_DEPLOY_TOKEN_SECRET }}
       - uses: actions/setup-node@v1
         with:
           node-version: 12
