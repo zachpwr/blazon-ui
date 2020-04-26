@@ -1,0 +1,102 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [master, beta, alpha]
+    paths-ignore:
+      - 'docs/**'
+  pull_request:
+    branches: [master, beta, alpha]
+    types: [opened, synchronize, reopened]
+
+jobs:
+  build:
+    name: 'Build Blazon UI at SHA ${{github.sha}}'
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout ${{github.ref}} from zachpwr/blazon-ui.git'
+        uses: actions/checkout@v2
+        with:
+          ssh-key: ${{ secrets.CD_GITHUB_DEPLOY_TOKEN_SECRET }}
+
+      - name: Read .nvmrc
+        run: echo "##[set-output name=NVMRC;]$(cat .nvmrc)"
+        id: nvmrc
+
+      - name: 'Install Node v${{steps.nvmrc.outputs.NVMRC}}'
+        uses: actions/setup-node@v1
+        with:
+          node-version: '${{steps.nvm.outputs.NVMRC}}'
+
+      - name: Install Node Dependencies
+        run: yarn install --frozen-lockfile --check-files
+
+      - name: Build Blazon UI
+        run: yarn run build
+
+      - name: Cache Build Environment
+        uses: actions/cache@v1
+        id: cache-build
+        with:
+          path: '.'
+          key: ${{ github.sha }}
+
+  test:
+    name: 'Test Blazon UI at SHA ${{github.sha}}'
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Restore Cached Build Environment
+        uses: actions/cache@v1
+        id: restore-build
+        with:
+          path: '.'
+          key: ${{ github.sha }}
+
+      - name: Run Automated Tests
+        run: yarn run test
+
+  deploy:
+    name: Deploy zachpwr/blazon-ui.git to NPM
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/alpha' || github.ref == 'refs/heads/beta' || github.ref == 'refs/heads/master')
+    needs: [build, test]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Restore Cached Build Environment
+        uses: actions/cache@v1
+        id: restore-build
+        with:
+          path: '.'
+          key: ${{ github.sha }}
+
+      - name: Deploy New Version to NPM
+        run: yarn run semantic-release
+        env:
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          CI: true
+
+  publish-storybook:
+    name: Build and Publish Storybook
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Restore Cached Build Environment
+        uses: actions/cache@v1
+        id: restore-build
+        with:
+          path: '.'
+          key: ${{ github.sha }}
+
+      - name: Build Storybook
+        run: yarn run build-storybook
+
+      - name: Publish Storybook to Github Pages
+        run: |
+          git config user.email "blazon-ui-cd-bot@users.noreply.github.com"
+          git config user.name "Blazon UI CD Bot"
+          git add .
+          git commit --no-verify -m "chore(storybook): rebuild documentation site"
+          git push
