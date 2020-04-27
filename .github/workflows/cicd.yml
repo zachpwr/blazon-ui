@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    name: 'Build Blazon UI at SHA ${{github.sha}}'
+    name: Build Blazon UI
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout ${{github.ref}} from zachpwr/blazon-ui.git'
@@ -42,7 +42,7 @@ jobs:
           key: ${{ github.sha }}
 
   test:
-    name: 'Test Blazon UI at SHA ${{github.sha}}'
+    name: Test Blazon UI
     runs-on: ubuntu-latest
     needs: build
     steps:
