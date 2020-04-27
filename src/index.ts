@@ -4,6 +4,7 @@ import ButtonGroup from './buttonGroup';
 import Checkbox from './checkbox';
 import FormSection from './formSection';
 import GlobalStyle from './globalStyle';
+import Grid from './grid';
 import Panel from './panel';
 import Pill from './pill';
 import ProgressBar from './progressBar';
@@ -20,6 +21,7 @@ export {
   Checkbox,
   FormSection,
   GlobalStyle,
+  Grid,
   Panel,
   Pill,
   ProgressBar,
@@ -37,6 +39,7 @@ export default {
   Checkbox,
   FormSection,
   GlobalStyle,
+  Grid,
   Panel,
   Pill,
   ProgressBar,
