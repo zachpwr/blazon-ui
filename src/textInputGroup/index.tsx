@@ -1,3 +1,4 @@
+import * as React from 'react';
 import styled from 'styled-components';
 
 import { ITheme } from '../theme';
@@ -6,9 +7,24 @@ import TextInput from '../textInput';
 
 export interface ITextInputGroupProps {
   theme: ITheme;
+  children?: React.ReactChild | React.ReactChild[];
 }
 
-const TextInputGroup = styled.div<ITextInputGroupProps>`
+export class UnstyledTextInputGroup extends React.PureComponent<ITextInputGroupProps> {
+  public static displayName = 'UnstyledTextInputGroup';
+
+  public componentDidMount() {
+    // tslint:disable-next-line: no-console
+    console.warn('[BLAZON UI] <TextInputGroup /> is deprecated and will be removed in v1.0.0');
+  }
+
+  public render() {
+    const { children, ...props } = this.props;
+    return <div {...props}>{children}</div>;
+  }
+}
+
+const TextInputGroup = styled(UnstyledTextInputGroup)<ITextInputGroupProps>`
   ${TextInput} {
     border-radius: 0;
     z-index: 0;
