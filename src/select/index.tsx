@@ -1,5 +1,6 @@
 import { ellipsis, getLuminance, mix, transparentize } from 'polished';
 import * as React from 'react';
+import { usePopper } from 'react-popper';
 import styled from 'styled-components';
 
 import { ITheme } from '../theme';
@@ -71,11 +72,13 @@ const SelectMenuRow = styled.li`
     margin-left: calc(-0.5em - 5px);
     transform: scale(0);
     opacity: 0;
-    transition: 0.25s transform ease-in-out, 0.25s opacity ease-in-out;
+    transition: 0.25s transform ease-in-out, 0.25s opacity ease-in-out, 0.25s background-color ease-in-out,
+      0.25s color ease-in-out;
   }
 
   &[aria-selected='true'] {
-    background-color: ${props => props.theme.colors.white};
+    background-color: ${props => mix(0.1, props.theme.colors.main, props.theme.colors.white)};
+    color: ${props => props.theme.colors.main};
     cursor: default;
 
     &::before {
@@ -85,17 +88,52 @@ const SelectMenuRow = styled.li`
   }
 `;
 
-const SelectMenu = styled.ul.attrs({
-  tabIndex: -1,
+const SelectMenu = styled(({ children, buttonRef, menuRef, ...props }) => {
+  const [didReceiveMenuRef, setDidReceiveMenuRef] = React.useState(!!menuRef.current);
+  const { styles, attributes } = usePopper(buttonRef.current, menuRef.current, {
+    modifiers: [
+      {
+        name: 'flip',
+        options: {
+          allowedAutoPlacements: ['top', 'bottom'],
+        },
+      },
+      {
+        name: 'offset',
+        options: {
+          offset: [0, 5],
+        },
+      },
+      {
+        name: 'preventOverflow',
+      },
+    ],
+    placement: 'bottom-start',
+  });
+
+  return (
+    <ul
+      tabIndex={-1}
+      style={styles.popper}
+      ref={current => {
+        if (current && !didReceiveMenuRef) {
+          // Trigger re-render to properly align popper
+          setDidReceiveMenuRef(true);
+        }
+        menuRef.current = current;
+      }}
+      {...attributes.popper}
+      {...props}
+    >
+      {children}
+    </ul>
+  );
 })`
-  position: absolute;
-  top: 100%;
-  left: 0;
   border-radius: ${props => props.theme.borderRadius};
   background-color: ${props => props.theme.colors.white};
   min-width: 110%;
   max-width: 150%;
-  margin: 5px 0 0 0;
+  margin: 0;
   box-shadow: 0 2px 8px ${props => transparentize(0.8, props.theme.colors.darkGray)};
   padding: 5px 0;
   outline: none;
@@ -253,26 +291,30 @@ class Select extends React.Component<ISelectInnerProps> {
     }
   };
 
-  private renderMenu = () => (
-    <SelectMenu
-      aria-activedescendant={`${this.uniqueId}__Item__${this.props.value}`}
-      role="listbox"
-      ref={this.menuRef}
-      onKeyDown={this.handleMenuKeyDown}
-    >
-      {this.props.choices.map(({ value, text }) => (
-        <SelectMenuRow
-          key={value}
-          onClick={() => this.props.onSelect(value)}
-          id={`${this.uniqueId}__Item__${value}`}
-          role="option"
-          aria-selected={this.props.value === value}
-        >
-          {text}
-        </SelectMenuRow>
-      ))}
-    </SelectMenu>
-  );
+  private renderMenu = () => {
+    const { value } = this.props;
+    return (
+      <SelectMenu
+        aria-activedescendant={`${this.uniqueId}__Item__${this.props.value}`}
+        role="listbox"
+        menuRef={this.menuRef}
+        buttonRef={this.buttonRef}
+        onKeyDown={this.handleMenuKeyDown}
+      >
+        {this.props.choices.map(choice => (
+          <SelectMenuRow
+            key={choice.value}
+            onClick={() => this.props.onSelect(choice.value)}
+            id={`${this.uniqueId}__Item__${choice.value}`}
+            role="option"
+            aria-selected={choice.value === value}
+          >
+            {choice.text}
+          </SelectMenuRow>
+        ))}
+      </SelectMenu>
+    );
+  };
 }
 
 const StyledSelect = styled((props: ISelectInnerProps) => <Select {...props} />)<ISelectProps>`
