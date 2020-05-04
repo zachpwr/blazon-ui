@@ -7,6 +7,8 @@ import { ITheme } from '../theme';
 export interface ISwitchProps {
   theme: ITheme;
   on?: boolean;
+  onText?: string;
+  offText?: string;
   disabled?: boolean;
 }
 
@@ -14,7 +16,7 @@ function getSwitchColor(props: ISwitchProps) {
   return setLightness(0.5, props.on ? props.theme.colors.main : props.theme.colors.secondary);
 }
 
-const SwitchLever = styled(props => (
+const SwitchLever = styled(({ on, ...props }) => (
   <div {...props}>
     <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" />
   </div>
@@ -33,7 +35,10 @@ const SwitchLever = styled(props => (
   }
 
   &::before {
-    content: '${props => (props.on ? 'On' : 'Off')}';
+    content: "${props =>
+      props.on
+        ? (props.onText && props.onText.substr(0, 3)) || 'On'
+        : (props.offText && props.offText.substr(0, 3)) || 'Off'}";
     position: absolute;
     top: 50%;
     left: 50%;
@@ -49,8 +54,8 @@ const SwitchLever = styled(props => (
 `;
 
 const Switch = styled(props => (
-  <button {...props}>
-    <SwitchLever on={props.on} />
+  <button role="switch" aria-checked={props.on} {...props}>
+    <SwitchLever on={props.on} onText={props.onText} offText={props.offText} />
   </button>
 ))`
   height: 0.5em;
