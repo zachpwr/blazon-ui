@@ -9,6 +9,21 @@ import Button from '../button';
 
 const DEFAULT_COLOR = 'main';
 
+const trailingDebounce = (fn: (...args: any[]) => void, timeout: number) => {
+  let currentTimeout: NodeJS.Timeout;
+  return (...args: any[]) => {
+    if (currentTimeout) {
+      clearTimeout(currentTimeout);
+    }
+    currentTimeout = setTimeout(() => {
+      if (currentTimeout) {
+        clearTimeout(currentTimeout);
+      }
+      fn(...args);
+    }, timeout);
+  };
+};
+
 export interface ISelectProps {
   theme: ITheme;
   onSelect: (value: string) => void;
@@ -16,6 +31,7 @@ export interface ISelectProps {
   value: string;
   color?: string;
   disabled?: boolean;
+  noWrap?: boolean;
 }
 
 export interface ISelectInnerProps {
@@ -26,6 +42,7 @@ export interface ISelectInnerProps {
   className?: string;
   color?: string;
   disabled?: boolean;
+  noWrap?: boolean;
 }
 
 function getDropdownColor(props: ISelectInnerProps): string {
@@ -88,7 +105,7 @@ const SelectMenuRow = styled.li`
   }
 `;
 
-const SelectMenu = styled(({ children, buttonRef, menuRef, ...props }) => {
+const SelectMenu = styled(({ children, buttonRef, menuRef, noWrap, ...props }) => {
   const [didReceiveMenuRef, setDidReceiveMenuRef] = React.useState(!!menuRef.current);
   const { styles, attributes } = usePopper(buttonRef.current, menuRef.current, {
     modifiers: [
@@ -131,28 +148,39 @@ const SelectMenu = styled(({ children, buttonRef, menuRef, ...props }) => {
 })`
   border-radius: ${props => props.theme.borderRadius};
   background-color: ${props => props.theme.colors.white};
-  min-width: 110%;
-  max-width: 150%;
+  max-height: 350%;
   margin: 0;
   box-shadow: 0 2px 8px ${props => transparentize(0.8, props.theme.colors.darkGray)};
+  border: 2px solid transparent;
   padding: 5px 0;
   outline: none;
+  z-index: 1;
+  white-space: ${props => (props.noWrap ? 'nowrap' : null)};
+  overflow-y: auto;
+  transition: 0.25s border-color ease-in-out;
 
   &:focus {
-    box-shadow: 0 2px 8px ${props => transparentize(0.8, props.theme.colors.darkGray)},
-      inset 0 0 0 2px ${props => transparentize(0.75, props.theme.colors.darkGray)};
+    border-color: ${props => transparentize(0.75, props.theme.colors.darkGray)};
   }
 `;
 
 class Select extends React.Component<ISelectInnerProps> {
   private static uniqueIdCounter = 0;
   public state = {
+    alphanumericKeysPressed: '',
     menuIsVisible: false,
   };
   private containerRef: React.RefObject<HTMLDivElement>;
   private buttonRef: React.RefObject<HTMLButtonElement>;
   private menuRef: React.RefObject<HTMLUListElement>;
+  private selectedChoiceRef: React.RefObject<HTMLLIElement>;
   private uniqueId: string;
+
+  private debouncedHandleMenuKeyDownAlphanumeric = trailingDebounce(() => {
+    this.setState({
+      alphanumericKeysPressed: '',
+    });
+  }, 1000);
 
   constructor(props: ISelectInnerProps) {
     super(props);
@@ -160,16 +188,27 @@ class Select extends React.Component<ISelectInnerProps> {
     this.containerRef = React.createRef();
     this.buttonRef = React.createRef();
     this.menuRef = React.createRef();
+    this.selectedChoiceRef = React.createRef();
     this.uniqueId = `BlazonUI__Select__${Select.uniqueIdCounter}`;
     Select.uniqueIdCounter++;
   }
 
-  public componentDidMount() {
-    window.addEventListener('mousedown', this.handleGlobalClick, false);
-  }
-
-  public componentWillUnmount() {
-    window.removeEventListener('mousedown', this.handleGlobalClick, false);
+  public componentDidUpdate(prevProps: ISelectInnerProps) {
+    const { value } = this.props;
+    if (prevProps.value !== value && this.menuRef.current && this.selectedChoiceRef.current) {
+      if (this.menuRef.current.scrollTop > this.selectedChoiceRef.current.offsetTop - 5) {
+        this.menuRef.current.scrollTop = this.selectedChoiceRef.current.offsetTop - 5;
+      } else if (
+        this.menuRef.current.scrollTop + this.menuRef.current.offsetHeight <
+        this.selectedChoiceRef.current.offsetTop + this.selectedChoiceRef.current.offsetHeight
+      ) {
+        this.menuRef.current.scrollTop =
+          this.selectedChoiceRef.current.offsetTop -
+          this.menuRef.current.offsetHeight +
+          this.selectedChoiceRef.current.offsetHeight +
+          10;
+      }
+    }
   }
 
   public render() {
@@ -187,7 +226,11 @@ class Select extends React.Component<ISelectInnerProps> {
       <span className={className} ref={this.containerRef}>
         <Button
           color={color}
-          onClick={this.toggleMenu}
+          onClick={() => {
+            if (!menuIsVisible) {
+              this.showMenu();
+            }
+          }}
           disabled={disabled}
           ref={this.buttonRef}
           aria-haspopup="listbox"
@@ -200,15 +243,18 @@ class Select extends React.Component<ISelectInnerProps> {
     );
   }
 
-  private toggleMenu = () => {
-    const { menuIsVisible } = this.state;
+  private showMenu = () => {
     this.setState(
       {
-        menuIsVisible: !menuIsVisible,
+        menuIsVisible: true,
       },
       () => {
         if (this.menuRef.current) {
           this.menuRef.current.focus();
+
+          if (this.selectedChoiceRef.current) {
+            this.menuRef.current.scrollTop = this.selectedChoiceRef.current.offsetTop - 5;
+          }
         }
       },
     );
@@ -227,21 +273,9 @@ class Select extends React.Component<ISelectInnerProps> {
     );
   };
 
-  private handleGlobalClick = (e: Event) => {
-    const { menuIsVisible } = this.state;
-
-    if (
-      !menuIsVisible ||
-      (this.containerRef.current && e.target instanceof Node && this.containerRef.current.contains(e.target))
-    ) {
-      return;
-    }
-
-    this.closeMenu();
-  };
-
   private handleMenuKeyDown = (e: React.KeyboardEvent<HTMLUListElement>) => {
     const { choices, value, onSelect } = this.props;
+    const { alphanumericKeysPressed } = this.state;
 
     if (!choices.length) {
       return;
@@ -287,12 +321,33 @@ class Select extends React.Component<ISelectInnerProps> {
         }
         break;
       default:
+        const { key, ctrlKey, metaKey, altKey } = e;
+        if (key.length === 1 && !ctrlKey && !metaKey && !altKey) {
+          e.preventDefault();
+          e.stopPropagation();
+
+          const nextAlphanumericKeysPressed = `${alphanumericKeysPressed}${key}`.toLowerCase();
+          const match = choices.find(({ text }) => {
+            return text.toLowerCase().startsWith(nextAlphanumericKeysPressed);
+          });
+
+          if (match) {
+            onSelect(match.value);
+          }
+
+          this.setState(
+            {
+              alphanumericKeysPressed: nextAlphanumericKeysPressed,
+            },
+            this.debouncedHandleMenuKeyDownAlphanumeric,
+          );
+        }
         break;
     }
   };
 
   private renderMenu = () => {
-    const { value } = this.props;
+    const { value, noWrap = true } = this.props;
     return (
       <SelectMenu
         aria-activedescendant={`${this.uniqueId}__Item__${this.props.value}`}
@@ -300,14 +355,21 @@ class Select extends React.Component<ISelectInnerProps> {
         menuRef={this.menuRef}
         buttonRef={this.buttonRef}
         onKeyDown={this.handleMenuKeyDown}
+        onBlur={this.closeMenu}
+        noWrap={noWrap}
       >
         {this.props.choices.map(choice => (
           <SelectMenuRow
             key={choice.value}
-            onClick={() => this.props.onSelect(choice.value)}
+            onClick={() => {
+              if (value !== choice.value) {
+                this.props.onSelect(choice.value);
+              }
+            }}
             id={`${this.uniqueId}__Item__${choice.value}`}
             role="option"
             aria-selected={choice.value === value}
+            ref={value === choice.value ? this.selectedChoiceRef : null}
           >
             {choice.text}
           </SelectMenuRow>
