@@ -24,7 +24,10 @@ function getCheckColor(props: ICheckboxProps) {
   return props.theme.colors[props.checked ? 'white' : 'main'];
 }
 
-const Checkbox = styled.button<ICheckboxProps>`
+const Checkbox = styled.button.attrs<ICheckboxProps>(props => ({
+  'aria-checked': !!props.checked,
+  role: 'checkbox',
+}))`
   border-radius: 1em;
   background-color: ${getBackgroundColor};
   border: 2px solid ${getBorderColor};
