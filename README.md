@@ -10,7 +10,7 @@
   <a href="https://www.github.com/zachpwr/blazon-ui"><img src="https://img.shields.io/badge/Github-zachpwr%2Fblazon--ui-3D5AFE.svg" /></a>
   <a href="https://zachpwr.github.io/blazon-ui/index.html"><img src="https://img.shields.io/badge/Storybook-%E2%86%97-536DFE.svg" /></a>
   <a href="https://bundlephobia.com/result?p=blazon-ui"><img src="https://img.shields.io/bundlephobia/minzip/blazon-ui.svg?color=%238C9EFF" /></a>
-  <a href="https://github.com/zachpwr/blazon-ui/actions?query=workflow%3ACI+branch%3Amaster"><img src="https://github.com/zachpwr/blazon-ui/workflows/CI/CD/badge.svg?event=push" /></a>
+  <a href="https://github.com/zachpwr/blazon-ui/actions?query=event%3Apush+branch%3Abeta+workflow%3ACI%2FCD"><img src="https://github.com/zachpwr/blazon-ui/workflows/CI/CD/badge.svg" /></a>
 </p>
 
 ---
