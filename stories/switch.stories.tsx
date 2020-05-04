@@ -20,20 +20,26 @@ const DemoStateWrapper = ({ render, initialValue }: IDemoStateWrapperProps) => {
 
 storiesOf('Components|Atoms (Basic)/Switch', module)
   .add('Default State', () => (
-    <DemoStateWrapper
-      render={(on, onClick) => (
-        <StoryColumn>
-          <h1>
-            <code>{'<Switch />'}</code> Component
-          </h1>
-          <h2>Default State</h2>
-          <h3>
-            <code>{`on={${on}}`}</code> <code>{'onClick={() => {}}'}</code>
-          </h3>
-          <Switch on={on} onClick={onClick} />
-        </StoryColumn>
-      )}
-    />
+    <StoryColumn>
+      <h1>
+        <code>{'<Switch />'}</code> Component
+      </h1>
+      <h2>Default State</h2>
+      <h3>
+        <code>{'on={true|false}'}</code> <code>{'onClick={() => {}}'}</code>
+      </h3>
+      <DemoStateWrapper render={(on, onClick) => <Switch on={on} onClick={onClick} />} />
+      <br />
+      <h3>
+        <code>{'onText="1"'}</code> <code>{'offText="0"'}</code>
+      </h3>
+      <DemoStateWrapper render={(on, onClick) => <Switch on={on} onClick={onClick} onText="1" offText="0" />} />
+      <br />
+      <h3>
+        <code>{'onText="Aan"'}</code> <code>{'offText="Uit"'}</code>
+      </h3>
+      <DemoStateWrapper render={(on, onClick) => <Switch on={on} onClick={onClick} onText="Aan" offText="Uit" />} />
+    </StoryColumn>
   ))
   .add('Disabled State', () => (
     <StoryColumn>
