@@ -21,7 +21,12 @@ function getProgressBarColor(props: IProgressBarProps) {
   return setLightness(0.6, getBaseColor(props));
 }
 
-const ProgressBar = styled.div<IProgressBarProps>`
+const ProgressBar = styled.div.attrs<IProgressBarProps>(props => ({
+  'aria-valuemax': 100,
+  'aria-valuemin': 0,
+  'aria-valuenow': props.progress,
+  role: 'progressbar',
+}))`
   position: relative;
   border-radius: ${props => props.theme.borderRadius};
   height: 0.5em;
