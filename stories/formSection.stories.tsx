@@ -58,4 +58,18 @@ storiesOf('Components|Molecules (Composite)/FormSection', module)
         <DemoStateWrapper render={(text, onChange) => <TextInput value={text} onChange={onChange} error />} />
       </FormSection>
     </StoryColumn>
+  ))
+  .add('Info State', () => (
+    <StoryColumn>
+      <h1>
+        <code>{'<FormSection />'}</code> Component
+      </h1>
+      <h2>Info State</h2>
+      <h3>
+        <code>info="Nur alphanumerische Zeichen, Unterstriche und Bindestriche"</code> <code>{'required={true}'}</code>
+      </h3>
+      <FormSection title="API-Schlüssel" required info="Nur alphanumerische Zeichen, Unterstriche und Bindestriche">
+        <DemoStateWrapper render={(text, onChange) => <TextInput value={text} onChange={onChange} />} />
+      </FormSection>
+    </StoryColumn>
   ));
