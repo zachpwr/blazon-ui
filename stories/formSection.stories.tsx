@@ -27,7 +27,11 @@ storiesOf('Components|Molecules (Composite)/FormSection', module)
       </h1>
       <h2>Default State</h2>
       <FormSection title="Name">
-        <DemoStateWrapper render={(text, onChange) => <TextInput value={text} onChange={onChange} />} />
+        {inputProps => (
+          <DemoStateWrapper
+            render={(text, onChange) => <TextInput value={text} onChange={onChange} {...inputProps} />}
+          />
+        )}
       </FormSection>
     </StoryColumn>
   ))
@@ -41,7 +45,11 @@ storiesOf('Components|Molecules (Composite)/FormSection', module)
         <code>{'required={true}'}</code>
       </h3>
       <FormSection title="Name" required>
-        <DemoStateWrapper render={(text, onChange) => <TextInput value={text} onChange={onChange} />} />
+        {inputProps => (
+          <DemoStateWrapper
+            render={(text, onChange) => <TextInput value={text} onChange={onChange} {...inputProps} />}
+          />
+        )}
       </FormSection>
     </StoryColumn>
   ))
@@ -55,7 +63,11 @@ storiesOf('Components|Molecules (Composite)/FormSection', module)
         <code>error="Please enter your name"</code> <code>{'required={true}'}</code>
       </h3>
       <FormSection title="Name" required error="Please enter your name">
-        <DemoStateWrapper render={(text, onChange) => <TextInput value={text} onChange={onChange} error />} />
+        {inputProps => (
+          <DemoStateWrapper
+            render={(text, onChange) => <TextInput value={text} onChange={onChange} error {...inputProps} />}
+          />
+        )}
       </FormSection>
     </StoryColumn>
   ))
@@ -69,7 +81,11 @@ storiesOf('Components|Molecules (Composite)/FormSection', module)
         <code>info="Nur alphanumerische Zeichen, Unterstriche und Bindestriche"</code> <code>{'required={true}'}</code>
       </h3>
       <FormSection title="API-Schlüssel" required info="Nur alphanumerische Zeichen, Unterstriche und Bindestriche">
-        <DemoStateWrapper render={(text, onChange) => <TextInput value={text} onChange={onChange} />} />
+        {inputProps => (
+          <DemoStateWrapper
+            render={(text, onChange) => <TextInput value={text} onChange={onChange} {...inputProps} />}
+          />
+        )}
       </FormSection>
     </StoryColumn>
   ));
