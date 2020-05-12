@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { storiesOf } from '@storybook/react';
 
-import FormSection from '../src/formSection';
+import FormSection, { FormSectionLabelPosition } from '../src/formSection';
 import TextInput from '../src/textInput';
 
 import StoryColumn from './storyColumn';
@@ -81,6 +81,41 @@ storiesOf('Components|Molecules (Composite)/FormSection', module)
         <code>info="Nur alphanumerische Zeichen, Unterstriche und Bindestriche"</code> <code>{'required={true}'}</code>
       </h3>
       <FormSection title="API-Schlüssel" required info="Nur alphanumerische Zeichen, Unterstriche und Bindestriche">
+        {inputProps => (
+          <DemoStateWrapper
+            render={(text, onChange) => <TextInput value={text} onChange={onChange} {...inputProps} />}
+          />
+        )}
+      </FormSection>
+    </StoryColumn>
+  ))
+  .add('Inline Mode', () => (
+    <StoryColumn>
+      <h1>
+        <code>{'<FormSection />'}</code> Component
+      </h1>
+      <h2>Inline Mode</h2>
+      <h3>
+        <code>labelPosition="side"</code>
+      </h3>
+      <FormSection
+        labelPosition={FormSectionLabelPosition.side}
+        title="Brugernavn"
+        required
+        info="Alfanumeriske tegn, bindestreger og understregning kun"
+      >
+        {inputProps => (
+          <DemoStateWrapper
+            render={(text, onChange) => <TextInput value={text} onChange={onChange} {...inputProps} />}
+          />
+        )}
+      </FormSection>
+      <FormSection
+        labelPosition={FormSectionLabelPosition.side}
+        title="Visningsnavn"
+        required
+        info="Dette vil være det navn, der vises på din profil"
+      >
         {inputProps => (
           <DemoStateWrapper
             render={(text, onChange) => <TextInput value={text} onChange={onChange} {...inputProps} />}

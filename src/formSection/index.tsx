@@ -2,20 +2,30 @@ import { lighten } from 'polished';
 import * as React from 'react';
 import styled from 'styled-components';
 
+import Grid from '../grid';
+import { EColumnSpanMode } from '../grid/column';
+import { ERowAlignmentModes } from '../grid/row';
 import { ITheme } from '../theme';
+
+export enum FormSectionLabelPosition {
+  top,
+  side,
+}
 
 export interface IFormSection {
   children: (inputProps: {
     id: string;
     'aria-describedby': string | undefined;
     'aria-labelledby': string | undefined;
+    'aria-required': boolean | undefined;
+    'aria-invalid': boolean | undefined;
   }) => React.ReactElement;
-  theme: ITheme;
   title: string;
   error?: string;
   info?: string;
   className?: string;
   required?: boolean;
+  labelPosition?: FormSectionLabelPosition;
 }
 
 interface IFormSectionTitle {
@@ -67,6 +77,7 @@ const SectionInfo = styled.div<IFormSectionInfo>`
 SectionInfo.displayName = 'SectionInfo';
 
 class FormSection extends React.PureComponent<IFormSection> {
+  public static displayName = 'FormSection';
   private static uniqueIdCounter = 0;
 
   private uniqueId: string;
@@ -79,7 +90,17 @@ class FormSection extends React.PureComponent<IFormSection> {
   }
 
   public render() {
-    const { className, children, error, info, title, required } = this.props;
+    const { labelPosition } = this.props;
+
+    if (labelPosition === FormSectionLabelPosition.side) {
+      return this.renderWithLabelOnSide();
+    }
+
+    return this.renderWithLabelOnTop();
+  }
+
+  private renderWithLabelOnTop = () => {
+    const { children, error, info, title, required } = this.props;
 
     // IDs for aria props
     const inputId = `${this.uniqueId}__input`;
@@ -88,26 +109,61 @@ class FormSection extends React.PureComponent<IFormSection> {
     const errorId = `${this.uniqueId}__error`;
 
     return (
-      <div className={className}>
-        <SectionTitle required={required} id={labelId} htmlFor={inputId}>
-          {title}
-        </SectionTitle>
-        {children({
-          'aria-describedby': (error && errorId) || (info && infoId) || undefined,
-          'aria-labelledby': labelId,
-          id: inputId,
-        })}
-        {!error && info && <SectionInfo id={infoId}>{info}</SectionInfo>}
-        {error && <SectionError id={errorId}>{error}</SectionError>}
-      </div>
+      <Grid.Container fluid>
+        <Grid.Row noGutter>
+          <Grid.Column>
+            <SectionTitle required={required} id={labelId} htmlFor={inputId}>
+              {title}
+            </SectionTitle>
+          </Grid.Column>
+        </Grid.Row>
+        <Grid.Row noGutter>
+          <Grid.Column>
+            {children({
+              'aria-describedby': (error && errorId) || (info && infoId) || undefined,
+              'aria-invalid': !!error || undefined,
+              'aria-labelledby': labelId,
+              'aria-required': required,
+              id: inputId,
+            })}
+            {!error && info && <SectionInfo id={infoId}>{info}</SectionInfo>}
+            {error && <SectionError id={errorId}>{error}</SectionError>}
+          </Grid.Column>
+        </Grid.Row>
+      </Grid.Container>
     );
-  }
+  };
+
+  private renderWithLabelOnSide = () => {
+    const { children, error, info, title, required } = this.props;
+
+    // IDs for aria props
+    const inputId = `${this.uniqueId}__input`;
+    const labelId = `${this.uniqueId}__label`;
+    const infoId = `${this.uniqueId}__info`;
+    const errorId = `${this.uniqueId}__error`;
+
+    return (
+      <Grid.Row alignmentMode={ERowAlignmentModes.baseline}>
+        <Grid.Column spanMode={EColumnSpanMode.fitSpace} noWrap>
+          <SectionTitle required={required} id={labelId} htmlFor={inputId}>
+            {title}
+          </SectionTitle>
+        </Grid.Column>
+        <Grid.Column>
+          {children({
+            'aria-describedby': (error && errorId) || (info && infoId) || undefined,
+            'aria-invalid': !!error || undefined,
+            'aria-labelledby': labelId,
+            'aria-required': required,
+            id: inputId,
+          })}
+          {!error && info && <SectionInfo id={infoId}>{info}</SectionInfo>}
+          {error && <SectionError id={errorId}>{error}</SectionError>}
+        </Grid.Column>
+      </Grid.Row>
+    );
+  };
 }
 
-const StyledFormSection = styled(FormSection)`
-  margin-bottom: 20px;
-`;
-
-StyledFormSection.displayName = 'FormSection';
-
-export default StyledFormSection;
+export default FormSection;
