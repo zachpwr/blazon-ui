@@ -18,6 +18,8 @@ jobs:
     steps:
       - name: 'Checkout ${{github.ref}} from zachpwr/blazon-ui.git'
         uses: actions/checkout@v2
+        with:
+          ssh-key: ${{ secrets.CD_GITHUB_DEPLOY_TOKEN_SECRET }}
 
       - name: Read .nvmrc
         run: echo "##[set-output name=NVMRC;]$(cat .nvmrc)"
@@ -86,11 +88,6 @@ jobs:
     needs: deploy
     runs-on: ubuntu-latest
     steps:
-      - name: Configure Storybook deploy key with Git
-        uses: actions/checkout@v2
-        with:
-          ssh-key: ${{ secrets.CD_GITHUB_DEPLOY_TOKEN_SECRET }}
-
       - name: Restore Cached Build Environment
         uses: actions/cache@v1
         id: restore-build
