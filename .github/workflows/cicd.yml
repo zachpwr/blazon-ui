@@ -18,8 +18,8 @@ jobs:
     steps:
       - name: 'Checkout ${{github.ref}} from zachpwr/blazon-ui.git'
         uses: actions/checkout@v2
-        
-      - run: git ls-remote --heads https://x-access-token:${{secrets.GITHUB_TOKEN}}@github.com/zachpwr/blazon-ui.git
+        with:
+          ssh-key: ${{ secrets.CD_GITHUB_DEPLOY_TOKEN_SECRET }}
 
       - name: Read .nvmrc
         run: echo "##[set-output name=NVMRC;]$(cat .nvmrc)"
@@ -35,6 +35,8 @@ jobs:
 
       - name: Build Blazon UI
         run: yarn run build
+
+      - run: yarn run semantic-release --debug --dry-run
 
       - name: Cache Build Environment
         uses: actions/cache@v1
@@ -88,11 +90,6 @@ jobs:
     needs: deploy
     runs-on: ubuntu-latest
     steps:
-      - name: Configure Storybook deploy key with Git
-        uses: actions/checkout@v2
-        with:
-          ssh-key: ${{ secrets.CD_GITHUB_DEPLOY_TOKEN_SECRET }}
-
       - name: Restore Cached Build Environment
         uses: actions/cache@v1
         id: restore-build
