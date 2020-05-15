@@ -19,11 +19,7 @@ export interface IFormSection {
     'aria-labelledby': string | undefined;
     'aria-required': boolean | undefined;
     'aria-invalid': boolean | undefined;
-<<<<<<< Updated upstream
-  }) => React.ReactElement;
-=======
   }) => React.ReactElement | string;
->>>>>>> Stashed changes
   title: string;
   error?: string;
   info?: string;

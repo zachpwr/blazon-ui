@@ -64,11 +64,7 @@ describe('<FormSection />', () => {
       component = mount(
         <ThemeProvider>
           <FormSection title="Test Section" info="Test Info">
-<<<<<<< Updated upstream
-            Hello
-=======
             {() => 'Hello'}
->>>>>>> Stashed changes
           </FormSection>
         </ThemeProvider>,
       );
