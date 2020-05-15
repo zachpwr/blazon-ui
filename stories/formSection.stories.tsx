@@ -26,6 +26,9 @@ storiesOf('Components|Molecules (Composite)/FormSection', module)
         <code>{'<FormSection />'}</code> Component
       </h1>
       <h2>Default State</h2>
+      <h3>
+        <code>{'title="Name"'}</code> <code>{'children={(inputProps) => <MyInput {...inputProps} />}'}</code>
+      </h3>
       <FormSection title="Name">
         {inputProps => (
           <DemoStateWrapper
@@ -42,7 +45,8 @@ storiesOf('Components|Molecules (Composite)/FormSection', module)
       </h1>
       <h2>Required State</h2>
       <h3>
-        <code>{'required={true}'}</code>
+        <code>{'title="Name"'}</code> <code>{'required={true}'}</code>{' '}
+        <code>{'children={(inputProps) => <MyInput {...inputProps} />}'}</code>
       </h3>
       <FormSection title="Name" required>
         {inputProps => (
@@ -60,7 +64,8 @@ storiesOf('Components|Molecules (Composite)/FormSection', module)
       </h1>
       <h2>Error State</h2>
       <h3>
-        <code>error="Please enter your name"</code> <code>{'required={true}'}</code>
+        <code>{'title="Name"'}</code> <code>error="Please enter your name"</code> <code>{'required={true}'}</code>{' '}
+        <code>{'children={(inputProps) => <MyInput {...inputProps} />}'}</code>
       </h3>
       <FormSection title="Name" required error="Please enter your name">
         {inputProps => (
@@ -78,7 +83,9 @@ storiesOf('Components|Molecules (Composite)/FormSection', module)
       </h1>
       <h2>Info State</h2>
       <h3>
-        <code>info="Nur alphanumerische Zeichen, Unterstriche und Bindestriche"</code> <code>{'required={true}'}</code>
+        <code>{'title="API-Schlüssel"'}</code>{' '}
+        <code>info="Nur alphanumerische Zeichen, Unterstriche und Bindestriche"</code> <code>{'required={true}'}</code>{' '}
+        <code>{'children={(inputProps) => <MyInput {...inputProps} />}'}</code>
       </h3>
       <FormSection title="API-Schlüssel" required info="Nur alphanumerische Zeichen, Unterstriche und Bindestriche">
         {inputProps => (
@@ -96,7 +103,8 @@ storiesOf('Components|Molecules (Composite)/FormSection', module)
       </h1>
       <h2>Inline Mode</h2>
       <h3>
-        <code>labelPosition="side"</code>
+        <code>{'title="Brugernavn"'}</code> <code>labelPosition="side"</code>{' '}
+        <code>{'children={(inputProps) => <MyInput {...inputProps} />}'}</code>
       </h3>
       <FormSection
         labelPosition={FormSectionLabelPosition.side}

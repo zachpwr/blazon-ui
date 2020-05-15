@@ -19,7 +19,7 @@ export interface IFormSection {
     'aria-labelledby': string | undefined;
     'aria-required': boolean | undefined;
     'aria-invalid': boolean | undefined;
-  }) => React.ReactElement;
+  }) => React.ReactElement | string;
   title: string;
   error?: string;
   info?: string;

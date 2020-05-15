@@ -15,7 +15,7 @@ describe('<FormSection />', () => {
     beforeEach(() => {
       component = mount(
         <ThemeProvider>
-          <FormSection title="Test Section">Hello</FormSection>
+          <FormSection title="Test Section">{() => 'Hello'}</FormSection>
         </ThemeProvider>,
       );
     });
@@ -31,7 +31,7 @@ describe('<FormSection />', () => {
       component = mount(
         <ThemeProvider>
           <FormSection title="Test Section" required>
-            Hello
+            {() => 'Hello'}
           </FormSection>
         </ThemeProvider>,
       );
@@ -47,7 +47,7 @@ describe('<FormSection />', () => {
       component = mount(
         <ThemeProvider>
           <FormSection title="Test Section" error="Test Error">
-            Hello
+            {() => 'Hello'}
           </FormSection>
         </ThemeProvider>,
       );
@@ -64,7 +64,7 @@ describe('<FormSection />', () => {
       component = mount(
         <ThemeProvider>
           <FormSection title="Test Section" info="Test Info">
-            Hello
+            {() => 'Hello'}
           </FormSection>
         </ThemeProvider>,
       );
