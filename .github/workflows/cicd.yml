@@ -18,6 +18,8 @@ jobs:
     steps:
       - name: 'Checkout ${{github.ref}} from zachpwr/blazon-ui.git'
         uses: actions/checkout@v2
+        
+      - run: git ls-remote --heads https://x-access-token:${{secrets.GITHUB_TOKEN}}@github.com/zachpwr/blazon-ui.git
 
       - name: Read .nvmrc
         run: echo "##[set-output name=NVMRC;]$(cat .nvmrc)"
