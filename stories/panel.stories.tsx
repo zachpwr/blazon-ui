@@ -77,7 +77,10 @@ storiesOf('Components|Atoms (Basic)/Panel', module)
           sveitarfélagsins Reykjavíkur er Reykjavíkurborg.
         </p>
         <SwitchContainer>
-          <DemoStateWrapper render={(on, onClick) => <Switch on={on} onClick={onClick} />} initialValue={true} />
+          <DemoStateWrapper
+            render={(on, onClick) => <Switch on={on} onText="á" offText="af" onClick={onClick} />}
+            initialValue={true}
+          />
           <div style={{ marginLeft: 20 }}>Sendu mér tölvupóst þegar þetta er í boði</div>
         </SwitchContainer>
       </Panel>

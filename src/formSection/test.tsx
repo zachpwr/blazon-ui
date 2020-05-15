@@ -1,9 +1,8 @@
-import * as React from 'react';
 import { mount, ReactWrapper } from 'enzyme';
+import * as React from 'react';
 
-import FormSection from './index';
 import ThemeProvider from '../themeProvider';
-import console = require('console');
+import FormSection from './index';
 
 describe('<FormSection />', () => {
   let component: ReactWrapper;
@@ -57,6 +56,23 @@ describe('<FormSection />', () => {
     test('it renders the error message', () => {
       expect(component.find('SectionError')).toHaveLength(1);
       expect(component.find('SectionError').text()).toBe('Test Error');
+    });
+  });
+
+  describe('When info', () => {
+    beforeEach(() => {
+      component = mount(
+        <ThemeProvider>
+          <FormSection title="Test Section" info="Test Info">
+            Hello
+          </FormSection>
+        </ThemeProvider>,
+      );
+    });
+
+    test('it renders the info message', () => {
+      expect(component.find('SectionInfo')).toHaveLength(1);
+      expect(component.find('SectionInfo').text()).toBe('Test Info');
     });
   });
 });

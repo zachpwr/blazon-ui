@@ -32,6 +32,9 @@ export interface ISelectProps {
   color?: string;
   disabled?: boolean;
   noWrap?: boolean;
+  'aria-labelledby'?: string;
+  'aria-describedby'?: string;
+  id?: string;
 }
 
 export interface ISelectInnerProps {
@@ -43,6 +46,9 @@ export interface ISelectInnerProps {
   color?: string;
   disabled?: boolean;
   noWrap?: boolean;
+  'aria-labelledby'?: string;
+  'aria-describedby'?: string;
+  id?: string;
 }
 
 function getDropdownColor(props: ISelectInnerProps): string {
@@ -212,7 +218,16 @@ class Select extends React.Component<ISelectInnerProps> {
   }
 
   public render() {
-    const { className, color, value, choices, disabled } = this.props;
+    const {
+      className,
+      color,
+      value,
+      choices,
+      disabled,
+      'aria-describedby': ariaDescribedBy,
+      'aria-labelledby': ariaLabelledBy,
+      id,
+    } = this.props;
     const { menuIsVisible } = this.state;
 
     const buttonText = choices.reduce((acc, choice) => {
@@ -235,6 +250,9 @@ class Select extends React.Component<ISelectInnerProps> {
           ref={this.buttonRef}
           aria-haspopup="listbox"
           aria-expanded={menuIsVisible || undefined}
+          aria-describedby={ariaDescribedBy}
+          aria-labelledby={ariaLabelledBy}
+          id={id}
         >
           {buttonText}
         </Button>
