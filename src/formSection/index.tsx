@@ -9,7 +9,8 @@ import { ITheme } from '../theme';
 
 export enum FormSectionLabelPosition {
   top,
-  side,
+  leftSide,
+  rightSide,
 }
 
 export interface IFormSection {
@@ -92,8 +93,12 @@ class FormSection extends React.PureComponent<IFormSection> {
   public render() {
     const { labelPosition } = this.props;
 
-    if (labelPosition === FormSectionLabelPosition.side) {
-      return this.renderWithLabelOnSide();
+    if (labelPosition === FormSectionLabelPosition.leftSide) {
+      return this.renderWithLabelOnLeftSide();
+    }
+
+    if (labelPosition === FormSectionLabelPosition.rightSide) {
+      return this.renderWithLabelOnRightSide();
     }
 
     return this.renderWithLabelOnTop();
@@ -134,7 +139,7 @@ class FormSection extends React.PureComponent<IFormSection> {
     );
   };
 
-  private renderWithLabelOnSide = () => {
+  private renderWithLabelOnLeftSide = () => {
     const { children, error, info, title, required } = this.props;
 
     // IDs for aria props
@@ -158,6 +163,39 @@ class FormSection extends React.PureComponent<IFormSection> {
             'aria-required': required,
             id: inputId,
           })}
+          {!error && info && <SectionInfo id={infoId}>{info}</SectionInfo>}
+          {error && <SectionError id={errorId}>{error}</SectionError>}
+        </Grid.Column>
+      </Grid.Row>
+    );
+  };
+
+  private renderWithLabelOnRightSide = () => {
+    const { children, error, info, title, required } = this.props;
+
+    // IDs for aria props
+    const inputId = `${this.uniqueId}__input`;
+    const labelId = `${this.uniqueId}__label`;
+    const infoId = `${this.uniqueId}__info`;
+    const errorId = `${this.uniqueId}__error`;
+
+    const alignmentMode = error || info ? ERowAlignmentModes.start : ERowAlignmentModes.baseline;
+
+    return (
+      <Grid.Row alignmentMode={alignmentMode}>
+        <Grid.Column spanMode={EColumnSpanMode.fitSpace} noWrap>
+          {children({
+            'aria-describedby': (error && errorId) || (info && infoId) || undefined,
+            'aria-invalid': !!error || undefined,
+            'aria-labelledby': labelId,
+            'aria-required': required,
+            id: inputId,
+          })}
+        </Grid.Column>
+        <Grid.Column>
+          <SectionTitle required={required} id={labelId} htmlFor={inputId}>
+            {title}
+          </SectionTitle>
           {!error && info && <SectionInfo id={infoId}>{info}</SectionInfo>}
           {error && <SectionError id={errorId}>{error}</SectionError>}
         </Grid.Column>
