@@ -35,6 +35,7 @@ const Button = styled.button<IButtonProps>`
   user-select: none;
   white-space: nowrap;
   -webkit-tap-highlight-color: ${props => transparentize(0.5, getButtonColor(props))};
+  margin-bottom: 5px;
 
   &:hover {
     background-color: ${props => mix(0.9, getButtonColor(props), getButtonTextColor(props))};

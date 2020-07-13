@@ -57,7 +57,9 @@ const PropsTable = (props: IPropsTable) => {
       <TD isCode>{propName}</TD>
       <TD isCode>{propDetails.propTypeName}</TD>
       <TD>{propDetails.isRequired ? '✅' : ''}</TD>
-      <TD isCode>{JSON.stringify(propDetails.defaultValue)}</TD>
+      <TD isCode>
+        {propDetails.propTypeName === 'string' ? `"${propDetails.defaultValue}"` : propDetails.defaultValue}
+      </TD>
       <TD>{propDetails.description}</TD>
     </TR>
   ));

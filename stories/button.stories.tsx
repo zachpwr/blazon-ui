@@ -4,117 +4,120 @@ import { storiesOf } from '@storybook/react';
 
 import Button from '../src/button';
 
-import StoryColumn from './storyColumn';
+import Demo from './docsComponents/demo';
 
-storiesOf('Components|Atoms (Basic)/Button', module)
-  .add('With Plain Text', () => (
-    <StoryColumn>
-      <h1>
-        <code>{'<Button />'}</code> Component
-      </h1>
-      <h2>With Plain Text</h2>
-      <h3>
-        <code>color="main"</code> (default)
-      </h3>
-      <Button
-        onClick={() => {
-          console.log('clicked');
-        }}
-      >
-        Hello
-      </Button>
-      <br />
-      <h3>
-        <code>color="success"</code>
-      </h3>
-      <Button
-        onClick={() => {
-          console.log('clicked');
-        }}
-        color="success"
-      >
-        Hello
-      </Button>
-      <br />
-      <h3>
-        <code>color="error"</code>
-      </h3>
-      <Button
-        onClick={() => {
-          console.log('clicked');
-        }}
-        color="error"
-      >
-        Hello
-      </Button>
-      <br />
-      <h3>
-        <code>color="warning"</code>
-      </h3>
-      <Button
-        onClick={() => {
-          console.log('clicked');
-        }}
-        color="warning"
-      >
-        Hello
-      </Button>
-      <br />
-      <h3>
-        <code>color="secondary"</code>
-      </h3>
-      <Button
-        onClick={() => {
-          console.log('clicked');
-        }}
-        color="secondary"
-      >
-        Hello
-      </Button>
-    </StoryColumn>
-  ))
-  .add('With Emojis', () => (
-    <StoryColumn>
-      <h1>
-        <code>{'<Button />'}</code> Component
-      </h1>
-      <h2>With Emojis</h2>
-      <Button
-        onClick={() => {
-          console.log('clicked');
-        }}
-      >
-        <span role="img" aria-label="so cool">
-          😀 😎 👍 💯
-        </span>
-      </Button>
-    </StoryColumn>
-  ))
-  .add('Disabled State', () => (
-    <StoryColumn>
-      <h1>
-        <code>{'<Button />'}</code> Component
-      </h1>
-      <h2>Disabled State</h2>
-      <h3>
-        <code>{'disabled={true}'}</code>
-      </h3>
-      <Button
-        onClick={() => {
-          console.log('clicked');
-        }}
-        disabled
-      >
-        Disabled
-      </Button>
-      <Button
-        onClick={() => {
-          console.log('clicked');
-        }}
-        color="secondary"
-        disabled
-      >
-        Disabled
-      </Button>
-    </StoryColumn>
-  ));
+const propDetails = {
+  children: {
+    description: 'The content to display within the button',
+    isRequired: true,
+    propTypeName: 'ReactNode',
+  },
+  color: {
+    defaultValue: 'main',
+    description: 'The key of a color in the Blazon UI theme with which to style the button',
+    isRequired: false,
+    propTypeName: 'string',
+  },
+  disabled: {
+    defaultValue: 'false',
+    description: 'Whether or not the button is disabled',
+    isRequired: false,
+    propTypeName: 'boolean',
+  },
+  onClick: {
+    description: 'A reference to the function responsible for handling button clicks',
+    isRequired: true,
+    propTypeName: 'function',
+  },
+};
+
+storiesOf('Components|Atoms (Basic)/Button', module).add('Basic Button', () => (
+  <Demo propDetails={propDetails} componentName="Button" demoTitle="Basic Button">
+    <h3>Enabled Buttons</h3>
+    <Button
+      onClick={() => {
+        console.log('clicked');
+      }}
+    >
+      Add to Cart
+    </Button>
+    <Button
+      onClick={() => {
+        console.log('clicked');
+      }}
+      color="success"
+    >
+      Checkout
+    </Button>
+    <Button
+      onClick={() => {
+        console.log('clicked');
+      }}
+      color="error"
+    >
+      Cancel Membership
+    </Button>
+    <Button
+      onClick={() => {
+        console.log('clicked');
+      }}
+      color="warning"
+    >
+      Update System
+    </Button>
+    <Button
+      onClick={() => {
+        console.log('clicked');
+      }}
+      color="secondary"
+    >
+      Save
+    </Button>
+
+    <h3>Disabled Buttons</h3>
+    <Button
+      disabled
+      onClick={() => {
+        console.log('clicked');
+      }}
+    >
+      Add to Cart
+    </Button>
+    <Button
+      disabled
+      onClick={() => {
+        console.log('clicked');
+      }}
+      color="success"
+    >
+      Checkout
+    </Button>
+    <Button
+      disabled
+      onClick={() => {
+        console.log('clicked');
+      }}
+      color="error"
+    >
+      Cancel Membership
+    </Button>
+    <Button
+      disabled
+      onClick={() => {
+        console.log('clicked');
+      }}
+      color="warning"
+    >
+      Update System
+    </Button>
+    <Button
+      disabled
+      onClick={() => {
+        console.log('clicked');
+      }}
+      color="secondary"
+    >
+      Save
+    </Button>
+  </Demo>
+));
