@@ -1,3 +1,4 @@
+import Accordion from './accordion';
 import Alert from './alert';
 import Button from './button';
 import ButtonGroup from './buttonGroup';
@@ -15,6 +16,7 @@ import TextInputGroup from './textInputGroup';
 import ThemeProvider from './themeProvider';
 
 export {
+  Accordion,
   Alert,
   Button,
   ButtonGroup,
@@ -33,6 +35,7 @@ export {
 };
 
 export default {
+  Accordion,
   Alert,
   Button,
   ButtonGroup,
