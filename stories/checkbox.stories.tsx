@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 
 import Checkbox from '../src/checkbox';
 
-import StoryColumn from './storyColumn';
+import Demo from './docsComponents/demo';
 
 interface IDemoStateWrapperProps {
   render: (checked: boolean, changeHandler: () => void) => any;
@@ -18,48 +18,35 @@ const DemoStateWrapper = ({ render, initialValue }: IDemoStateWrapperProps) => {
   });
 };
 
-storiesOf('Components|Atoms (Basic)/Checkbox', module)
-  .add('Default State', () => (
-    <DemoStateWrapper
-      render={(checked, onClick) => (
-        <StoryColumn>
-          <h1>
-            <code>{'<Checkbox />'}</code> Component
-          </h1>
-          <h2>Default State</h2>
-          <h3>
-            <code>checked={`{${checked}}`}</code>
-          </h3>
-          <Checkbox checked={checked} onClick={onClick} />
-        </StoryColumn>
-      )}
-    />
-  ))
-  .add('Disabled State', () => (
-    <StoryColumn>
-      <h1>
-        <code>{'<Checkbox />'}</code> Component
-      </h1>
-      <h2>Disabled State</h2>
-      <h3>
-        <code>disabled={'{true}'}</code> <code>checked={'{false}'}</code>
-      </h3>
-      <Checkbox
-        disabled
-        onClick={() => {
-          console.log('clicked');
-        }}
-      />
-      <br />
-      <h3>
-        <code>disabled={'{true}'}</code> <code>checked={'{true}'}</code>
-      </h3>
-      <Checkbox
-        disabled
-        checked
-        onClick={() => {
-          console.log('clicked');
-        }}
-      />
-    </StoryColumn>
-  ));
+const propDetails = {
+  checked: {
+    defaultValue: 'false',
+    description: 'Whether or not the checkbox is checked',
+    isRequired: false,
+    propTypeName: 'boolean',
+  },
+  disabled: {
+    defaultValue: 'false',
+    description: 'Whether or not the checkbox is disabled',
+    isRequired: false,
+    propTypeName: 'boolean',
+  },
+  onClick: {
+    description: 'A reference to the function responsible for handling checkbox clicks',
+    isRequired: true,
+    propTypeName: 'function',
+  },
+};
+
+storiesOf('Components|Atoms (Basic)/Checkbox', module).add('Basic Checkbox', () => (
+  <DemoStateWrapper
+    render={(checked, onClick) => (
+      <Demo propDetails={propDetails} componentName="Checkbox" demoTitle="Basic Checkbox">
+        <h3>Enabled Checkbox</h3>
+        <Checkbox checked={checked} onClick={onClick} />
+        <h3>Disabled Checkboxes</h3>
+        <Checkbox disabled checked={false} onClick={onClick} /> <Checkbox disabled checked={true} onClick={onClick} />
+      </Demo>
+    )}
+  />
+));
