@@ -4,7 +4,39 @@ import { storiesOf } from '@storybook/react';
 
 import Switch from '../src/switch';
 
-import StoryColumn from './storyColumn';
+import Demo from './docsComponents/demo';
+
+const propDetails = {
+  disabled: {
+    defaultValue: 'false',
+    description: 'Whether or not the checkbox is disabled',
+    isRequired: false,
+    propTypeName: 'boolean',
+  },
+  offText: {
+    defaultValue: 'Off',
+    description: 'The text to display on the switch lever when the switch is in the "off" toggle state',
+    isRequired: false,
+    propTypeName: 'string',
+  },
+  on: {
+    defaultValue: 'false',
+    description: 'Whether or not the switch is in the "on" toggle state',
+    isRequired: false,
+    propTypeName: 'boolean',
+  },
+  onClick: {
+    description: 'A reference to the function responsible for handling checkbox clicks',
+    isRequired: true,
+    propTypeName: 'function',
+  },
+  onText: {
+    defaultValue: 'On',
+    description: 'The text to display on the switch lever when the switch is in the "on" toggle state',
+    isRequired: false,
+    propTypeName: 'string',
+  },
+};
 
 interface IDemoStateWrapperProps {
   render: (on: boolean, changeHandler: () => void) => any;
@@ -18,54 +50,15 @@ const DemoStateWrapper = ({ render, initialValue }: IDemoStateWrapperProps) => {
   });
 };
 
-storiesOf('Components|Atoms (Basic)/Switch', module)
-  .add('Default State', () => (
-    <StoryColumn>
-      <h1>
-        <code>{'<Switch />'}</code> Component
-      </h1>
-      <h2>Default State</h2>
-      <h3>
-        <code>{'on={true|false}'}</code> <code>{'onClick={() => {}}'}</code>
-      </h3>
-      <DemoStateWrapper render={(on, onClick) => <Switch on={on} onClick={onClick} />} />
-      <br />
-      <h3>
-        <code>{'onText="1"'}</code> <code>{'offText="0"'}</code>
-      </h3>
-      <DemoStateWrapper render={(on, onClick) => <Switch on={on} onClick={onClick} onText="1" offText="0" />} />
-      <br />
-      <h3>
-        <code>{'onText="Aan"'}</code> <code>{'offText="Uit"'}</code>
-      </h3>
-      <DemoStateWrapper render={(on, onClick) => <Switch on={on} onClick={onClick} onText="Aan" offText="Uit" />} />
-    </StoryColumn>
-  ))
-  .add('Disabled State', () => (
-    <StoryColumn>
-      <h1>
-        <code>{'<Switch />'}</code> Component
-      </h1>
-      <h2>Default State</h2>
-      <h3>
-        <code>{'disabled={true}'}</code> <code>{'on={false}'}</code>
-      </h3>
-      <Switch
-        disabled
-        onClick={() => {
-          console.log('clicked');
-        }}
-      />
-      <br />
-      <h3>
-        <code>{'disabled={true}'}</code> <code>{'on={true}'}</code>
-      </h3>
-      <Switch
-        disabled
-        on
-        onClick={() => {
-          console.log('clicked');
-        }}
-      />
-    </StoryColumn>
-  ));
+storiesOf('Components|Atoms (Basic)/Switch', module).add('Basic Switch', () => (
+  <Demo propDetails={propDetails} demoTitle="Basic Switch" componentName="Switch">
+    <h3>Email Spam Filter</h3>
+    <DemoStateWrapper render={(on, onClick) => <Switch on={on} onClick={onClick} />} />
+    <br />
+    <h3>Out Of Office Auto-Reply</h3>
+    <DemoStateWrapper render={(on, onClick) => <Switch on={on} onClick={onClick} />} />
+    <br />
+    <h3>AI-Powered Email Sorting</h3>
+    <DemoStateWrapper render={(on, onClick) => <Switch on={on} onClick={onClick} disabled />} />
+  </Demo>
+));

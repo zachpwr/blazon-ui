@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 
 import Select from '../src/select';
 
-import StoryColumn from './storyColumn';
+import Demo from './docsComponents/demo';
 
 const choices = [
   { text: 'Alabama', value: 'Alabama' },
@@ -59,6 +59,26 @@ const choices = [
   { text: 'Wyoming', value: 'Wyoming' },
 ];
 
+const propDetails = {
+  choices: {
+    description: 'An array of objects representing the choices to be displayed in the select dropdown menu',
+    isRequired: true,
+    propTypeName: 'Array<{ text: "", value: ""}>',
+  },
+  color: {
+    defaultValue: 'main',
+    description: 'The key of a color in the Blazon UI theme with which to style the select activator',
+    isRequired: false,
+    propTypeName: 'string',
+  },
+  onSelect: {
+    description:
+      'A reference to the function responsible for handling a new dropdown selection. Receives the selected value as an argument',
+    isRequired: true,
+    propTypeName: 'function',
+  },
+};
+
 interface IDemoStateWrapperProps {
   render: (text: string, changeHandler: (value: string) => void) => any;
   initialValue?: string;
@@ -71,52 +91,17 @@ const DemoStateWrapper = ({ render, initialValue }: IDemoStateWrapperProps) => {
   });
 };
 
-storiesOf('Components|Atoms (Basic)/Select', module)
-  .add('Default State', () => (
-    <StoryColumn>
-      <h1>
-        <code>{'<Select />'}</code> Component
-      </h1>
-      <h2>Default State</h2>
-      <h3>
-        <code>{'onSelect={(value) => {}}'}</code> <code>{`choices={[ { value: '', text: '' } ]}`}</code>{' '}
-        <code>{"value={''}"}</code>
-      </h3>
-      <DemoStateWrapper
-        initialValue="California"
-        render={(value, onSelect) => <Select onSelect={onSelect} choices={choices} value={value} />}
-      />
-      <DemoStateWrapper
-        initialValue="New York"
-        render={(value, onSelect) => <Select onSelect={onSelect} choices={choices} value={value} color="secondary" />}
-      />
-    </StoryColumn>
-  ))
-  .add('Disabled State', () => (
-    <StoryColumn>
-      <h1>
-        <code>{'<Select />'}</code> Component
-      </h1>
-      <h2>Disabled State</h2>
-      <h3>
-        <code>{'disabled={true}'}</code>
-      </h3>
-      <Select
-        onSelect={() => {
-          console.log('select');
-        }}
-        choices={choices}
-        value="California"
-        disabled
-      />
-      <Select
-        onSelect={() => {
-          console.log('select');
-        }}
-        choices={choices}
-        value="New York"
-        color="secondary"
-        disabled
-      />
-    </StoryColumn>
-  ));
+storiesOf('Components|Atoms (Basic)/Select', module).add('Basic Select', () => (
+  <Demo propDetails={propDetails} demoTitle="Basic Select" componentName="Select">
+    <h3>Shipment Origin State:</h3>
+    <DemoStateWrapper
+      initialValue="California"
+      render={(value, onSelect) => <Select onSelect={onSelect} choices={choices} value={value} />}
+    />
+    <h3>Shipment Destination State:</h3>
+    <DemoStateWrapper
+      initialValue="New York"
+      render={(value, onSelect) => <Select onSelect={onSelect} choices={choices} value={value} color="secondary" />}
+    />
+  </Demo>
+));

@@ -4,41 +4,34 @@ import { storiesOf } from '@storybook/react';
 
 import ProgressBar from '../src/progressBar';
 
-import StoryColumn from './storyColumn';
+import Demo from './docsComponents/demo';
 
-storiesOf('Components|Atoms (Basic)/ProgressBar', module).add('Default State', () => {
-  const progress = 33;
+const propDetails = {
+  color: {
+    defaultValue: 'main',
+    description: 'The key of a color in the Blazon UI theme with which to style the progress bar',
+    isRequired: false,
+    propTypeName: 'string',
+  },
+  progress: {
+    description: 'From 0-100, the percentage progress to be indicated in the progress bar',
+    isRequired: true,
+    propTypeName: 'number',
+  },
+};
+
+storiesOf('Components|Atoms (Basic)/ProgressBar', module).add('Basic Progress Bar', () => {
   return (
-    <StoryColumn>
-      <h1>
-        <code>{'<ProgressBar />'}</code> Component
-      </h1>
-      <h2>Default State</h2>
-      <h3>
-        <code>{'progress={20}'}</code> <code>color="main"</code>
-      </h3>
+    <Demo propDetails={propDetails} demoTitle="Basic Progress Bar" componentName="ProgressBar">
       <ProgressBar progress={20} color="main" />
       <br />
-      <h3>
-        <code>{'progress={40}'}</code> <code>color="success"</code>
-      </h3>
       <ProgressBar progress={40} color="success" />
       <br />
-      <h3>
-        <code>{'progress={60}'}</code> <code>color="error"</code>
-      </h3>
       <ProgressBar progress={60} color="error" />
       <br />
-      <h3>
-        <code>{'progress={80}'}</code> <code>color="warning"</code>
-      </h3>
       <ProgressBar progress={80} color="warning" />
       <br />
-      <h3>
-        <code>{'progress={100}'}</code> <code>color="secondary"</code>
-      </h3>
       <ProgressBar progress={100} color="secondary" />
-      <br />
-    </StoryColumn>
+    </Demo>
   );
 });

@@ -4,37 +4,28 @@ import { storiesOf } from '@storybook/react';
 
 import Pill from '../src/pill';
 
-import StoryColumn from './storyColumn';
+import Demo from './docsComponents/demo';
 
-storiesOf('Components|Atoms (Basic)/Pill', module).add('Default State', () => (
-  <StoryColumn>
-    <h1>
-      <code>{'<Pill />'}</code> Component
-    </h1>
-    <h2>Default State</h2>
-    <h3>
-      <code>color="main"</code> (default)
-    </h3>
+const propDetails = {
+  children: {
+    description: 'The content to display within the pill',
+    isRequired: true,
+    propTypeName: 'ReactNode',
+  },
+  color: {
+    defaultValue: 'main',
+    description: 'The key of a color in the Blazon UI theme with which to style the pill',
+    isRequired: false,
+    propTypeName: 'string',
+  },
+};
+
+storiesOf('Components|Atoms (Basic)/Pill', module).add('Basic Pill', () => (
+  <Demo propDetails={propDetails} componentName="Pill" demoTitle="Basic Pill">
     <Pill>Complete</Pill>
-    <br />
-    <h3>
-      <code>color="success"</code>
-    </h3>
     <Pill color="success">Passed</Pill>
-    <br />
-    <h3>
-      <code>color="error"</code>
-    </h3>
     <Pill color="error">Failed</Pill>
-    <br />
-    <h3>
-      <code>color="warning"</code>
-    </h3>
     <Pill color="warning">Pending</Pill>
-    <br />
-    <h3>
-      <code>color="secondary"</code>
-    </h3>
     <Pill color="secondary">To Do</Pill>
-  </StoryColumn>
+  </Demo>
 ));

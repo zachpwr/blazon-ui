@@ -58,7 +58,9 @@ const PropsTable = (props: IPropsTable) => {
       <TD isCode>{propDetails.propTypeName}</TD>
       <TD>{propDetails.isRequired ? '✅' : ''}</TD>
       <TD isCode>
-        {propDetails.propTypeName === 'string' ? `"${propDetails.defaultValue}"` : propDetails.defaultValue}
+        {propDetails.defaultValue && propDetails.propTypeName === 'string'
+          ? `"${propDetails.defaultValue}"`
+          : propDetails.defaultValue}
       </TD>
       <TD>{propDetails.description}</TD>
     </TR>
@@ -72,7 +74,7 @@ const PropsTable = (props: IPropsTable) => {
             <TH>Prop</TH>
             <TH>Type</TH>
             <TH>Required?</TH>
-            <TH>Default Value?</TH>
+            <TH>Default Value</TH>
             <TH>Description</TH>
           </TR>
         </THead>

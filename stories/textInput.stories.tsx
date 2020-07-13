@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 
 import TextInput from '../src/textInput';
 
-import StoryColumn from './storyColumn';
+import Demo from './docsComponents/demo';
 
 interface IDemoStateWrapperProps {
   render: (text: string, changeHandler: (event: React.ChangeEvent<HTMLInputElement>) => void) => any;
@@ -18,79 +18,31 @@ const DemoStateWrapper = ({ render, initialValue }: IDemoStateWrapperProps) => {
   });
 };
 
-storiesOf('Components|Atoms (Basic)/TextInput', module)
-  .add('Default State', () => (
+const propDetails = {
+  onChange: {
+    description:
+      'A reference to the function responsible for handling an input change. Receives the next input value as an argument',
+    isRequired: true,
+    propTypeName: 'function',
+  },
+  value: {
+    description: 'The text value to be displayed in the text input',
+    isRequired: true,
+    propTypeName: 'string',
+  },
+};
+
+storiesOf('Components|Atoms (Basic)/TextInput', module).add('Basic Text Input', () => (
+  <Demo propDetails={propDetails} componentName="TextInput" demoTitle="Basic Text Input">
+    <h3>Mailing address city:</h3>
+    <DemoStateWrapper render={(text, onChange) => <TextInput value={text} onChange={onChange} placeholder="City" />} />
+
+    <h3>ZIP Code:</h3>
     <DemoStateWrapper
-      render={(text, onChange) => (
-        <StoryColumn>
-          <h1>
-            <code>{'<TextInput />'}</code> Component
-          </h1>
-          <h2>Default State</h2>
-          <TextInput value={text} onChange={onChange} />
-        </StoryColumn>
-      )}
+      render={(text, onChange) => <TextInput onChange={onChange} value={text} placeholder="Postal Code" error />}
     />
-  ))
-  .add('With Placeholder', () => (
-    <DemoStateWrapper
-      render={(text, onChange) => (
-        <StoryColumn>
-          <h1>
-            <code>{'<TextInput />'}</code> Component
-          </h1>
-          <h2>With Placeholder</h2>
-          <h3>
-            <code>placeholder="City"</code>
-          </h3>
-          <TextInput value={text} onChange={onChange} placeholder="City" />
-        </StoryColumn>
-      )}
-    />
-  ))
-  .add('With Text', () => (
-    <DemoStateWrapper
-      render={(text, onChange) => (
-        <StoryColumn>
-          <h1>
-            <code>{'<TextInput />'}</code> Component
-          </h1>
-          <h2>With Text</h2>
-          <h3>
-            <code>{"value={''}"}</code>
-          </h3>
-          <TextInput onChange={onChange} value={text} placeholder="City" />
-        </StoryColumn>
-      )}
-      initialValue="San Francisco, CA"
-    />
-  ))
-  .add('Error State', () => (
-    <DemoStateWrapper
-      render={(text, onChange) => (
-        <StoryColumn>
-          <h1>
-            <code>{'<TextInput />'}</code> Component
-          </h1>
-          <h2>Error State</h2>
-          <h3>
-            <code>{'error={true}'}</code>
-          </h3>
-          <TextInput onChange={onChange} value={text} placeholder="City" error />
-        </StoryColumn>
-      )}
-      initialValue="San Francisco, CA"
-    />
-  ))
-  .add('Disabled State', () => (
-    <StoryColumn>
-      <h1>
-        <code>{'<TextInput />'}</code> Component
-      </h1>
-      <h2>Disabled State</h2>
-      <h3>
-        <code>{'disabled={true}'}</code>
-      </h3>
-      <TextInput value="San Francisco, CA" disabled />
-    </StoryColumn>
-  ));
+
+    <h3>State:</h3>
+    <TextInput value="California" disabled />
+  </Demo>
+));
