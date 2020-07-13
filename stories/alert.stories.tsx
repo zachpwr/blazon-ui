@@ -4,47 +4,38 @@ import { storiesOf } from '@storybook/react';
 
 import Alert from '../src/alert';
 
-import StoryColumn from './storyColumn';
+import Demo from './docsComponents/demo';
 
-storiesOf('Components|Atoms (Basic)/Alert', module).add('Default State', () => (
-  <StoryColumn>
-    <h1>
-      <code>{'<Alert />'}</code> Component
-    </h1>
-    <h2>Default State</h2>
-    <h3>
-      <code>color="main"</code> (default)
-    </h3>
+const propDetails = {
+  children: {
+    description: 'The content to display within the alert',
+    isRequired: true,
+    propTypeName: 'ReactNode',
+  },
+  color: {
+    defaultValue: 'main',
+    description: 'The key of a color in the Blazon UI theme with which to style the alert',
+    isRequired: false,
+    propTypeName: 'string',
+  },
+};
+
+storiesOf('Components|Atoms (Basic)/Alert', module).add('Basic Alert', () => (
+  <Demo componentName="Alert" demoTitle="Basic Alert" propDetails={propDetails}>
     <Alert>
-      <b>Fáilte!</b> Go raibh maith agat as clárú.
+      <b>Hello!</b> Welcome to your new account
     </Alert>
-    <br />
-    <h3>
-      <code>color="success"</code>
-    </h3>
     <Alert color="success">
-      <b>Samþykkt!</b> Umsóknin þín var staðfest og samþykkt.
+      <b>Success!</b> Your settings have been saved
     </Alert>
-    <br />
-    <h3>
-      <code>color="warning"</code>
-    </h3>
     <Alert color="warning">
-      <b>Rabhadh!</b> An do chuir thu eadar-theangachadh an teacsa seo?
+      <b>Reminder:</b> Your subscription will automatically renew in <b>2 days</b>
     </Alert>
-    <br />
-    <h3>
-      <code>color="error"</code>
-    </h3>
     <Alert color="error">
-      <b>Misslyckad!</b> Programmet kunde inte kompilera på grund av syntaxfel.
+      <b>Uh oh...</b> Your request failed. Please try again later
     </Alert>
-    <br />
-    <h3>
-      <code>color="secondary"</code>
-    </h3>
     <Alert color="secondary">
-      <b>Интересный факт:</b> C++ компилируемый, статически типизированный язык программирования общего назначения.
+      <b>FYI -</b> This post was archived <b>4 weeks ago</b>
     </Alert>
-  </StoryColumn>
+  </Demo>
 ));
