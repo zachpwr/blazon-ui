@@ -5,39 +5,21 @@ import { storiesOf } from '@storybook/react';
 import Button from '../src/button';
 import ButtonGroup from '../src/buttonGroup';
 
-import StoryColumn from './storyColumn';
+import Demo from './docsComponents/demo';
 
-storiesOf('Components|Molecules (Composite)/ButtonGroup', module).add('Default State', () => (
-  <StoryColumn>
-    <h1>
-      <code>{'<ButtonGroup />'}</code> Component
-    </h1>
-    <h2>Default State</h2>
-    <ButtonGroup>
-      <Button
-        onClick={() => {
-          console.log('clicked');
-        }}
-        color="secondary"
-      >
-        Hello
-      </Button>
-      <Button
-        onClick={() => {
-          console.log('clicked');
-        }}
-        color="secondary"
-      >
-        Hello
-      </Button>
-      <Button
-        onClick={() => {
-          console.log('clicked');
-        }}
-        color="secondary"
-      >
-        Hello
-      </Button>
-    </ButtonGroup>
-  </StoryColumn>
+const propDetails = {
+  children: {
+    description: 'The buttons to be grouped together visually',
+    isRequired: true,
+    propTypeName: 'ReactNode',
+  },
+};
+
+storiesOf('Components|Molecules (Composite)/ButtonGroup', module).add('Basic Button Group', () => (
+  <Demo
+    demoTitle="Basic Button Group"
+    componentName="ButtonGroup"
+    propDetails={propDetails}
+    codesandboxUrlSlug="blazon-ui-buttongroup-demo-n1c7z"
+  />
 ));

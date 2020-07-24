@@ -32,92 +32,10 @@ const propDetails = {
 };
 
 storiesOf('Components|Atoms (Basic)/Button', module).add('Basic Button', () => (
-  <Demo propDetails={propDetails} componentName="Button" demoTitle="Basic Button">
-    <h3>Enabled Buttons</h3>
-    <Button
-      onClick={() => {
-        console.log('clicked');
-      }}
-    >
-      Add to Cart
-    </Button>
-    <Button
-      onClick={() => {
-        console.log('clicked');
-      }}
-      color="success"
-    >
-      Checkout
-    </Button>
-    <Button
-      onClick={() => {
-        console.log('clicked');
-      }}
-      color="error"
-    >
-      Cancel Membership
-    </Button>
-    <Button
-      onClick={() => {
-        console.log('clicked');
-      }}
-      color="warning"
-    >
-      Update System
-    </Button>
-    <Button
-      onClick={() => {
-        console.log('clicked');
-      }}
-      color="secondary"
-    >
-      Save
-    </Button>
-
-    <h3>Disabled Buttons</h3>
-    <Button
-      disabled
-      onClick={() => {
-        console.log('clicked');
-      }}
-    >
-      Add to Cart
-    </Button>
-    <Button
-      disabled
-      onClick={() => {
-        console.log('clicked');
-      }}
-      color="success"
-    >
-      Checkout
-    </Button>
-    <Button
-      disabled
-      onClick={() => {
-        console.log('clicked');
-      }}
-      color="error"
-    >
-      Cancel Membership
-    </Button>
-    <Button
-      disabled
-      onClick={() => {
-        console.log('clicked');
-      }}
-      color="warning"
-    >
-      Update System
-    </Button>
-    <Button
-      disabled
-      onClick={() => {
-        console.log('clicked');
-      }}
-      color="secondary"
-    >
-      Save
-    </Button>
-  </Demo>
+  <Demo
+    propDetails={propDetails}
+    componentName="Button"
+    demoTitle="Basic Button"
+    codesandboxUrlSlug="blazon-ui-button-demo-zeugx"
+  />
 ));

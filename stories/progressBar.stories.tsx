@@ -2,8 +2,6 @@ import * as React from 'react';
 
 import { storiesOf } from '@storybook/react';
 
-import ProgressBar from '../src/progressBar';
-
 import Demo from './docsComponents/demo';
 
 const propDetails = {
@@ -22,16 +20,11 @@ const propDetails = {
 
 storiesOf('Components|Atoms (Basic)/ProgressBar', module).add('Basic Progress Bar', () => {
   return (
-    <Demo propDetails={propDetails} demoTitle="Basic Progress Bar" componentName="ProgressBar">
-      <ProgressBar progress={20} color="main" />
-      <br />
-      <ProgressBar progress={40} color="success" />
-      <br />
-      <ProgressBar progress={60} color="error" />
-      <br />
-      <ProgressBar progress={80} color="warning" />
-      <br />
-      <ProgressBar progress={100} color="secondary" />
-    </Demo>
+    <Demo
+      propDetails={propDetails}
+      demoTitle="Basic Progress Bar"
+      componentName="ProgressBar"
+      codesandboxUrlSlug="blazon-ui-progressbar-demo-443ru"
+    />
   );
 });

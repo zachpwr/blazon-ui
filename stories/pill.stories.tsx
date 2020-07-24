@@ -2,8 +2,6 @@ import * as React from 'react';
 
 import { storiesOf } from '@storybook/react';
 
-import Pill from '../src/pill';
-
 import Demo from './docsComponents/demo';
 
 const propDetails = {
@@ -21,11 +19,10 @@ const propDetails = {
 };
 
 storiesOf('Components|Atoms (Basic)/Pill', module).add('Basic Pill', () => (
-  <Demo propDetails={propDetails} componentName="Pill" demoTitle="Basic Pill">
-    <Pill>Complete</Pill>
-    <Pill color="success">Passed</Pill>
-    <Pill color="error">Failed</Pill>
-    <Pill color="warning">Pending</Pill>
-    <Pill color="secondary">To Do</Pill>
-  </Demo>
+  <Demo
+    propDetails={propDetails}
+    componentName="Pill"
+    demoTitle="Basic Pill"
+    codesandboxUrlSlug="blazon-ui-pill-demo-88jwc"
+  />
 ));
