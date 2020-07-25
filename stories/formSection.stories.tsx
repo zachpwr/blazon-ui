@@ -44,8 +44,8 @@ const propDetails = {
 storiesOf('Components|Molecules (Composite)/FormSection', module).add('Basic Form Section', () => (
   <Demo
     propDetails={propDetails}
-    componentName="TextInput"
-    demoTitle="Basic Text Input"
-    codesandboxUrlSlug="blazon-ui-textinput-demo-ylyss"
+    componentName="FormSection"
+    demoTitle="Basic Form Section"
+    codesandboxUrlSlug="blazon-ui-formsection-demo-ylyss"
   />
 ));

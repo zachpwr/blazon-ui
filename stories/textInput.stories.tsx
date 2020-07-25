@@ -5,6 +5,12 @@ import { storiesOf } from '@storybook/react';
 import Demo from './docsComponents/demo';
 
 const propDetails = {
+  error: {
+    defaultValue: 'false',
+    description: 'Whether the input should be displayed with a red border or not',
+    isRequired: false,
+    propTypeName: 'boolean',
+  },
   onChange: {
     description:
       'A reference to the function responsible for handling an input change. Receives the next input value as an argument',
@@ -23,6 +29,6 @@ storiesOf('Components|Atoms (Basic)/TextInput', module).add('Basic Text Input', 
     propDetails={propDetails}
     componentName="TextInput"
     demoTitle="Basic Text Input"
-    codesandboxUrlSlug="blazon-ui-textinput-demo-ylyss"
+    codesandboxUrlSlug="blazon-ui-textinput-demo-8vkdw"
   />
 ));
