@@ -27,7 +27,7 @@ const TBody = styled.tbody``;
 
 const TR = styled.tr`
   &:nth-child(even) {
-    background-color: ${props => mix(0.5, props.theme.colors.secondary, props.theme.colors.white)};
+    background-color: ${props => props.theme.colors.gray.light};
   }
 `;
 
@@ -35,18 +35,18 @@ const TH = styled.th`
   font-weight: 600;
   text-align: left;
   padding: 1em;
-  border-bottom: 1px solid ${props => props.theme.colors.secondary};
+  border-bottom: 1px solid ${props => props.theme.colors.gray.light};
 `;
 
 const TD = styled.td<{ isCode?: boolean }>`
   font-family: ${props => (!!props.isCode ? "'Roboto Mono', monospace" : null)};
   font-weight: 400;
-  color: ${props => props.theme.colors.darkGray};
+  color: ${props => props.theme.colors.gray.dark};
   padding: 1em;
 `;
 
 const PropsTableContainer = styled.div`
-  border: 1px solid ${props => props.theme.colors.secondary};
+  border: 1px solid ${props => props.theme.colors.gray.light};
   border-radius: ${props => props.theme.borderRadius};
   overflow: hidden;
 `;

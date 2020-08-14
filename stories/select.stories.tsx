@@ -11,10 +11,11 @@ const propDetails = {
     propTypeName: 'Array<{ text: "", value: ""}>',
   },
   color: {
-    defaultValue: 'main',
-    description: 'The key of a color in the Blazon UI theme with which to style the select activator',
+    defaultValue: 'theme.neutralColor',
+    description:
+      'The key of a color in the Blazon UI theme with which to style the select activator. Defaults to the value of the "neutralColor" property on the theme object.',
     isRequired: false,
-    propTypeName: 'string',
+    propTypeName: 'ThemeColorKey',
   },
   onSelect: {
     description:

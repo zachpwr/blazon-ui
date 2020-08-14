@@ -1,4 +1,4 @@
-import { setLightness, transparentize } from 'polished';
+import { mix } from 'polished';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -10,10 +10,13 @@ export interface ISwitchProps {
   onText?: string;
   offText?: string;
   disabled?: boolean;
+  color?: string;
 }
 
 function getSwitchColor(props: ISwitchProps) {
-  return setLightness(0.5, props.on ? props.theme.colors.main : props.theme.colors.secondary);
+  return props.on
+    ? props.theme.colors[props.color || props.theme.neutralColor]
+    : props.theme.colors[props.theme.neutralColor];
 }
 
 const SwitchLever = styled(({ on, ...props }) => (
@@ -22,7 +25,7 @@ const SwitchLever = styled(({ on, ...props }) => (
   </div>
 ))`
   height: 100%;
-  background: white;
+  background: #fff;
   position: absolute;
   top: 0;
   left: ${props => (props.on ? 100 : 0)}%;
@@ -48,20 +51,20 @@ const SwitchLever = styled(({ on, ...props }) => (
     font-size: 0.75em;
     text-transform: uppercase;
     font-weight: 500;
-    color: ${getSwitchColor};
+    color: ${props => getSwitchColor(props).medium};
     font-family: 'Roboto Mono', monospace;
   }
 `;
 
 const Switch = styled(props => (
   <button role="switch" aria-checked={props.on} {...props}>
-    <SwitchLever on={props.on} onText={props.onText} offText={props.offText} />
+    <SwitchLever on={props.on} onText={props.onText} offText={props.offText} color={props.color} />
   </button>
 ))`
   height: 0.5em;
   width: 2.5em;
-  background-color: ${getSwitchColor};
-  border: 2px solid ${getSwitchColor};
+  background-color: ${props => getSwitchColor(props).medium};
+  border: 2px solid ${props => getSwitchColor(props).medium};
   outline: 0;
   border-radius: 100px;
   padding: 0.75em 1em;
@@ -76,13 +79,13 @@ const Switch = styled(props => (
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
   &:focus {
-    box-shadow: 0 0 0 2px ${props => transparentize(0.75, getSwitchColor(props))};
+    box-shadow: 0 0 0 2px ${props => mix(0.15, getSwitchColor(props).medium, getSwitchColor(props).light)};
   }
 
   &:disabled {
     cursor: default;
     opacity: 0.5;
-    background-color: ${getSwitchColor};
+    background-color: ${props => getSwitchColor(props).medium};
   }
 `;
 

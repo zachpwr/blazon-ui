@@ -48,11 +48,11 @@ const SectionTitle = styled.label<IFormSectionTitle>`
   font-size: 1em;
   margin-bottom: 5px;
   font-weight: 600;
-  color: ${props => props.theme.colors.darkGray};
+  color: ${props => props.theme.colors[props.theme.neutralColor].dark};
 
   &::after {
     content: '${props => (props.required ? ' *' : '')}';
-    color: ${props => props.theme.colors.error};
+    color: ${props => props.theme.colors[props.theme.errorColor].medium};
     display: inline;
   }
 `;
@@ -60,7 +60,7 @@ const SectionTitle = styled.label<IFormSectionTitle>`
 SectionTitle.displayName = 'SectionTitle';
 
 const SectionError = styled.div<IFormSectionError>`
-  color: ${props => props.theme.colors.error};
+  color: ${props => props.theme.colors[props.theme.errorColor].medium};
   margin-top: 5px;
   font-size: 0.75em;
   font-weight: 600;
@@ -69,7 +69,7 @@ const SectionError = styled.div<IFormSectionError>`
 SectionError.displayName = 'SectionError';
 
 const SectionInfo = styled.div<IFormSectionInfo>`
-  color: ${props => lighten(0.25, props.theme.colors.darkGray)};
+  color: ${props => props.theme.colors[props.theme.neutralColor].medium};
   margin-top: 5px;
   font-size: 0.75em;
   font-weight: 600;

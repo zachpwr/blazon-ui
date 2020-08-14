@@ -39,7 +39,7 @@ storiesOf('Components|Molecules (Composite)/TextInputGroup (Deprecated)', module
               <h1>
                 <code>{'<TextInputGroup />'}</code> Component{' '}
                 <sup>
-                  <Pill color="error">deprecated</Pill>
+                  <Pill color="red">deprecated</Pill>
                 </sup>
               </h1>
               <h2>Default State</h2>
@@ -51,7 +51,7 @@ storiesOf('Components|Molecules (Composite)/TextInputGroup (Deprecated)', module
           </Grid.Row>
           <Grid.Row>
             <Grid.Column noGutter>
-              <Alert color="warning">
+              <Alert color="yellow">
                 <b>⚠️ FYI!</b> This component is now deprecated and will be removed from Blazon UI in v1.0.0 due to its
                 incompatibility with a11y best practices for UI input labelling.
               </Alert>
@@ -76,7 +76,7 @@ storiesOf('Components|Molecules (Composite)/TextInputGroup (Deprecated)', module
               <h1>
                 <code>{'<TextInputGroup />'}</code> Component{' '}
                 <sup>
-                  <Pill color="error">deprecated</Pill>
+                  <Pill color="red">deprecated</Pill>
                 </sup>
               </h1>
               <h2>With Placeholder</h2>
@@ -106,7 +106,7 @@ storiesOf('Components|Molecules (Composite)/TextInputGroup (Deprecated)', module
           </Grid.Row>
           <Grid.Row>
             <Grid.Column noGutter>
-              <Alert color="warning">
+              <Alert color="yellow">
                 <b>⚠️ FYI!</b> This component is now deprecated and will be removed from Blazon UI in v1.0.0 due to its
                 incompatibility with a11y best practices for UI input labelling.
               </Alert>
@@ -131,7 +131,7 @@ storiesOf('Components|Molecules (Composite)/TextInputGroup (Deprecated)', module
               <h1>
                 <code>{'<TextInputGroup />'}</code> Component{' '}
                 <sup>
-                  <Pill color="error">deprecated</Pill>
+                  <Pill color="red">deprecated</Pill>
                 </sup>
               </h1>
               <h2>With Text</h2>
@@ -161,7 +161,7 @@ storiesOf('Components|Molecules (Composite)/TextInputGroup (Deprecated)', module
           </Grid.Row>
           <Grid.Row>
             <Grid.Column noGutter>
-              <Alert color="warning">
+              <Alert color="yellow">
                 <b>⚠️ FYI!</b> This component is now deprecated and will be removed from Blazon UI in v1.0.0 due to its
                 incompatibility with a11y best practices for UI input labelling.
               </Alert>
@@ -186,7 +186,7 @@ storiesOf('Components|Molecules (Composite)/TextInputGroup (Deprecated)', module
               <h1>
                 <code>{'<TextInputGroup />'}</code> Component{' '}
                 <sup>
-                  <Pill color="error">deprecated</Pill>
+                  <Pill color="red">deprecated</Pill>
                 </sup>
               </h1>
               <h2>Error State</h2>
@@ -218,7 +218,7 @@ storiesOf('Components|Molecules (Composite)/TextInputGroup (Deprecated)', module
           </Grid.Row>
           <Grid.Row>
             <Grid.Column noGutter>
-              <Alert color="warning">
+              <Alert color="yellow">
                 <b>⚠️ FYI!</b> This component is now deprecated and will be removed from Blazon UI in v1.0.0 due to its
                 incompatibility with a11y best practices for UI input labelling.
               </Alert>
@@ -241,7 +241,7 @@ storiesOf('Components|Molecules (Composite)/TextInputGroup (Deprecated)', module
           <h1>
             <code>{'<TextInputGroup />'}</code> Component{' '}
             <sup>
-              <Pill color="error">deprecated</Pill>
+              <Pill color="red">deprecated</Pill>
             </sup>
           </h1>
           <h2>Disabled State</h2>
@@ -255,7 +255,7 @@ storiesOf('Components|Molecules (Composite)/TextInputGroup (Deprecated)', module
       </Grid.Row>
       <Grid.Row>
         <Grid.Column noGutter>
-          <Alert color="warning">
+          <Alert color="yellow">
             <b>⚠️ FYI!</b> This component is now deprecated and will be removed from Blazon UI in v1.0.0 due to its
             incompatibility with a11y best practices for UI input labelling.
           </Alert>

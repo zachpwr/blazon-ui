@@ -1,11 +1,19 @@
 import { DefaultTheme } from 'styled-components';
 
+export interface IThemeColorDefinition {
+  dark: string;
+  medium: string;
+  light: string;
+}
+
 export interface ITheme {
   borderRadius: string;
   fontImportUrl?: string | string[];
   fontFamily: string;
 
-  colors: { [index: string]: string };
+  colors: { [index: string]: IThemeColorDefinition };
+  errorColor: string;
+  neutralColor: string;
 }
 
 const theme: DefaultTheme & ITheme = {
@@ -17,14 +25,35 @@ const theme: DefaultTheme & ITheme = {
   ],
 
   colors: {
-    darkGray: '#424242',
-    error: '#ef5350',
-    main: '#304ffe',
-    secondary: '#e0e0e0',
-    success: '#4caf50',
-    warning: '#ffb300',
-    white: '#fff',
+    blue: {
+      dark: '#001066',
+      light: '#ccd4ff',
+      medium: '#304ffe',
+    },
+    gray: {
+      dark: '#333',
+      light: '#e6e6e6',
+      medium: '#808080',
+    },
+    green: {
+      dark: '#1f4721',
+      light: '#dbf0dc',
+      medium: '#49A74C',
+    },
+    red: {
+      dark: '#5d0a09',
+      light: '#fbd1d0',
+      medium: '#E91916',
+    },
+    yellow: {
+      dark: '#664800',
+      light: '#fff0cc',
+      medium: '#C28800',
+    },
   },
+
+  errorColor: 'red',
+  neutralColor: 'gray',
 };
 
 export default theme;

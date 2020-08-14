@@ -3,25 +3,23 @@ import styled from 'styled-components';
 
 import { ITheme } from '../theme';
 
-const DEFAULT_COLOR = 'main';
-
 export interface IButtonProps {
   theme: ITheme;
   color?: string;
 }
 
-function getButtonColor(props: IButtonProps): string {
-  return props.theme.colors[props.color || DEFAULT_COLOR];
+function getBaseColor(props: IButtonProps) {
+  return props.theme.colors[props.color || props.theme.neutralColor];
 }
 
 function getButtonTextColor(props: IButtonProps): string {
-  const bgColor = getButtonColor(props);
-  return getLuminance(bgColor) > 0.5 ? props.theme.colors.darkGray : props.theme.colors.white;
+  const bgColor = getBaseColor(props).medium;
+  return getLuminance(bgColor) > 0.5 ? '#000' : '#fff';
 }
 
 const Button = styled.button<IButtonProps>`
   border-radius: ${props => props.theme.borderRadius};
-  background-color: ${getButtonColor};
+  background-color: ${props => getBaseColor(props).medium};
   color: ${getButtonTextColor};
   border: 0;
   cursor: pointer;
@@ -34,27 +32,26 @@ const Button = styled.button<IButtonProps>`
   margin-right: 5px;
   user-select: none;
   white-space: nowrap;
-  -webkit-tap-highlight-color: ${props => transparentize(0.5, getButtonColor(props))};
+  -webkit-tap-highlight-color: ${props => transparentize(0.5, getBaseColor(props).medium)};
   margin-bottom: 5px;
 
   &:hover {
-    background-color: ${props => mix(0.9, getButtonColor(props), getButtonTextColor(props))};
+    background-color: ${props => mix(0.75, getBaseColor(props).medium, getBaseColor(props).light)};
   }
 
   &:active {
     transition: 0.05s background-color ease-in-out;
-    background-color: ${props => mix(0.85, getButtonColor(props), getButtonTextColor(props))};
-    color: ${props => mix(0.1, getButtonColor(props), getButtonTextColor(props))};
+    background-color: ${props => mix(0.85, getBaseColor(props).medium, getBaseColor(props).light)};
   }
 
   &:focus {
-    box-shadow: 0 0 0 2px ${props => transparentize(0.75, getButtonColor(props))};
+    box-shadow: 0 0 0 2px ${props => mix(0.15, getBaseColor(props).medium, getBaseColor(props).light)};
   }
 
   &:disabled {
     cursor: default;
     opacity: 0.75;
-    background-color: ${getButtonColor};
+    background-color: ${props => getBaseColor(props).medium};
   }
 
   &:last-of-type {

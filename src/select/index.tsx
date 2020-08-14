@@ -7,8 +7,6 @@ import { ITheme } from '../theme';
 
 import Button from '../button';
 
-const DEFAULT_COLOR = 'main';
-
 const trailingDebounce = (fn: (...args: any[]) => void, timeout: number) => {
   let currentTimeout: NodeJS.Timeout;
   return (...args: any[]) => {
@@ -51,16 +49,21 @@ export interface ISelectInnerProps {
   id?: string;
 }
 
-function getDropdownColor(props: ISelectInnerProps): string {
-  return props.theme.colors[props.color || DEFAULT_COLOR];
+export interface ISelectMenuRowProps {
+  theme: ITheme;
+  color?: string;
+}
+
+function getDropdownColor(props: ISelectInnerProps | ISelectMenuRowProps) {
+  return props.theme.colors[props.color || props.theme.neutralColor];
 }
 
 function getArrowColor(props: ISelectInnerProps): string {
-  const bgColor = getDropdownColor(props);
-  return getLuminance(bgColor) > 0.5 ? props.theme.colors.darkGray : props.theme.colors.white;
+  const bgColor = getDropdownColor(props).medium;
+  return getLuminance(bgColor) > 0.5 ? '#000' : '#fff';
 }
 
-const SelectMenuRow = styled.li`
+const SelectMenuRow = styled.li<ISelectMenuRowProps>`
   padding: 0.75em 1.5em;
   margin: 0 5px;
   display: block;
@@ -71,11 +74,11 @@ const SelectMenuRow = styled.li`
   transition: 0.25s background-color ease-in-out;
   font-size: 1em;
   border-radius: 2px;
-  -webkit-tap-highlight-color: ${props => props.theme.colors.secondary};
+  -webkit-tap-highlight-color: ${props => props.theme.colors[props.theme.neutralColor].light};
 
   &:hover,
   &:focus {
-    background-color: ${props => mix(0.5, props.theme.colors.secondary, props.theme.colors.white)};
+    background-color: ${props => props.theme.colors[props.theme.neutralColor].light};
   }
 
   &:last-of-type {
@@ -89,7 +92,7 @@ const SelectMenuRow = styled.li`
     background-color: black;
     border-radius: 2.5px;
     display: inline-block;
-    background-color: ${props => props.theme.colors.main};
+    background-color: ${props => getDropdownColor(props).medium};
     vertical-align: middle;
     margin-right: 0.5em;
     margin-left: calc(-0.5em - 5px);
@@ -100,8 +103,8 @@ const SelectMenuRow = styled.li`
   }
 
   &[aria-selected='true'] {
-    background-color: ${props => mix(0.1, props.theme.colors.main, props.theme.colors.white)};
-    color: ${props => props.theme.colors.main};
+    background-color: ${props => getDropdownColor(props).light};
+    color: ${props => getDropdownColor(props).dark};
     cursor: default;
 
     &::before {
@@ -153,10 +156,10 @@ const SelectMenu = styled(({ children, buttonRef, menuRef, noWrap, ...props }) =
   );
 })`
   border-radius: ${props => props.theme.borderRadius};
-  background-color: ${props => props.theme.colors.white};
+  background-color: #fff;
   max-height: 350%;
   margin: 0;
-  box-shadow: 0 2px 8px ${props => transparentize(0.8, props.theme.colors.darkGray)};
+  box-shadow: 0 2px 8px ${props => transparentize(0.8, props.theme.colors[props.theme.neutralColor].dark)};
   border: 2px solid transparent;
   padding: 5px 0;
   outline: none;
@@ -166,7 +169,7 @@ const SelectMenu = styled(({ children, buttonRef, menuRef, noWrap, ...props }) =
   transition: 0.25s border-color ease-in-out;
 
   &:focus {
-    border-color: ${props => transparentize(0.75, props.theme.colors.darkGray)};
+    border-color: ${props => transparentize(0.75, props.theme.colors[props.theme.neutralColor].dark)};
   }
 `;
 
@@ -365,7 +368,7 @@ class Select extends React.Component<ISelectInnerProps> {
   };
 
   private renderMenu = () => {
-    const { value, noWrap = true } = this.props;
+    const { value, noWrap = true, color } = this.props;
     return (
       <SelectMenu
         aria-activedescendant={`${this.uniqueId}__Item__${this.props.value}`}
@@ -388,6 +391,7 @@ class Select extends React.Component<ISelectInnerProps> {
             role="option"
             aria-selected={choice.value === value}
             ref={value === choice.value ? this.selectedChoiceRef : null}
+            color={color}
           >
             {choice.text}
           </SelectMenuRow>

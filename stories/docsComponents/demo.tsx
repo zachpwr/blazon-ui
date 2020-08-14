@@ -22,7 +22,7 @@ const DemoPanel = styled(Panel)`
 const DemoTitle = styled.h2`
   code {
     font-family: 'Roboto Mono', monospace;
-    color: ${props => props.theme.colors.main};
+    color: ${props => props.theme.colors.gray.dark};
   }
 `;
 

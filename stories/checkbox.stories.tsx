@@ -11,6 +11,13 @@ const propDetails = {
     isRequired: false,
     propTypeName: 'boolean',
   },
+  color: {
+    defaultValue: 'theme.neutralColor',
+    description:
+      'The key of a color in the Blazon UI theme with which to style the button. Defaults to the value of the "neutralColor" property on the theme object.',
+    isRequired: false,
+    propTypeName: 'ThemeColorKey',
+  },
   disabled: {
     defaultValue: 'false',
     description: 'Whether or not the checkbox is disabled',

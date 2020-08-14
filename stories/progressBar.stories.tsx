@@ -6,10 +6,11 @@ import Demo from './docsComponents/demo';
 
 const propDetails = {
   color: {
-    defaultValue: 'main',
-    description: 'The key of a color in the Blazon UI theme with which to style the progress bar',
+    defaultValue: 'theme.neutralColor',
+    description:
+      'The key of a color in the Blazon UI theme with which to style the progress bar. Defaults to the value of the "neutralColor" property on the theme object.',
     isRequired: false,
-    propTypeName: 'string',
+    propTypeName: 'ThemeColorKey',
   },
   progress: {
     description: 'From 0-100, the percentage progress to be indicated in the progress bar',

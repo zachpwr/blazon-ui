@@ -11,10 +11,11 @@ const propDetails = {
     propTypeName: 'ReactNode',
   },
   color: {
-    defaultValue: 'main',
-    description: 'The key of a color in the Blazon UI theme with which to style the alert',
+    defaultValue: 'theme.neutralColor',
+    description:
+      'The key of a color in the Blazon UI theme with which to style the alert. Defaults to the value of the "neutralColor" property on the theme object.',
     isRequired: false,
-    propTypeName: 'string',
+    propTypeName: 'ThemeColorKey',
   },
 };
 

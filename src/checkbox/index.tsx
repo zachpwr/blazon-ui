@@ -1,4 +1,4 @@
-import { setLightness, transparentize } from 'polished';
+import { getLuminance, mix, transparentize } from 'polished';
 import styled from 'styled-components';
 
 import { ITheme } from '../theme';
@@ -6,22 +6,23 @@ import { ITheme } from '../theme';
 export interface ICheckboxProps {
   theme: ITheme;
   checked?: boolean;
+  color?: string;
 }
 
-function getBorderColor(props: ICheckboxProps) {
-  return setLightness(0.5, props.checked ? props.theme.colors.main : props.theme.colors.secondary);
+function getBaseColor(props: ICheckboxProps) {
+  return props.theme.colors[props.color || props.theme.neutralColor];
 }
 
 function getBackgroundColor(props: ICheckboxProps) {
-  return props.checked ? props.theme.colors.main : props.theme.colors.white;
-}
-
-function getHoverBorderColor(props: ICheckboxProps) {
-  return props.theme.colors.main;
+  return props.checked ? getBaseColor(props).medium : '#fff';
 }
 
 function getCheckColor(props: ICheckboxProps) {
-  return props.theme.colors[props.checked ? 'white' : 'main'];
+  return props.checked
+    ? getLuminance(getBaseColor(props).medium) > 0.5
+      ? '#000'
+      : '#fff'
+    : getBaseColor(props).medium;
 }
 
 const Checkbox = styled.button.attrs<ICheckboxProps>(props => ({
@@ -30,21 +31,21 @@ const Checkbox = styled.button.attrs<ICheckboxProps>(props => ({
 }))<ICheckboxProps>`
   border-radius: 1em;
   background-color: ${getBackgroundColor};
-  border: 2px solid ${getBorderColor};
+  border: 2px solid ${props => getBaseColor(props).medium};
   height: 2em;
   width: 2em;
   padding: 0;
   display: inline-block;
   outline: 0;
   cursor: pointer;
-  transition: 0.25s border-color ease-in-out;
+  transition: 0.25s border-color ease-in-out, 0.25s background-color ease-in-out;
   position: relative;
   vertical-align: middle;
   font-size: 1em;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: ${props => transparentize(0.5, getBaseColor(props).medium)};
 
   &:hover {
-    border-color: ${getHoverBorderColor};
+    border-color: ${props => (props.checked ? getBaseColor(props).dark : getBaseColor(props).medium)};
 
     &::before {
       opacity: 1;
@@ -52,13 +53,18 @@ const Checkbox = styled.button.attrs<ICheckboxProps>(props => ({
   }
 
   &:focus {
-    box-shadow: 0 0 0 2px ${props => transparentize(0.75, getBorderColor(props))};
+    box-shadow: 0 0 0 2px ${props => mix(0.15, getBaseColor(props).medium, getBaseColor(props).light)};
+  }
+
+  &:active {
+    transition: 0.05s background-color ease-in-out;
+    background-color: ${props => mix(0.85, getBackgroundColor(props), getBaseColor(props).light)};
   }
 
   &:disabled {
     cursor: default;
     opacity: 0.5;
-    border-color: ${getBorderColor};
+    border-color: ${props => getBaseColor(props).medium};
 
     &::before {
       opacity: ${props => (props.checked ? 1 : 0)};

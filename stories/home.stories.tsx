@@ -18,7 +18,7 @@ storiesOf('Navigation|Home', module)
       <h1>
         Blazon UI{' '}
         <sup>
-          <Pill color="warning">beta</Pill>
+          <Pill color="yellow">beta</Pill>
         </sup>
       </h1>
       <p>Blazon UI is a React component library.</p>
@@ -36,16 +36,13 @@ storiesOf('Navigation|Home', module)
       <hr />
       <p>
         <Button
+          color="blue"
           onClick={linkTo('Navigation|Getting Started', 'Installing Blazon UI')}
           title="Get Started with Blazon UI"
         >
           💪🏻 Get Started →
         </Button>
-        <Button
-          color="secondary"
-          onClick={linkTo('Navigation|Home', 'About Blazon UI')}
-          title="Learn More about Blazon UI"
-        >
+        <Button onClick={linkTo('Navigation|Home', 'About Blazon UI')} title="Learn More about Blazon UI">
           ℹ️ Learn More
         </Button>
       </p>

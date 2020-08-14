@@ -3,27 +3,25 @@ import styled from 'styled-components';
 
 import { ITheme } from '../theme';
 
-const DEFAULT_COLOR = 'main';
-
 export interface IPillProps {
   theme: ITheme;
   color?: string;
 }
 
 function getBaseColor(props: IPillProps) {
-  return props.theme.colors[props.color || 'main'];
+  return props.theme.colors[props.color || props.theme.neutralColor];
 }
 
 function getPillBorderColor(props: IPillProps) {
-  return setLightness(0.8, getBaseColor(props));
+  return getBaseColor(props).medium;
 }
 
 function getPillBackground(props: IPillProps) {
-  return setLightness(0.9, getBaseColor(props));
+  return getBaseColor(props).light;
 }
 
 function getPillTextColor(props: IPillProps) {
-  return setLightness(0.2, getBaseColor(props));
+  return getBaseColor(props).dark;
 }
 
 const Pill = styled.div<IPillProps>`
@@ -40,7 +38,7 @@ const Pill = styled.div<IPillProps>`
   display: inline-block;
   transition: 0.25s color ease-in-out, 0.25s background-color ease-in-out;
   font-family: 'Roboto Mono', monospace;
-  font-weight: 500;
+  font-weight: 400;
   border: 2px solid ${getPillBorderColor};
 
   &:last-of-type {

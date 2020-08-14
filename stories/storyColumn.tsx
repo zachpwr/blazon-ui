@@ -6,7 +6,7 @@ const StoryColumn = styled.div`
   code {
     font-family: 'Roboto Mono', monospace;
     padding: 10px;
-    background-color: ${({ theme }) => theme.colors.secondary};
+    background-color: ${({ theme }) => theme.colors.gray.light};
     border-radius: ${({ theme }) => theme.borderRadius};
     display: block;
   }

@@ -11,6 +11,6 @@ export default create({
   brandUrl: 'https://www.npmjs.com/package/blazon-ui',
   brandImage: brandImage,
   fontBase: theme.fontFamily,
-  colorPrimary: theme.colors.darkGray,
-  colorSecondary: theme.colors.main,
+  colorPrimary: theme.colors.gray.dark,
+  colorSecondary: theme.colors.blue.medium,
 });

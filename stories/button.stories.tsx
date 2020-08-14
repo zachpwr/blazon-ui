@@ -2,8 +2,6 @@ import * as React from 'react';
 
 import { storiesOf } from '@storybook/react';
 
-import Button from '../src/button';
-
 import Demo from './docsComponents/demo';
 
 const propDetails = {
@@ -13,10 +11,11 @@ const propDetails = {
     propTypeName: 'ReactNode',
   },
   color: {
-    defaultValue: 'main',
-    description: 'The key of a color in the Blazon UI theme with which to style the button',
+    defaultValue: 'theme.neutralColor',
+    description:
+      'The key of a color in the Blazon UI theme with which to style the button. Defaults to the value of the "neutralColor" property on the theme object.',
     isRequired: false,
-    propTypeName: 'string',
+    propTypeName: 'ThemeColorKey',
   },
   disabled: {
     defaultValue: 'false',
