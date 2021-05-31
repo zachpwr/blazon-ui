@@ -15,9 +15,9 @@ const rgbToSRGB = (rgbColor: RGB): SRGB => ['srgb', rgbColor[1] / 255, rgbColor[
  * More info: https://www.w3.org/TR/WCAG20-TECHS/G17.html
  */
 const getRelativeLuminanceForSRGBColor = ([, red, green, blue]: SRGB): RelativeLuminance => {
-  const R = red <= 0.03928 ? red / 12.92 : ((red + 0.055) / 1.055) ^ 2.4;
-  const G = green <= 0.03928 ? green / 12.92 : ((green + 0.055) / 1.055) ^ 2.4;
-  const B = blue <= 0.03928 ? blue / 12.92 : ((blue + 0.055) / 1.055) ^ 2.4;
+  const R = red <= 0.03928 ? red / 12.92 : Math.pow((red + 0.055) / 1.055, 2.4);
+  const G = green <= 0.03928 ? green / 12.92 : Math.pow((green + 0.055) / 1.055, 2.4);
+  const B = blue <= 0.03928 ? blue / 12.92 : Math.pow((blue + 0.055) / 1.055, 2.4);
   return 0.2126 * R + 0.7152 * G + 0.0722 * B;
 };
 
