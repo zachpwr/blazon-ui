@@ -19,16 +19,17 @@ export interface ColorInterface {
   readonly hsl: HSL;
   readonly hex: Hex;
 
-  setRGB(rgb: RGB): ColorInterface;
-  setHSL: (hsl: HSL) => ColorInterface;
+  withRGB(rgb: RGB): ColorInterface;
+  withHSL: (hsl: HSL) => ColorInterface;
+  withHex: (hex: Hex) => ColorInterface;
 
-  setHue: (hue: Angle) => ColorInterface;
+  withHue: (hue: Angle) => ColorInterface;
   shiftHue: (amount: Angle) => ColorInterface;
 
-  setSaturation: (saturation: Percentage) => ColorInterface;
+  withSaturation: (saturation: Percentage) => ColorInterface;
   saturate: (amount: Percentage) => ColorInterface;
 
-  setLightness: (lightness: Percentage) => ColorInterface;
+  withLightness: (lightness: Percentage) => ColorInterface;
   lighten: (amount: Percentage) => ColorInterface;
 }
 

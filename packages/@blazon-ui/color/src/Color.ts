@@ -1,5 +1,5 @@
-import { Angle, ColorInterface, HSL, Percentage, RGB } from './types/units';
-import { rgbToHsl } from './utils/conversion';
+import { Angle, ColorInterface, Hex, HSL, Percentage, RGB } from './types/units';
+import { hslToRgb, rgbToHsl, rgbToHex, hslToHex, hexToRgb, hexToHsl } from './utils/conversion';
 
 const clampInt = (min: number, int: number, max: number) => Math.min(max, Math.max(min, int));
 
@@ -14,38 +14,46 @@ export class Color implements ColorInterface {
     saturation: 0,
     lightness: 0,
   };
+  readonly hex: Hex = '#000';
 
-  constructor(rgbOrHsl?: RGB | HSL) {
-    if ('red' in rgbOrHsl) {
-      this.rgb = rgbOrHsl;
-      this.hsl = rgbToHsl(rgbOrHsl);
-    } else if ('hue' in rgbOrHsl) {
-      this.rgb = hslToRgb(rgbOrHsl);
-      this.hsl = rgbOrHsl;
+  constructor(from?: RGB | HSL | Hex) {
+    if (typeof from === 'string') {
+      this.rgb = hexToRgb(from);
+      this.hsl = hexToHsl(from);
+      this.hex = from;
+    } else if ('red' in from) {
+      this.rgb = from;
+      this.hsl = rgbToHsl(from);
+      this.hex = rgbToHex(from);
+    } else if ('hue' in from) {
+      this.rgb = hslToRgb(from);
+      this.hsl = from;
+      this.hex = hslToHex(from);
     }
   }
 
-  setRGB = (rgb: RGB) => new Color(rgb);
-  setHSL = (hsl: HSL) => new Color(hsl);
+  withRGB = (rgb: RGB) => new Color(rgb);
+  withHSL = (hsl: HSL) => new Color(hsl);
+  withHex = (hex: Hex) => new Color(hex);
 
-  setHue = (hue: Angle) =>
-    this.setHSL({
+  withHue = (hue: Angle) =>
+    this.withHSL({
       ...this.hsl,
       hue,
     });
-  shiftHue = (amount: Angle) => this.setHue(this.hsl.hue + (amount % 360));
+  shiftHue = (amount: Angle) => this.withHue(this.hsl.hue + (amount % 360));
 
-  setSaturation = (saturation: Percentage) =>
-    this.setHSL({
+  withSaturation = (saturation: Percentage) =>
+    this.withHSL({
       ...this.hsl,
       saturation,
     });
-  saturate = (amount: Percentage) => this.setSaturation(clampInt(0, this.hsl.saturation * (amount / 100), 100));
+  saturate = (amount: Percentage) => this.withSaturation(clampInt(0, this.hsl.saturation * (amount / 100), 100));
 
-  setLightness = (lightness: Percentage) =>
-    this.setHSL({
+  withLightness = (lightness: Percentage) =>
+    this.withHSL({
       ...this.hsl,
       lightness,
     });
-  lighten = (amount: Percentage) => this.setLightness(clampInt(0, this.hsl.lightness * (amount / 100), 100));
+  lighten = (amount: Percentage) => this.withLightness(clampInt(0, this.hsl.lightness * (amount / 100), 100));
 }
