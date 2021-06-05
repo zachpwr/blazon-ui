@@ -11,8 +11,8 @@ describe('@blazon-ui/color/utils/wcag2.ts', () => {
           doesTextContrastConformToWCAG2(
             WCAG2SuccessCriterionConformanceLevel.AA,
             context,
-            ['rgb', 204, 204, 255],
-            ['rgb', 255, 255, 255],
+            { red: 204, green: 204, blue: 255 },
+            { red: 255, green: 255, blue: 255 },
           ),
         ).toEqual(false);
       });
@@ -22,8 +22,8 @@ describe('@blazon-ui/color/utils/wcag2.ts', () => {
           doesTextContrastConformToWCAG2(
             WCAG2SuccessCriterionConformanceLevel.AA,
             context,
-            ['rgb', 97, 97, 255],
-            ['rgb', 255, 255, 255],
+            { red: 97, green: 97, blue: 255 },
+            { red: 255, green: 255, blue: 255 },
           ),
         ).toEqual(true);
       });
@@ -33,8 +33,8 @@ describe('@blazon-ui/color/utils/wcag2.ts', () => {
           doesTextContrastConformToWCAG2(
             WCAG2SuccessCriterionConformanceLevel.AAA,
             context,
-            ['rgb', 97, 97, 255],
-            ['rgb', 255, 255, 255],
+            { red: 97, green: 97, blue: 255 },
+            { red: 255, green: 255, blue: 255 },
           ),
         ).toEqual(false);
       });
@@ -44,8 +44,8 @@ describe('@blazon-ui/color/utils/wcag2.ts', () => {
           doesTextContrastConformToWCAG2(
             WCAG2SuccessCriterionConformanceLevel.AAA,
             context,
-            ['rgb', 46, 46, 255],
-            ['rgb', 255, 255, 255],
+            { red: 46, green: 46, blue: 255 },
+            { red: 255, green: 255, blue: 255 },
           ),
         ).toEqual(true);
       });
@@ -59,8 +59,8 @@ describe('@blazon-ui/color/utils/wcag2.ts', () => {
           doesTextContrastConformToWCAG2(
             WCAG2SuccessCriterionConformanceLevel.AA,
             context,
-            ['rgb', 204, 204, 255],
-            ['rgb', 255, 255, 255],
+            { red: 204, green: 204, blue: 255 },
+            { red: 255, green: 255, blue: 255 },
           ),
         ).toEqual(false);
       });
@@ -70,8 +70,8 @@ describe('@blazon-ui/color/utils/wcag2.ts', () => {
           doesTextContrastConformToWCAG2(
             WCAG2SuccessCriterionConformanceLevel.AA,
             context,
-            ['rgb', 133, 133, 255],
-            ['rgb', 255, 255, 255],
+            { red: 133, green: 133, blue: 255 },
+            { red: 255, green: 255, blue: 255 },
           ),
         ).toEqual(true);
       });
@@ -81,8 +81,8 @@ describe('@blazon-ui/color/utils/wcag2.ts', () => {
           doesTextContrastConformToWCAG2(
             WCAG2SuccessCriterionConformanceLevel.AAA,
             context,
-            ['rgb', 133, 133, 255],
-            ['rgb', 255, 255, 255],
+            { red: 133, green: 133, blue: 255 },
+            { red: 255, green: 255, blue: 255 },
           ),
         ).toEqual(false);
       });
@@ -92,8 +92,8 @@ describe('@blazon-ui/color/utils/wcag2.ts', () => {
           doesTextContrastConformToWCAG2(
             WCAG2SuccessCriterionConformanceLevel.AAA,
             context,
-            ['rgb', 97, 97, 255],
-            ['rgb', 255, 255, 255],
+            { red: 97, green: 97, blue: 255 },
+            { red: 255, green: 255, blue: 255 },
           ),
         ).toEqual(true);
       });
