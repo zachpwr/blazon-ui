@@ -1,4 +1,4 @@
-import { rgbToHsl, hslToRgb } from '../conversion';
+import { rgbToHsl, hslToRgb, hexToRgb, rgbToHex, hexToHsl, hslToHex } from '../conversion';
 import { HSL, RGB } from '../../types/units';
 
 import { rgbToHexMockData } from '../__mocks__/colorTestData';
@@ -19,6 +19,38 @@ describe('@blazon-ui/color/utils/conversion.ts', () => {
     rgbToHexMockData.forEach(({ hex, rgb, hsl }) => {
       it(`should convert ${hslToString(hsl)} (${hex}) to ${rgbToString(rgb)}`, () => {
         expect(hslToRgb(hsl)).toEqual(rgb);
+      });
+    });
+  });
+
+  describe('hexToRgb', () => {
+    rgbToHexMockData.forEach(({ hex, rgb }) => {
+      it(`should convert ${hex} to ${rgbToString(rgb)}`, () => {
+        expect(hexToRgb(hex)).toEqual(rgb);
+      });
+    });
+  });
+
+  describe('rgbToHex', () => {
+    rgbToHexMockData.forEach(({ hex, rgb }) => {
+      it(`should convert ${rgbToString(rgb)} to ${hex}`, () => {
+        expect(rgbToHex(rgb)).toEqual(hex);
+      });
+    });
+  });
+
+  describe('hexToHsl', () => {
+    rgbToHexMockData.forEach(({ hsl, hex }) => {
+      it(`should convert ${hex} to ${hslToString(hsl)}`, () => {
+        expect(hexToHsl(hex)).toEqual(hsl);
+      });
+    });
+  });
+
+  describe('hslToHex', () => {
+    rgbToHexMockData.forEach(({ hsl, hex }) => {
+      it(`should convert ${hslToString(hsl)} to ${hex}`, () => {
+        expect(hslToHex(hsl)).toEqual(hex);
       });
     });
   });

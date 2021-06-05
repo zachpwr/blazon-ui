@@ -1,8 +1,8 @@
-import { RGB, HSL } from '../../types/units';
+import { RGB, HSL, Hex } from '../../types/units';
 
-export const rgbToHexMockData: { hex: string; rgb: RGB; hsl: HSL }[] = [
+export const rgbToHexMockData: { hex: Hex; rgb: RGB; hsl: HSL }[] = [
   {
-    hex: '#ff0000',
+    hex: '#f00',
     rgb: { red: 255, green: 0, blue: 0 },
     hsl: { hue: 0, saturation: 100, lightness: 50 },
   },
@@ -22,7 +22,7 @@ export const rgbToHexMockData: { hex: string; rgb: RGB; hsl: HSL }[] = [
     hsl: { hue: 45, saturation: 100, lightness: 50 },
   },
   {
-    hex: '#ffff00',
+    hex: '#ff0',
     rgb: { red: 255, green: 255, blue: 0 },
     hsl: { hue: 60, saturation: 100, lightness: 50 },
   },
@@ -42,7 +42,7 @@ export const rgbToHexMockData: { hex: string; rgb: RGB; hsl: HSL }[] = [
     hsl: { hue: 105, saturation: 100, lightness: 50 },
   },
   {
-    hex: '#00ff00',
+    hex: '#0f0',
     rgb: { red: 0, green: 255, blue: 0 },
     hsl: { hue: 120, saturation: 100, lightness: 50 },
   },
@@ -62,7 +62,7 @@ export const rgbToHexMockData: { hex: string; rgb: RGB; hsl: HSL }[] = [
     hsl: { hue: 165, saturation: 100, lightness: 50 },
   },
   {
-    hex: '#00ffff',
+    hex: '#0ff',
     rgb: { red: 0, green: 255, blue: 255 },
     hsl: { hue: 180, saturation: 100, lightness: 50 },
   },
@@ -82,7 +82,7 @@ export const rgbToHexMockData: { hex: string; rgb: RGB; hsl: HSL }[] = [
     hsl: { hue: 225, saturation: 100, lightness: 50 },
   },
   {
-    hex: '#0000ff',
+    hex: '#00f',
     rgb: { red: 0, green: 0, blue: 255 },
     hsl: { hue: 240, saturation: 100, lightness: 50 },
   },
@@ -102,7 +102,7 @@ export const rgbToHexMockData: { hex: string; rgb: RGB; hsl: HSL }[] = [
     hsl: { hue: 285, saturation: 100, lightness: 50 },
   },
   {
-    hex: '#ff00ff',
+    hex: '#f0f',
     rgb: { red: 255, green: 0, blue: 255 },
     hsl: { hue: 300, saturation: 100, lightness: 50 },
   },
@@ -122,12 +122,12 @@ export const rgbToHexMockData: { hex: string; rgb: RGB; hsl: HSL }[] = [
     hsl: { hue: 345, saturation: 100, lightness: 50 },
   },
   {
-    hex: '#ff0000',
+    hex: '#f00',
     rgb: { red: 255, green: 0, blue: 0 },
     hsl: { hue: 0, saturation: 100, lightness: 50 },
   },
   {
-    hex: '#ff0000',
+    hex: '#f00',
     rgb: { red: 255, green: 0, blue: 0 },
     hsl: { hue: 0, saturation: 100, lightness: 50 },
   },
@@ -147,7 +147,7 @@ export const rgbToHexMockData: { hex: string; rgb: RGB; hsl: HSL }[] = [
     hsl: { hue: 0, saturation: 85, lightness: 50 },
   },
   {
-    hex: '#e61919',
+    hex: '#e61a1a',
     rgb: { red: 230, green: 26, blue: 26 },
     hsl: { hue: 0, saturation: 80, lightness: 50 },
   },
@@ -167,7 +167,7 @@ export const rgbToHexMockData: { hex: string; rgb: RGB; hsl: HSL }[] = [
     hsl: { hue: 0, saturation: 65, lightness: 50 },
   },
   {
-    hex: '#cc3333',
+    hex: '#c33',
     rgb: { red: 204, green: 51, blue: 51 },
     hsl: { hue: 0, saturation: 60, lightness: 50 },
   },
@@ -207,7 +207,7 @@ export const rgbToHexMockData: { hex: string; rgb: RGB; hsl: HSL }[] = [
     hsl: { hue: 0, saturation: 25, lightness: 50 },
   },
   {
-    hex: '#996666',
+    hex: '#966',
     rgb: { red: 153, green: 102, blue: 102 },
     hsl: { hue: 0, saturation: 20, lightness: 50 },
   },
@@ -232,7 +232,7 @@ export const rgbToHexMockData: { hex: string; rgb: RGB; hsl: HSL }[] = [
     hsl: { hue: 0, saturation: 0, lightness: 50 },
   },
   {
-    hex: '#ffffff',
+    hex: '#fff',
     rgb: { red: 255, green: 255, blue: 255 },
     hsl: { hue: 0, saturation: 0, lightness: 100 },
   },
@@ -242,7 +242,7 @@ export const rgbToHexMockData: { hex: string; rgb: RGB; hsl: HSL }[] = [
     hsl: { hue: 0, saturation: 100, lightness: 95 },
   },
   {
-    hex: '#ffcccc',
+    hex: '#fcc',
     rgb: { red: 255, green: 204, blue: 204 },
     hsl: { hue: 0, saturation: 100, lightness: 90 },
   },
@@ -252,7 +252,7 @@ export const rgbToHexMockData: { hex: string; rgb: RGB; hsl: HSL }[] = [
     hsl: { hue: 0, saturation: 100, lightness: 85 },
   },
   {
-    hex: '#ff9999',
+    hex: '#f99',
     rgb: { red: 255, green: 153, blue: 153 },
     hsl: { hue: 0, saturation: 100, lightness: 80 },
   },
@@ -262,7 +262,7 @@ export const rgbToHexMockData: { hex: string; rgb: RGB; hsl: HSL }[] = [
     hsl: { hue: 0, saturation: 100, lightness: 75 },
   },
   {
-    hex: '#ff6666',
+    hex: '#f66',
     rgb: { red: 255, green: 102, blue: 102 },
     hsl: { hue: 0, saturation: 100, lightness: 70 },
   },
@@ -272,7 +272,7 @@ export const rgbToHexMockData: { hex: string; rgb: RGB; hsl: HSL }[] = [
     hsl: { hue: 0, saturation: 100, lightness: 65 },
   },
   {
-    hex: '#ff3333',
+    hex: '#f33',
     rgb: { red: 255, green: 51, blue: 51 },
     hsl: { hue: 0, saturation: 100, lightness: 60 },
   },
@@ -282,7 +282,7 @@ export const rgbToHexMockData: { hex: string; rgb: RGB; hsl: HSL }[] = [
     hsl: { hue: 0, saturation: 100, lightness: 55 },
   },
   {
-    hex: '#ff0000',
+    hex: '#f00',
     rgb: { red: 255, green: 0, blue: 0 },
     hsl: { hue: 0, saturation: 100, lightness: 50 },
   },
@@ -292,7 +292,7 @@ export const rgbToHexMockData: { hex: string; rgb: RGB; hsl: HSL }[] = [
     hsl: { hue: 0, saturation: 100, lightness: 45 },
   },
   {
-    hex: '#cc0000',
+    hex: '#c00',
     rgb: { red: 204, green: 0, blue: 0 },
     hsl: { hue: 0, saturation: 100, lightness: 40 },
   },
@@ -302,7 +302,7 @@ export const rgbToHexMockData: { hex: string; rgb: RGB; hsl: HSL }[] = [
     hsl: { hue: 0, saturation: 100, lightness: 35 },
   },
   {
-    hex: '#990000',
+    hex: '#900',
     rgb: { red: 153, green: 0, blue: 0 },
     hsl: { hue: 0, saturation: 100, lightness: 30 },
   },
@@ -312,7 +312,7 @@ export const rgbToHexMockData: { hex: string; rgb: RGB; hsl: HSL }[] = [
     hsl: { hue: 0, saturation: 100, lightness: 25 },
   },
   {
-    hex: '#660000',
+    hex: '#600',
     rgb: { red: 102, green: 0, blue: 0 },
     hsl: { hue: 0, saturation: 100, lightness: 20 },
   },
@@ -322,17 +322,17 @@ export const rgbToHexMockData: { hex: string; rgb: RGB; hsl: HSL }[] = [
     hsl: { hue: 0, saturation: 100, lightness: 15 },
   },
   {
-    hex: '#330000',
+    hex: '#300',
     rgb: { red: 51, green: 0, blue: 0 },
     hsl: { hue: 0, saturation: 100, lightness: 10 },
   },
   {
-    hex: '#1a0000',
+    hex: '#190000',
     rgb: { red: 25, green: 0, blue: 0 },
     hsl: { hue: 0, saturation: 100, lightness: 5 },
   },
   {
-    hex: '#000000',
+    hex: '#000',
     rgb: { red: 0, green: 0, blue: 0 },
     hsl: { hue: 0, saturation: 0, lightness: 0 },
   },

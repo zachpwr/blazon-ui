@@ -1,4 +1,4 @@
-import { HSL, RGB } from '../types/units';
+import { Hex, HSL, RGB } from '../types/units';
 
 /**
  * Converts an RGB color into the HSL color space
@@ -82,3 +82,45 @@ export const hslToRgb = ({ hue, saturation, lightness }: HSL): RGB => {
     blue: Math.abs(Math.round((sBlue + sLightnessChromaOffset) * 255)),
   };
 };
+
+/**
+ * Converts an Hex color into the RGB color space
+ */
+export const hexToRgb = (hex: Hex): RGB => {
+  const sRed = hex.length === 4 ? `${hex[1]}${hex[1]}` : hex.slice(1, 3);
+  const sGreen = hex.length === 4 ? `${hex[2]}${hex[2]}` : hex.slice(3, 5);
+  const sBlue = hex.length === 4 ? `${hex[3]}${hex[3]}` : hex.slice(5, 7);
+
+  try {
+    return {
+      red: parseInt(sRed, 16),
+      green: parseInt(sGreen, 16),
+      blue: parseInt(sBlue, 16),
+    };
+  } catch (e) {
+    throw new Error(`Invalid hex code ${hex}. ${e.message}`);
+  }
+};
+
+const minifyHex = (hex: Hex): Hex => {
+  if (hex.length === 7 && hex[1] === hex[2] && hex[3] === hex[4] && hex[5] === hex[6]) {
+    const sHex = `${hex[1]}${hex[3]}${hex[5]}`;
+    return `#${sHex}`;
+  }
+
+  return hex;
+};
+
+/**
+ * Converts an RGB color into the hex color space
+ */
+export const rgbToHex = (rgb: RGB): Hex => {
+  const sRed = rgb.red.toString(16).padStart(2, '0');
+  const sGreen = rgb.green.toString(16).padStart(2, '0');
+  const sBlue = rgb.blue.toString(16).padStart(2, '0');
+  const sHex = `${sRed}${sGreen}${sBlue}`;
+  return minifyHex(`#${sHex}`);
+};
+
+export const hexToHsl = (hex: Hex): HSL => rgbToHsl(hexToRgb(hex));
+export const hslToHex = (hsl: HSL): Hex => rgbToHex(hslToRgb(hsl));

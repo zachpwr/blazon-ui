@@ -12,9 +12,12 @@ export type HSL = {
   lightness: Percentage;
 };
 
+export type Hex = `#${string}`;
+
 export interface ColorInterface {
   readonly rgb: RGB;
   readonly hsl: HSL;
+  readonly hex: Hex;
 
   setRGB(rgb: RGB): ColorInterface;
   setHSL: (hsl: HSL) => ColorInterface;
