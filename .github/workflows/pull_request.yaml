@@ -1,0 +1,29 @@
+name: Pull Request
+
+on:
+  pull_request:
+    branches: [master, beta]
+    types: [opened, synchronize, reopened]
+
+jobs:
+  test:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout ${{github.ref}} from zachpwr/blazon-ui.git'
+        uses: actions/checkout@v2
+
+      - name: Read .nvmrc
+        run: echo "##[set-output name=NVMRC;]$(cat .nvmrc)"
+        id: nvmrc
+
+      - name: 'Install Node v${{steps.nvmrc.outputs.NVMRC}}'
+        uses: actions/setup-node@v1
+        with:
+          node-version: '${{steps.nvmrc.outputs.NVMRC}}'
+
+      - name: Install Node Dependencies
+        run: yarn install --frozen-lockfile --check-files
+
+      - name: Build Blazon UI
+        run: yarn test
