@@ -6,10 +6,13 @@ on:
     paths-ignore:
       - 'docs/**'
       - '**.md'
+      - 'packages/**'
 
   pull_request:
     branches: [master, beta, alpha]
     types: [opened, synchronize, reopened]
+    paths-ignore:
+      - 'packages/**'
 
 jobs:
   build:
