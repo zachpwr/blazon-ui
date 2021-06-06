@@ -1,84 +1,19 @@
 {
-  "name": "blazon-ui",
-  "description": "Blazon UI is a React component library",
-  "keywords": [
-    "react",
-    "components",
-    "ui",
-    "library",
-    "blazon",
-    "typescript",
-    "styled"
+  "private": true,
+  "workspaces": [
+    "packages/@blazon-ui/*"
   ],
-  "version": "0.0.0-development",
-  "homepage": "https://github.com/zachpwr/blazon-ui",
-  "repository": "https://github.com/zachpwr/blazon-ui.git",
-  "author": "Zach Power <zachpwr@users.noreply.github.com>",
-  "license": "Apache-2.0",
   "dependencies": {
-    "@popperjs/core": "^2.4.0",
-    "lodash": "^4.17.15",
-    "polished": "^3.2.0",
-    "react": "^16.8.6",
-    "react-popper": "^2.2.3",
-    "styled-components": "^4.2.0"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.4.4",
-    "@babel/preset-env": "^7.4.4",
-    "@babel/preset-typescript": "^7.3.3",
-    "@storybook/addon-links": "^5.3.18",
-    "@storybook/addons": "^5.3.18",
-    "@storybook/react": "^5.3.18",
-    "@storybook/theming": "^5.3.18",
-    "@types/enzyme": "^3.9.1",
-    "@types/enzyme-adapter-react-16": "^1.0.5",
-    "@types/jest": "^24.0.12",
-    "@types/styled-components": "^4.1.14",
-    "babel-jest": "^24.8.0",
-    "babel-loader": "^8.0.5",
-    "commitizen": "^4.0.4",
-    "cz-conventional-changelog": "^3.1.0",
-    "enzyme": "^3.9.0",
-    "enzyme-adapter-react-16": "^1.13.0",
-    "husky": "^4.2.5",
-    "jest": "^24.7.1",
-    "prettier": "^1.17.0",
-    "react-dom": "^16.8.6",
-    "semantic-release": "^17.0.6",
-    "ts-jest": "^24.0.2",
-    "ts-loader": "^7.0.0",
-    "tslint": "^5.16.0",
-    "tslint-config-prettier": "^1.18.0",
-    "typescript": "^3.4.5",
-    "webpack": "^4.30.0"
+    "@babel/core": "^7.14.3",
+    "@babel/preset-env": "^7.14.4",
+    "@babel/preset-typescript": "^7.13.0",
+    "@types/jest": "^26.0.23",
+    "babel-jest": "^27.0.2",
+    "jest": "^27.0.4",
+    "prettier": "^2.3.1"
   },
   "scripts": {
-    "clean": "rm -rf ./lib",
-    "build": "yarn clean && tsc",
-    "build:watch": "yarn clean && tsc -w",
-    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
-    "lint": "tslint -p tsconfig.json",
-    "test": "jest --config=jestconfig.json",
-    "test:watch": "jest --config=jestconfig.json --watch",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook -o ./docs",
-    "semantic-release": "semantic-release"
-  },
-  "files": [
-    "lib/**/*"
-  ],
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn run lint",
-      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
-    }
+    "test": "jest",
+    "test:watch": "jest --watch"
   }
 }
