@@ -1,12 +1,12 @@
-import { RGB, RelativeLuminance, ContrastRatio } from '../types/units';
+import { RelativeLuminance, ContrastRatio, ColorInterface } from '../types/units';
 
 /**
- * Calculates the relative luminance of an SRGB color.
+ * Calculates the relative luminance of a color.
  *
  * More info: https://www.w3.org/TR/WCAG20-TECHS/G17.html
  */
-const getRelativeLuminanceForSRGBColor = ({ red, green, blue }: RGB): RelativeLuminance => {
-  const [sRed, sGreen, sBlue] = [red / 255, green / 255, blue / 255];
+const getRelativeLuminanceForColor = ({ rgb }: ColorInterface): RelativeLuminance => {
+  const [sRed, sGreen, sBlue] = [rgb.red / 255, rgb.green / 255, rgb.blue / 255];
   const R = sRed <= 0.03928 ? sRed / 12.92 : Math.pow((sRed + 0.055) / 1.055, 2.4);
   const G = sGreen <= 0.03928 ? sGreen / 12.92 : Math.pow((sGreen + 0.055) / 1.055, 2.4);
   const B = sBlue <= 0.03928 ? sBlue / 12.92 : Math.pow((sBlue + 0.055) / 1.055, 2.4);
@@ -27,8 +27,5 @@ const getContrastRatioForRelativeLuminances = (colorA: RelativeLuminance, colorB
  *
  * More info: https://www.w3.org/TR/WCAG20-TECHS/G17.html
  */
-export const getContrastRatioForRGBColors = (colorA: RGB, colorB: RGB): ContrastRatio =>
-  getContrastRatioForRelativeLuminances(
-    getRelativeLuminanceForSRGBColor(colorA),
-    getRelativeLuminanceForSRGBColor(colorB),
-  );
+export const getContrastRatioForColors = (colorA: ColorInterface, colorB: ColorInterface): ContrastRatio =>
+  getContrastRatioForRelativeLuminances(getRelativeLuminanceForColor(colorA), getRelativeLuminanceForColor(colorB));

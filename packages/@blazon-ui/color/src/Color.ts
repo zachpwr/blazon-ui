@@ -18,16 +18,16 @@ export class Color implements ColorInterface {
 
   constructor(from?: RGB | HSL | Hex) {
     if (typeof from === 'string') {
+      this.hex = from;
       this.rgb = hexToRgb(from);
       this.hsl = hexToHsl(from);
-      this.hex = from;
     } else if ('red' in from) {
       this.rgb = from;
       this.hsl = rgbToHsl(from);
       this.hex = rgbToHex(from);
     } else if ('hue' in from) {
-      this.rgb = hslToRgb(from);
       this.hsl = from;
+      this.rgb = hslToRgb(from);
       this.hex = hslToHex(from);
     }
   }
