@@ -1,7 +1,7 @@
 import {
   WCAG2ConformanceLevelToTextContrastSuccessCriterionVariant,
   WCAG2MinimumTextContrastRatios,
-} from '../constants/WCAG2';
+} from '../constants/wcag2';
 import { ColorInterface } from '../types/units';
 import { WCAG2SuccessCriterionConformanceLevel, WCAG2TextContrastContext } from '../types/wcag2';
 import { getContrastRatioForColors } from './contrast';
