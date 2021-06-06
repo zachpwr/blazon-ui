@@ -25,5 +25,5 @@ jobs:
       - name: Install Node Dependencies
         run: yarn install --frozen-lockfile --check-files
 
-      - name: Build Blazon UI
+      - name: Run Unit Tests
         run: yarn test
