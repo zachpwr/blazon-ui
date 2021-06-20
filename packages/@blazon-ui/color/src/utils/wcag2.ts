@@ -1,8 +1,8 @@
+import { Color } from '../Color';
 import {
   WCAG2ConformanceLevelToTextContrastSuccessCriterionVariant,
   WCAG2MinimumTextContrastRatios,
 } from '../constants/wcag2';
-import { ColorInterface } from '../types/units';
 import { WCAG2SuccessCriterionConformanceLevel, WCAG2TextContrastContext } from '../types/wcag2';
 import { getContrastRatioForColors } from './contrast';
 
@@ -18,8 +18,8 @@ import { getContrastRatioForColors } from './contrast';
 export const doesTextContrastConformToWCAG2 = (
   conformanceLevel: WCAG2SuccessCriterionConformanceLevel,
   context: WCAG2TextContrastContext,
-  textColor: ColorInterface,
-  backgroundColor: ColorInterface,
+  textColor: Color,
+  backgroundColor: Color,
 ) => {
   const criterionVariant = WCAG2ConformanceLevelToTextContrastSuccessCriterionVariant[conformanceLevel];
   const contrastRatio = getContrastRatioForColors(textColor, backgroundColor);

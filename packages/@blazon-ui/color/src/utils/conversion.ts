@@ -11,7 +11,7 @@ export const rgbToHsl = ({ red, green, blue }: RGB): HSL => {
   const sMinComponent = Math.min(sRed, sGreen, sBlue);
   const sMaxMinComponentDelta = sMaxComponent - sMinComponent;
 
-  let sHue;
+  let sHue: number;
   if (sMaxMinComponentDelta === 0) {
     sHue = 0;
   } else if (sMaxComponent === sRed) {
