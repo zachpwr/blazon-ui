@@ -10,10 +10,12 @@
     "@types/jest": "^26.0.23",
     "babel-jest": "^27.0.2",
     "jest": "^27.0.4",
+    "lerna": "^4.0.0",
     "prettier": "^2.3.1"
   },
   "scripts": {
-    "test": "jest",
-    "test:watch": "jest --watch"
-  }
+    "test": "lerna run test",
+    "test:watch": "lerna run test:watch"
+  },
+  "name": "blazon-ui"
 }
